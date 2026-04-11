@@ -357,6 +357,7 @@ The torque is sinusoidal at twice the rotor frequency. It is positive in the reg
 \subsubsection{Fringing Flux}
 
 In the simple analytical model, flux is assumed to flow only through the face of the stator pole directly across the air-gap, ignoring the flux that flows outward around the pole edges. In practice, this fringing flux can significantly increase the effective cross-sectional area, particularly when the air-gap is large (unaligned position). One common correction is to add the gap length to each linear dimension of the pole face to obtain an effective area:
+
 \begin{equation}
     A_\text{eff} = (w_c + g)(d + g)
 \end{equation}
@@ -364,17 +365,17 @@ This correction is applied separately for each rotor position and reduces the re
 
 \subsubsection{Non-Homogeneous Flux Distribution}
 
-The assumption of uniform flux distribution across the pole face is only valid when the aspect ratio of the cross-section is close to unity and when the core is far from saturation. A more accurate treatment would divide the core and air-gap regions into parallel flux tubes and solve for the flux in each tube independently, accounting for the spatial variation of permeability in a saturating core.
+The assumption of uniform flux distribution across the pole face is valid when the core is far from saturation conditions. A more accurate treatment would divide the core and air-gap regions into parallel flux tubes and solve for the flux in each tube independently, accounting for the spatial variation of permeability in a saturating core.
 
 \subsubsection{Saturation and Non-Linear Permeability}
 
-When the flux density in the core approaches the saturation flux density ($B_\text{sat} \approx \SI{1.5}{T}$ for typical electrical steel), the incremental permeability drops sharply. In this regime, the inductance is no longer constant for a given position—it becomes a function of both $\theta$ and $I$. The co-energy must be computed numerically from the magnetisation curve:
+When the flux density in the core approaches the saturation flux density ($B_\text{sat} \approx \SI{1.5}{T}$ for typical electrical steel), the incremental permeability drops sharply. In this regime, the inductance is no longer constant for a given position. It becomes a function of both $\theta$ and $I$. The co-energy must be computed numerically from the magnetisation curve:
 \begin{equation}
     W'(I,\theta) = \int_0^I \lambda(i, \theta)\, di
 \end{equation}
 and the torque obtained as $T = \partial W' / \partial \theta \big|_{I=\text{const}}$.
 
-This requires the B-H curve of the selected lamination material to be incorporated.
+This requires the B-H curve of the selected lamination material to be included in the analysis.
 
 %%─── 3. Q2 – FEA Modelling (Linear Materials) ───────────────────────────────
 \section{Q2 -- FEA Modelling (2D, Linear Materials)}
