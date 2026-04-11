@@ -1,0 +1,425 @@
+\documentclass[12pt, a4paper]{article}
+
+%% ─── Packages ───────────────────────────────────────────────────────────────
+\usepackage[a4paper, margin=2.5cm]{geometry}
+\usepackage{amsmath, amssymb}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{hyperref}
+\usepackage{fancyhdr}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{enumitem}
+\usepackage{siunitx}
+\usepackage{float}
+\usepackage{listings}
+\usepackage{parskip}
+
+\setlength{\headheight}{15pt}
+\setlength{\parskip}{1em}
+
+%% ─── Page Style ─────────────────────────────────────────────────────────────
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{EE568 -- Project 1}
+\lhead{Elif Topaloğlu}
+\cfoot{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+
+%% ─── Hyperref Setup ─────────────────────────────────────────────────────────
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue!60!black,
+    urlcolor=blue!60!black,
+    citecolor=blue!60!black,
+}
+
+%% ─── Section Formatting ─────────────────────────────────────────────────────
+\titleformat{\section}{\large\bfseries}{\thesection\quad}{0em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection\quad}{0em}{}
+
+%% ─── SI Units Setup ─────────────────────────────────────────────────────────
+\sisetup{per-mode=symbol}
+
+%% ─── MATLAB Listing Style ───────────────────────────────────────────────────
+\lstdefinestyle{matlab}{
+    language=Matlab,
+    basicstyle=\ttfamily\small,
+    keywordstyle=\color{blue}\bfseries,
+    commentstyle=\color{green!50!black},
+    stringstyle=\color{orange},
+    numbers=left,
+    numberstyle=\tiny\color{gray},
+    numbersep=8pt,
+    frame=single,
+    breaklines=true,
+    captionpos=b,
+    tabsize=4,
+}
+
+\begin{document}
+
+%%─── Title Page ──────────────────────────────────────────────────────────────
+\begin{titlepage}
+    \centering
+    \begin{minipage}{0.25\textwidth}
+        \centering
+        \includegraphics[height=3cm]{figures/eelogo.png} 
+    \end{minipage}
+    \hfill
+    \begin{minipage}{0.25\textwidth}
+        \centering
+        \includegraphics[height=3cm]{figures/Orta_Doğu_Teknik_Üniversitesi.png}
+    \end{minipage}
+    
+    \vspace{2cm}
+    {\LARGE \textbf{Middle East Technical University} \par}
+    \vspace{1cm}
+    {\large Department of Electrical and Electronics Engineering \par}
+    \vspace{2cm}
+    \rule{\linewidth}{0.5mm}\\[0.5cm]
+    {\huge \bfseries EE568 -- Selected Topics in Electrical Machines \par}
+    {\LARGE \bfseries Project 1: Torque in a Variable Reluctance Machine \par}
+    \rule{\linewidth}{0.5mm}\\[1.5cm]
+    
+    \begin{tabular}{rl}
+        \textbf{Author:}    & Elif Topaloğlu \\[0.5em]
+        \textbf{Date:}      & \today \\[0.5em]
+    \end{tabular}
+    \vfill
+    {\large \textbf{GitHub Repository:} \\[0.3em]
+    \url{https://github.com/odtu/EE568/tree/master/Project1}}
+\end{titlepage}
+%%──────────────────────────────────────────────────────────
+
+
+
+
+
+
+%%─── Table of Contents ───────────────────────────────────────────────────────
+\tableofcontents
+\newpage
+
+%%─── 1. Introduction ─────────────────────────────────────────────────────────
+\section{Introduction}
+
+This report presents the analytical modeling and simulation analysis of a variable reluctance machine (VRM) as part of EE568 Project~1. Variable reluctance machines generate torque by minimizing the reluctance of the magnetic circuit; unlike permanent magnet or wound-rotor machines, they require no rotor excitation, making them robust and low-cost.
+
+The main objectives of this project are:
+\begin{enumerate}[leftmargin=*, label=\arabic*.]
+    \item Derive analytical expressions for the reluctance, inductance, and torque as a function of rotor position.
+    \item Model the system in a 2D finite element analysis (FEA) software using linear material properties and compare with the analytical results.
+    \item Extend the FEA model to non-linear material properties and investigate the effects of saturation and fringing flux.
+    \item Propose a control strategy to achieve continuous rotor rotation.
+\end{enumerate}
+
+The machine geometry for this project is defined on the course GitHub page. Some of the key parameters are summarized in Table~\ref{tab:params}.
+
+\begin{table}[H]
+    \centering
+    \caption{Machine Parameters}
+    \label{tab:params}
+    \begin{tabular}{llc}
+        \toprule
+        \textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\
+        \midrule
+        Number of turns          & $N$         & 300 \\
+        Coil current (DC)        & $I$         & \SI{2.5}{A} \\
+        Core depth               & $d$         & \SI{25}{mm} \\
+        Core width               & $w_c$       & \SI{15}{mm} \\
+        Air-gap clearance        & $g$         & \SI{0.5}{mm} \\
+        Coil winding area        & $A_{coil}$  & \SI{30}{mm} $\times$ \SI{10}{mm} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+%%─── 2. Q1 – Analytical Modelling ───────────────────────────────────────────
+\section{Analytical Modelling - Q1}
+
+\subsection{Assumptions}
+
+The following simplifying assumptions are adopted throughout the analytical model:
+
+\begin{enumerate}[leftmargin=*, label=\arabic*.]
+    \item The core material is infinitely permeable ($\mu_r \to \infty$), so the core reluctance is negligible.
+    \item Inductance varies sinusoidally with rotor position.
+    \item Fringing flux at the air-gap is neglected.
+    \item The magnetic system is linear (no saturation).
+    \item Magnetic flux is uniformly distributed across the core cross-section.
+\end{enumerate}
+
+\subsection{Reluctance and Inductance Analysis - Part (a)}
+By using the assumptions given, reluctance of the system can be calculated by the below formula:
+
+\begin{equation}
+    \mathcal{R} = \frac{l}{\mu  A_{core}}
+    \label{eq:reluctance}
+\end{equation}
+
+where $l$ is the path length, $\mu$ is the permeability and $A_{core}$ is the core cross-sectional area. As the assumption states, core has infinitely permeable which makes the core reluctance zero. Thus, total reluctance will only consider the air gap reluctance. As the air-gap changes with respect to position, there will be a minimum and a maximum reluctance value. In below, all the parameters to find the reluctance and the maximum and minimum reluctance values is calculated.
+
+The core cross-sectional area is:
+\begin{equation}
+    A_c = w_c \cdot d = 15 \times 10^{-3} \times 25 \times 10^{-3} = \SI{375e-6}{m^2}
+\end{equation}
+
+When the rotor tooth is fully aligned with the stator pole which is the minimum inductance position, the total air-gap path length consists of two single air-gaps:
+
+\begin{equation}
+    l_{g,\min} = 2g = 2 \times 0.5 = \SI{1}{mm}
+\end{equation}
+
+When the rotor is in the fully unaligned position, the flux path must also traverse the additional \SI{2}{mm} each side:
+\begin{equation}
+    l_{g,\max} = 2g + 2 \times \SI{2}{mm} = 1 + 4 = \SI{5}{mm}
+\end{equation}
+
+Substituting into Equation~\eqref{eq:reluctance}:
+
+\begin{align}
+    \mathcal{R}_{\min} &= \frac{1 \times 10^{-3}}{4\pi \times 10^{-7} \times 375 \times 10^{-6}}
+                         = \SI{2.12e6}{H^{-1}} \\[6pt]
+    \mathcal{R}_{\max} &= \frac{5 \times 10^{-3}}{4\pi \times 10^{-7} \times 375 \times 10^{-6}}
+                         = \SI{1.06e7}{H^{-1}}
+\end{align}
+
+The self-inductance of the coil is related to the reluctance by:
+\begin{equation}
+    L = \frac{N^2}{\mathcal{R}}
+    \label{eq:inductance}
+\end{equation}
+
+Therefore, by using Equation~\eqref{eq:inductance}:
+
+\begin{align}
+    L_{\max} &= \frac{300^2}{\mathcal{R}_{\min}} = \frac{90{,}000}{2.122 \times 10^6} \approx \SI{42.41}{mH} \\[6pt]
+    L_{\min} &= \frac{300^2}{\mathcal{R}_{\max}} = \frac{90{,}000}{1.061 \times 10^7} \approx \SI{8.48}{mH}
+\end{align}
+
+\subsubsection{Inductance as a Function of Rotor Position}
+
+The question further asks for the variation of the inductance with respect to the position under the assumption of sinusoidal variation. Since the machine has two poles due to variable reluctance, one mechanical revolution will produce two electrical cycles. Assuming a sinusoidal variation of inductance with the electrical angle $\theta$:
+
+\begin{equation}
+    L(\theta) = L_\text{avg} + L_\Delta \cos(2\theta)
+    \label{eq:L_theta}
+\end{equation}
+where:
+\begin{align}
+    L_\text{avg} &= \frac{L_{\max} + L_{\min}}{2} = \frac{42.41 + 8.48}{2} \approx \SI{25.45}{mH} \\[4pt]
+    L_\Delta     &= \frac{L_{\max} - L_{\min}}{2} = \frac{42.41 - 8.48}{2} \approx \SI{16.96}{mH}
+\end{align}
+
+The resulting inductance profile is plotted in Figure~\ref{fig:inductance}.
+
+
+ \begin{figure}[H]
+     \centering
+     \includegraphics[width=0.82\textwidth]{figures/inductance_variation.eps}
+     \caption{Inductance variation as a function of rotor position.}
+     \label{fig:inductance}
+ \end{figure}
+
+The inductance reaches its peak of \SI{42.41}{mH} at the aligned positions (\ang{0} and \ang{180}) and its minimum of \SI{8.48}{mH} at the unaligned positions (\ang{90} and \ang{270}). 
+
+\subsubsection{Numerical Results Summary}
+Finally, numerical results for this part is summarized below.
+
+\begin{table}[H]
+    \centering
+    \caption{Analytical Reluctance and Inductance Results}
+    \label{tab:results_a}
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Quantity} & \textbf{Symbol} & \textbf{Value} \\
+        \midrule
+        Minimum reluctance  & $\mathcal{R}_{\min}$  & \SI{2.122e6}{H^{-1}} \\
+        Maximum reluctance  & $\mathcal{R}_{\max}$  & \SI{1.061e7}{H^{-1}} \\
+        Maximum inductance  & $L_{\max}$            & \SI{42.41}{mH} \\
+        Minimum inductance  & $L_{\min}$            & \SI{8.48}{mH} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+\subsection{Torque under Constant DC Excitation - Part (b)}
+
+\subsubsection{Torque Derivation}
+
+To derive the torque expression, one should make use of the stored magnetic energy on an inductor. The stored magnetic energy can be expressed in terms of flux linkage as:
+
+\begin{equation}
+W = \int_{0}^{\lambda} i(\lambda)\, d\lambda
+\end{equation}
+
+For a linear magnetic system, the relationship between flux linkage and current is:
+
+\begin{equation}
+\lambda = L(\theta)\, i
+\end{equation}
+
+Thus, the current can be written as:
+
+\begin{equation}
+i = \frac{\lambda}{L(\theta)}
+\end{equation}
+
+Substituting into the energy expression:
+
+\begin{equation}
+W = \int_{0}^{\lambda} \frac{\lambda}{L(\theta)} \, d\lambda
+\end{equation}
+
+Since $L(\theta)$ is independent of $\lambda$ (linear system), it can be treated as constant:
+
+\begin{equation}
+W = \frac{1}{L(\theta)} \int_{0}^{\lambda} \lambda \, d\lambda
+\end{equation}
+
+\begin{equation}
+W = \frac{1}{L(\theta)} \cdot \frac{1}{2} \lambda^2
+\end{equation}
+
+Substituting $\lambda = L(\theta)i$:
+
+\begin{equation}
+W = \frac{1}{2} L(\theta) i^2
+\end{equation}
+
+The electromagnetic torque is obtained from:
+
+\begin{equation}
+T = \frac{dW}{d\theta}
+\end{equation}
+
+\begin{equation}
+T = \frac{d}{d\theta} \left( \frac{1}{2} L(\theta) i^2 \right)
+\end{equation}
+
+For constant current excitation:
+
+\begin{equation}
+T(\theta) = \frac{1}{2} i^2 \frac{dL(\theta)}{d\theta}
+\label{eq:torque}
+\end{equation}
+
+Inductance variation is defined in the previous question. By taking the derivative, one can obtain the inductance variation as follows:
+
+\begin{equation}
+L(\theta) = L_{\text{avg}} + L_{\text{amp}} \cos(2\theta)
+\end{equation}
+
+\begin{equation}
+\frac{dL}{d\theta} = -2 L_{\text{amp}} \sin(2\theta)
+\label{eq:inductance_variation}
+\end{equation}
+
+By inserting the inductance variation into Equation~\eqref{eq:torque}, the final torque equation becomes:
+
+\begin{equation}
+T(\theta) = -i^2 L_{\text{amp}} \sin(2\theta)
+\end{equation}
+
+\subsubsection{Torque as a Function of Rotor Position}
+
+The torque profile is plotted in Figure~\ref{fig:torque} by using the derved equation.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.82\textwidth]{figures/torque_variation.eps}
+    \caption{Electromagnetic torque as a function of rotor position under constant DC excitation ($I = \SI{2.5}{A}$).}
+    \label{fig:torque}
+\end{figure}
+
+\subsubsection{Results Summary}
+
+\begin{table}[H]
+    \centering
+    \caption{Torque Results (Constant DC Excitation)}
+    \label{tab:results_b}
+    \begin{tabular}{lcc}
+        \toprule
+        \textbf{Quantity} & \textbf{Symbol} & \textbf{Value} \\
+        \midrule
+        Maximum torque  & $T_{\max}$  & \SI{+0.11}{Nm} \\
+        Minimum torque  & $T_{\min}$  & \SI{-0.11}{Nm} \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The torque is sinusoidal at twice the rotor frequency. It is positive in the regions where inductance is increasing (rotor moving towards alignment) and negative where inductance is decreasing. Under constant DC excitation, the average torque over a full revolution is zero, since the positive and negative half-cycles cancel.
+
+\subsection{Non-Linear Effects and Model Improvements - Part (c)}
+
+\subsubsection{Fringing Flux}
+
+In the simple analytical model, flux is assumed to flow only through the face of the stator pole directly across the air-gap, ignoring the flux that flows outward around the pole edges. In practice, this fringing flux can significantly increase the effective cross-sectional area, particularly when the air-gap is large (unaligned position). One common correction is to add the gap length to each linear dimension of the pole face to obtain an effective area:
+\begin{equation}
+    A_\text{eff} = (w_c + g)(d + g)
+\end{equation}
+This correction is applied separately for each rotor position and reduces the reluctance, raising the predicted inductance closer to FEA results.
+
+\subsubsection{Non-Homogeneous Flux Distribution}
+
+The assumption of uniform flux distribution across the pole face is only valid when the aspect ratio of the cross-section is close to unity and when the core is far from saturation. A more accurate treatment would divide the core and air-gap regions into parallel flux tubes and solve for the flux in each tube independently, accounting for the spatial variation of permeability in a saturating core.
+
+\subsubsection{Saturation and Non-Linear Permeability}
+
+When the flux density in the core approaches the saturation flux density ($B_\text{sat} \approx \SI{1.5}{T}$ for typical electrical steel), the incremental permeability drops sharply. In this regime, the inductance is no longer constant for a given position—it becomes a function of both $\theta$ and $I$. The co-energy must be computed numerically from the magnetisation curve:
+\begin{equation}
+    W'(I,\theta) = \int_0^I \lambda(i, \theta)\, di
+\end{equation}
+and the torque obtained as $T = \partial W' / \partial \theta \big|_{I=\text{const}}$.
+
+This requires the B-H curve of the selected lamination material to be incorporated.
+
+%%─── 3. Q2 – FEA Modelling (Linear Materials) ───────────────────────────────
+\section{Q2 -- FEA Modelling (2D, Linear Materials)}
+
+\textit{This section will be completed after the FEA simulations are performed.}
+
+\subsection{Software and Setup}
+
+\subsection{Part (a) -- Flux Density Vectors (0°, 45°, 90°)}
+
+\subsection{Part (b) -- Inductance and Stored Energy}
+
+\subsection{Part (c) -- Torque vs. Rotor Angle: Comparison with Analytical Model}
+
+%%─── 4. Q3 – FEA Modelling (Non-Linear Materials) ───────────────────────────
+\section{Q3 -- FEA Modelling (2D, Non-Linear Materials)}
+
+\textit{This section will be completed after the non-linear FEA simulations are performed.}
+
+\subsection{Parts (a, b, c) -- Flux Density, Inductance, Stored Energy, Torque}
+
+\subsection{Part (d) -- Comparison: Linear vs. Non-Linear, Fringing and Saturation Effects}
+
+%%─── 5. Q4 – Control Method ─────────────────────────────────────────────────
+\section{Q4 -- Control Method for Continuous Rotation}
+
+\textit{This section will be completed.}
+
+%%─── 6. Conclusion ───────────────────────────────────────────────────────────
+\section{Conclusion}
+
+The analytical model of the variable reluctance machine was developed under linearised assumptions. The maximum and minimum inductances were found to be \SI{42.41}{mH} and \SI{8.48}{mH}, corresponding to the aligned and unaligned rotor positions respectively. The peak torque under \SI{2.5}{A} DC excitation is $\pm\SI{0.106}{Nm}$, varying sinusoidally at twice the rotor frequency.
+
+FEA simulations (Q2, Q3) and the control strategy (Q4) will be added as the project progresses.
+
+%%─── Appendix ────────────────────────────────────────────────────────────────
+\appendix
+\section{Material Properties}
+
+This appendix will list the B-H curve data and material properties of the electrical steel lamination selected for the FEA simulations in Q2 and Q3.
+
+\section{MATLAB Source Code}
+
+The MATLAB script used for the analytical calculations and plots in Q1 is provided below.
+
+%\lstinputlisting[style=matlab, caption={MATLAB script for Q1 Analytical Modelling}]{analytical_model.m}
+
+\end{document}
