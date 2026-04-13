@@ -316,11 +316,135 @@ ANSYS, Inc. provides no warranty for this data.'
 					property_type='ChoiceProperty'
 					Choice='Solid'
 				$end 'thermal_material_type'
-				ModTime=1776087790
+				ModTime=1776112041
 				Library=''
 				LibLocation='Project'
 				ModSinceLib=true
 			$end 'AK Steel - M-19, 19mil, B-H at 100Hz - Linear'
+			$begin 'Cogent Power - M270-35A, B-H at 50Hz - linear'
+				CoordinateSystemType='Cartesian'
+				BulkOrSurfaceType=1
+				$begin 'PhysicsTypes'
+					set('Electromagnetic', 'Thermal', 'Structural')
+				$end 'PhysicsTypes'
+				$begin 'AttachedData'
+					$begin 'CoreLossMultiCurveData'
+						property_data='coreloss_multi_curve_data'
+						coreloss_unit='w_per_kg'
+						$begin 'AllCurves'
+							$begin 'OneCurve'
+								Frequency='50Hz'
+								$begin 'Coordinates'
+									DimUnits[2: '', '']
+									Points[74: 0, 0, 0.05, 0.015, 0.1, 0.03, 0.15, 0.05, 0.2, 0.07, 0.25, 0.1, 0.3, 0.13, 0.35, 0.175, 0.4, 0.22, 0.45, 0.265, 0.5, 0.31, 0.55, 0.37, 0.6, 0.43, 0.65, 0.485, 0.7, 0.54, 0.75, 0.61, 0.8, 0.68, 0.85, 0.755, 0.9, 0.83, 0.95, 0.92, 1, 1.01, 1.05, 1.105, 1.1, 1.2, 1.15, 1.31, 1.2, 1.42, 1.25, 1.56, 1.3, 1.7, 1.35, 1.91, 1.4, 2.12, 1.45, 2.295, 1.5, 2.47, 1.55, 2.635, 1.6, 2.8, 1.65, 2.925, 1.7, 3.05, 1.75, 3.15, 1.8, 3.25]
+								$end 'Coordinates'
+							$end 'OneCurve'
+							$begin 'OneCurve'
+								Frequency='100Hz'
+								$begin 'Coordinates'
+									DimUnits[2: '', '']
+									Points[74: 0, 0, 0.05, 0.02, 0.1, 0.04, 0.15, 0.1, 0.2, 0.16, 0.25, 0.25, 0.3, 0.34, 0.35, 0.445, 0.4, 0.55, 0.45, 0.675, 0.5, 0.8, 0.55, 0.93, 0.6, 1.06, 0.65, 1.22, 0.7, 1.38, 0.75, 1.555, 0.8, 1.73, 0.85, 1.915, 0.9, 2.1, 0.95, 2.305, 1, 2.51, 1.05, 2.745, 1.1, 2.98, 1.15, 3.245, 1.2, 3.51, 1.25, 3.83, 1.3, 4.15, 1.35, 4.56, 1.4, 4.97, 1.45, 5.445, 1.5, 5.92, 1.55, 6.395, 1.6, 6.87, 1.65, 7.345, 1.7, 7.82, 1.75, 8.295, 1.8, 8.77]
+								$end 'Coordinates'
+							$end 'OneCurve'
+							$begin 'OneCurve'
+								Frequency='200Hz'
+								$begin 'Coordinates'
+									DimUnits[2: '', '']
+									Points[74: 0, 0, 0.05, 0.045, 0.1, 0.09, 0.15, 0.23, 0.2, 0.37, 0.25, 0.58, 0.3, 0.79, 0.35, 1.05, 0.4, 1.31, 0.45, 1.61, 0.5, 1.91, 0.55, 2.26, 0.6, 2.61, 0.65, 3, 0.7, 3.39, 0.75, 3.825, 0.8, 4.26, 0.85, 4.745, 0.9, 5.23, 0.95, 5.765, 1, 6.3, 1.05, 6.905, 1.1, 7.51, 1.15, 8.195, 1.2, 8.88, 1.25, 9.69, 1.3, 10.5, 1.35, 11.5, 1.4, 12.5, 1.45, 13.7, 1.5, 14.9, 1.55, 16.1, 1.6, 17.3, 1.65, 18.5, 1.7, 19.7, 1.75, 20.9, 1.8, 22.1]
+								$end 'Coordinates'
+							$end 'OneCurve'
+							$begin 'OneCurve'
+								Frequency='400Hz'
+								$begin 'Coordinates'
+									DimUnits[2: '', '']
+									Points[74: 0, 0, 0.05, 0.105, 0.1, 0.21, 0.15, 0.565, 0.2, 0.92, 0.25, 1.455, 0.3, 1.99, 0.35, 2.66, 0.4, 3.33, 0.45, 4.135, 0.5, 4.94, 0.55, 5.89, 0.6, 6.84, 0.65, 7.92, 0.7, 9, 0.75, 10.2, 0.8, 11.4, 0.85, 12.8, 0.9, 14.2, 0.95, 15.75, 1, 17.3, 1.05, 19.1, 1.1, 20.9, 1.15, 22.9, 1.2, 24.9, 1.25, 27.2, 1.3, 29.5, 1.35, 32.45, 1.4, 35.4, 1.45, 38.6, 1.5, 41.8, 1.55, 45, 1.6, 48.2, 1.65, 51.4, 1.7, 54.6, 1.75, 57.8, 1.8, 61]
+								$end 'Coordinates'
+							$end 'OneCurve'
+							$begin 'OneCurve'
+								Frequency='1000Hz'
+								$begin 'Coordinates'
+									DimUnits[2: '', '']
+									Points[74: 0, 0, 0.05, 0.495, 0.1, 0.99, 0.15, 2.33, 0.2, 3.67, 0.25, 5.65, 0.3, 7.63, 0.35, 10.165, 0.4, 12.7, 0.45, 15.8, 0.5, 18.9, 0.55, 22.65, 0.6, 26.4, 0.65, 30.9, 0.7, 35.4, 0.75, 40.7, 0.8, 46, 0.85, 52.2, 0.9, 58.4, 0.95, 65.7, 1, 73, 1.05, 81.55, 1.1, 90.1, 1.15, 98.65, 1.2, 107.2, 1.25, 115.75, 1.3, 124.3, 1.35, 132.85, 1.4, 141.4, 1.45, 149.95, 1.5, 158.5, 1.55, 167.05, 1.6, 175.6, 1.65, 184.15, 1.7, 192.7, 1.75, 201.25, 1.8, 209.8]
+								$end 'Coordinates'
+							$end 'OneCurve'
+						$end 'AllCurves'
+					$end 'CoreLossMultiCurveData'
+					$begin 'MatNotesData'
+						property_data='notes_data'
+						Notes='Electrical steel, non grain oriented - Cogent Power - M270-35A, AC - Fully Processed\
+The following properties are estimated: Thermal conductivity, Specific heat capacity, Tensile modulus, Poisson\'s ratio. \
+GUID: f8902ed7-c185-45af-8a84-6446db892f10\
+Data provided by MagWeb and compiled by Ansys Granta (https://www.ansys.com/products/materials).\
+ANSYS, Inc. provides no warranty for this data.'
+					$end 'MatNotesData'
+					$begin 'MatKeywordsData'
+						property_data='keywords_data'
+						Keywords='Electrical steel, non grain oriented - Cogent Power - M270-35A, AC - Fully Processed'
+					$end 'MatKeywordsData'
+				$end 'AttachedData'
+				permeability='2000'
+				conductivity='1923080'
+				thermal_conductivity='73'
+				$begin 'core_loss_type'
+					property_type='ChoiceProperty'
+					Choice='Electrical Steel'
+				$end 'core_loss_type'
+				core_loss_kh='156.32'
+				core_loss_kc='0.211218'
+				core_loss_ke='6.2369'
+				mass_density='7650'
+				specific_heat='460'
+				youngs_modulus='210000000000'
+				poissons_ratio='0.3'
+				$begin 'thermal_material_type'
+					property_type='ChoiceProperty'
+					Choice='Solid'
+				$end 'thermal_material_type'
+				ModTime=1776110398
+				Library=''
+				LibLocation='Project'
+				ModSinceLib=true
+			$end 'Cogent Power - M270-35A, B-H at 50Hz - linear'
+			$begin 'steel_1010 - linear'
+				CoordinateSystemType='Cartesian'
+				BulkOrSurfaceType=1
+				$begin 'PhysicsTypes'
+					set('Electromagnetic', 'Thermal', 'Structural')
+				$end 'PhysicsTypes'
+				$begin 'AttachedData'
+					$begin 'MatAppearanceData'
+						property_data='appearance_data'
+						Red=161
+						Green=161
+						Blue=161
+					$end 'MatAppearanceData'
+				$end 'AttachedData'
+				permittivity='1'
+				permeability='2000'
+				conductivity='2000000'
+				dielectric_loss_tangent='0'
+				magnetic_loss_tangent='0'
+				$begin 'magnetic_coercivity'
+					property_type='VectorProperty'
+					Magnitude='0'
+					DirComp1='1'
+					DirComp2='0'
+					DirComp3='0'
+				$end 'magnetic_coercivity'
+				thermal_conductivity='45'
+				saturation_mag='0gauss'
+				lande_g_factor='2'
+				delta_H='0Oe'
+				mass_density='7872'
+				specific_heat='448'
+				youngs_modulus='205000000000'
+				poissons_ratio='0.28'
+				thermal_expansion_coefficient='1.22e-05'
+				ModTime=1776110674
+				Library=''
+				LibLocation='Project'
+				ModSinceLib=true
+			$end 'steel_1010 - linear'
 		$end 'Materials'
 		$begin 'SurfaceMaterials'
 		$end 'SurfaceMaterials'
@@ -357,8 +481,8 @@ ANSYS, Inc. provides no warranty for this data.'
 				$end 'Properties'
 				CompExtID=6
 				$begin 'Parameters'
-					MenuProp('CoSimulator', 'D', '', 'DefaultNetlist', 0)
 					ButtonProp('CosimDefinition', 'D', '', '', 'Edit', 40501, ButtonPropClientData())
+					MenuProp('CoSimulator', 'D', '', 'DefaultNetlist', 0)
 				$end 'Parameters'
 				$begin 'CosimDefinitions'
 					$begin 'CosimDefinition'
@@ -387,7 +511,7 @@ ANSYS, Inc. provides no warranty for this data.'
 			Temperatures(6, '22cel', 39, '22cel', 51, '22cel', 104, '22cel', 125, '22cel', 166, '22cel', 172, '22cel')
 		$end 'TemperatureSettings'
 		ObjsEnabledForDeformation()
-		ComputeIncrementalMatrix=true
+		ComputeIncrementalMatrix=false
 		PerfectConductorThreshold=1e+30
 		InsulatorThreshold=1
 		ModelDepth='25mm'
@@ -441,7 +565,7 @@ ANSYS, Inc. provides no warranty for this data.'
 			WorkingCS=182
 			$begin 'GeometryCore'
 				BlockVersionID=3
-				DataVersion=8
+				DataVersion=12
 				NativeKernel='ACIS'
 				NativeKernelVersionID=13
 				Units='mm'
@@ -2706,7 +2830,7 @@ ANSYS, Inc. provides no warranty for this data.'
 					RestrictElem=false
 					NumMaxElem='1000'
 					RestrictLength=true
-					MaxLength='3mm'
+					MaxLength='1mm'
 				$end 'Length1'
 				$begin 'Length2'
 					RefineInside=true
@@ -2748,12 +2872,12 @@ ANSYS, Inc. provides no warranty for this data.'
 					MaximumPasses=10
 					MinimumPasses=2
 					MinimumConvergedPasses=1
-					PercentRefinement=40
+					PercentRefinement=60
 					SolveFieldOnly=false
-					PercentError=1
+					PercentError=0.5
 					SolveMatrixAtLast=true
 					UseNonLinearIterNum=false
-					NonLinearResidual=1e-06
+					NonLinearResidual=1e-09
 					SmoothBHCurve=false
 					$begin 'MuOption'
 						MuNonLinearBH=true
@@ -2763,16 +2887,16 @@ ANSYS, Inc. provides no warranty for this data.'
 		$end 'AnalysisSetup'
 		$begin 'Optimetrics'
 			$begin 'OptimetricsSetups'
-				NextUniqueID=1
+				NextUniqueID=2
 				MoveBackwards=false
 				$begin 'ParametricSetup1'
 					ID=0
 					SetupType='OptiParametric'
 					IsEnabled=true
-					NextUniqueID=2
+					NextUniqueID=4
 					MoveBackwards=false
 					GoalSetupVersion=0
-					Version=1
+					Version=3
 					$begin 'ProdOptiSetupDataV2'
 						SaveFields=true
 						CopyMesh=false
@@ -2784,7 +2908,7 @@ ANSYS, Inc. provides no warranty for this data.'
 					$begin 'Sweeps'
 						$begin 'SweepDefinition'
 							Variable='angle'
-							Data='LIN 0deg 180deg 0.5deg'
+							Data='LIN 0deg 360deg 1deg'
 							OffsetF1=false
 							Synchronize=0
 						$end 'SweepDefinition'
@@ -2794,6 +2918,35 @@ ANSYS, Inc. provides no warranty for this data.'
 					$begin 'Goals'
 					$end 'Goals'
 				$end 'ParametricSetup1'
+				$begin 'ParametricSetup2'
+					ID=1
+					SetupType='OptiParametric'
+					IsEnabled=true
+					NextUniqueID=3
+					MoveBackwards=false
+					GoalSetupVersion=0
+					Version=2
+					$begin 'ProdOptiSetupDataV2'
+						SaveFields=true
+						CopyMesh=false
+						SolveWithCopiedMeshOnly=true
+					$end 'ProdOptiSetupDataV2'
+					$begin 'StartingPoint'
+					$end 'StartingPoint'
+					'Sim. Setups'(49)
+					$begin 'Sweeps'
+						$begin 'SweepDefinition'
+							Variable='angle'
+							Data='LIN 0deg 90deg 45deg'
+							OffsetF1=false
+							Synchronize=0
+						$end 'SweepDefinition'
+					$end 'Sweeps'
+					$begin 'Sweep Operations'
+					$end 'Sweep Operations'
+					$begin 'Goals'
+					$end 'Goals'
+				$end 'ParametricSetup2'
 			$end 'OptimetricsSetups'
 		$end 'Optimetrics'
 		$begin 'Solutions'
@@ -2807,7 +2960,7 @@ ANSYS, Inc. provides no warranty for this data.'
 				Default_PlotFolder='Automatic'
 			$end 'PlotDefaults'
 			$begin 'FieldsPlotManagerID'
-				NextUniqueID=7
+				NextUniqueID=8
 				MoveBackwards=false
 				NumQuantityType=1
 				$begin 'QuantityFolder_1'
@@ -2827,8 +2980,8 @@ ANSYS, Inc. provides no warranty for this data.'
 						minvalue=0
 						maxvalue=1.5
 						log=false
-						IntrinsicMin=0.000370585273662395
-						IntrinsicMax=3.56148376383987
+						IntrinsicMin=0.0213796692204415
+						IntrinsicMax=7.76828288404347
 						LimitFieldValuePrecision=false
 						FieldValuePrecisionDigits=4
 						dB=false
@@ -2850,13 +3003,13 @@ ANSYS, Inc. provides no warranty for this data.'
 						ArrowMapSize=false
 						ArrowMapColor=true
 						ShowArrowTail=true
-						ArrowSize=0.0495999976992607
+						ArrowSize=0.0595000013709068
 						ArrowMinMagnitude=0.005
 						ArrowMaxMagnitude=2.5
 						ArrowMagnitudeThreshold=0.005
 						ArrowMagnitudeFilteringFlag=false
-						ArrowMinIntrinsicMagnitude=-0.499629414726338
-						ArrowMaxIntrinsicMagnitude=4.06148376383987
+						ArrowMinIntrinsicMagnitude=-0.478620330779558
+						ArrowMaxIntrinsicMagnitude=8.26828288404347
 					$end 'Arrow3DSettings'
 					$begin 'DeformScaleSettings'
 						ShowDeformation=true
@@ -2869,11 +3022,11 @@ ANSYS, Inc. provides no warranty for this data.'
 				NumPlots=1
 				$begin 'PlotDefinition_1'
 					PlotDefinitionType='Mesh_field_type'
-					PlotName='B_Vector1'
-					PlotDefinitionId=0
-					VersionID=75
+					PlotName='B_Vector'
+					PlotDefinitionId=7
+					VersionID=52
 					SolutionId=51
-					UserSpecifyName=0
+					UserSpecifyName=1
 					UserSpecifyFolder=0
 					QuantityId=26
 					PlotFolder='B'
@@ -2881,22 +3034,22 @@ ANSYS, Inc. provides no warranty for this data.'
 					AdjacentSidePlot=false
 					FullModelPlot=false
 					IntrinsicVar=''
-					FieldPlotGeometry(1, 128, 2, 5, 6, 39, 51, 104, 166)
-					FilterIds(3, 6, 104, 166)
+					FieldPlotGeometry(1, 128, 2, 2, 6, 104)
+					FilterIds(0)
 					$begin 'PlotOnSurfaceSettings'
 						Filled=false
 						IsoValType='Fringe'
 						AddGrid=false
 						MapTransparency=true
-						Refinement=1
+						Refinement=0
 						Transparency=0
 						SmoothingLevel=0
 						ShadingType=0
 						$begin 'Arrow3DSpacingSettings'
 							ArrowUniform=true
-							ArrowSpacing=1.73070979118347
-							MinArrowSpacing=1.024090051651
-							MaxArrowSpacing=4.09635019302368
+							ArrowSpacing=2.00820875167847
+							MinArrowSpacing=0.938416004180908
+							MaxArrowSpacing=3.75365996360779
 						$end 'Arrow3DSpacingSettings'
 						GridColor(255, 255, 255)
 					$end 'PlotOnSurfaceSettings'
@@ -2968,8 +3121,73 @@ ANSYS, Inc. provides no warranty for this data.'
 							$end 'PostprocessSweep'
 							$begin 'Sweep'
 								Variable='Pass'
-								Column='1;2'
+								Column='2;3'
 								Units=''
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='core_outer_width'
+								Column='60mm'
+								Units='mm'
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='core_outer_height'
+								Column='70mm'
+								Units='mm'
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='core_inner_width'
+								Column='30mm'
+								Units='mm'
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='core_inner_height'
+								Column='40mm'
+								Units='mm'
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='coil_width'
+								Column='10mm'
+								Units='mm'
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='coil_height'
+								Column='30mm'
+								Units='mm'
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='r1'
+								Column='12.5mm'
+								Units='mm'
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='r2'
+								Column='12mm'
+								Units='mm'
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='r3'
+								Column='10mm'
+								Units='mm'
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='N'
+								Column='300'
+								Units=''
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='I'
+								Column='750'
+								Units=''
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='core_depth'
+								Column='25mm'
+								Units='mm'
+							$end 'Sweep'
+							$begin 'Sweep'
+								Variable='angle'
+								Column='0deg;0.5deg;1deg;1.5deg;2deg;2.5deg;3deg;3.5deg;4deg;4.5deg;5deg;5.5deg;6deg;6.5deg;7deg;7.5deg;8deg;8.5deg;9deg;9.5deg;10deg;10.5deg;11deg;11.5deg;12deg;12.5deg;13deg;13.5deg;14deg;14.5deg;15deg;15.5deg;16deg;16.5deg;17deg;17.5deg;18deg;18.5deg;19deg;19.5deg;20deg;20.5deg;21deg;21.5deg;22deg;22.5deg;23deg;23.5deg;24deg;24.5deg;25deg;25.5deg;26deg;26.5deg;27deg;27.5deg;28deg;28.5deg;29deg;29.5deg;30deg;30.5deg;31deg;31.5deg;32deg;32.5deg;33deg;33.5deg;34deg;34.5deg;35deg;35.5deg;36deg;36.5deg;37deg;37.5deg;38deg;38.5deg;39deg;39.5deg;40deg;40.5deg;41deg;41.5deg;42deg;42.5deg;43deg;43.5deg;44deg;44.5deg;45deg;45.5deg;46deg;46.5deg;47deg;47.5deg;48deg;48.5deg;49deg;49.5deg;50deg;50.5deg;51deg;51.5deg;52deg;52.5deg;53deg;53.5deg;54deg;54.5deg;55deg;55.5deg;56deg;56.5deg;57deg;57.5deg;58deg;58.5deg;59deg;59.5deg;60deg;60.5deg;61deg;61.5deg;62deg;62.5deg;63deg;63.5deg;64deg;64.5deg;65deg;65.5deg;66deg;66.5deg;67deg;67.5deg;68deg;68.5deg;69deg;69.5deg;70deg;70.5deg;71deg;71.5deg;72deg;72.5deg;73deg;73.5deg;74deg;74.5deg;75deg;75.5deg;76deg;76.5deg;77deg;77.5deg;78deg;78.5deg;79deg;79.5deg;80deg;80.5deg;81deg;81.5deg;82deg;82.5deg;83deg;83.5deg;84deg;84.5deg;85deg;85.5deg;86deg;86.5deg;87deg;87.5deg;88deg;88.5deg;89deg;89.5deg;90deg;90.5deg;91deg;91.5deg;92deg;92.5deg;93deg;93.5deg;94deg;94.5deg;95deg;95.5deg;96deg;96.5deg;97deg;97.5deg;98deg;98.5deg;99deg;99.5deg;100deg;100.5deg;101deg;101.5deg;102deg;102.5deg;103deg;103.5deg;104deg;104.5deg;105deg;105.5deg;106deg;106.5deg;107deg;107.5deg;108deg;108.5deg;109deg;109.5deg;110deg;110.5deg;111deg;111.5deg;112deg;112.5deg;113deg;113.5deg;114deg;114.5deg;115deg;115.5deg;116deg;116.5deg;117deg;117.5deg;118deg;118.5deg;119deg;119.5deg;120deg;120.5deg;121deg;121.5deg;122deg;122.5deg;123deg;123.5deg;124deg;124.5deg;125deg;125.5deg;126deg;126.5deg;127deg;127.5deg;128deg;128.5deg;129deg;129.5deg;130deg;130.5deg;131deg;131.5deg;132deg;132.5deg;133deg;133.5deg;134deg;134.5deg;135deg;135.5deg;136deg;136.5deg;137deg;137.5deg;138deg;138.5deg;139deg;139.5deg;140deg;140.5deg;141deg;141.5deg;142deg;142.5deg;143deg;143.5deg;144deg;144.5deg;145deg;145.5deg;146deg;146.5deg;147deg;147.5deg;148deg;148.5deg;149deg;149.5deg;150deg;150.5deg;151deg;151.5deg;152deg;152.5deg;153deg;153.5deg;154deg;154.5deg;155deg;155.5deg;156deg;156.5deg;157deg;157.5deg;158deg;158.5deg;159deg;159.5deg;160deg;160.5deg;161deg;161.5deg;162deg;162.5deg;163deg;163.5deg;164deg;164.5deg;165deg;165.5deg;166deg;166.5deg;167deg;167.5deg;168deg;168.5deg;169deg;169.5deg;170deg;170.5deg;171deg;171.5deg;172deg;172.5deg;173deg;173.5deg;174deg;174.5deg;175deg;175.5deg;176deg;176.5deg;177deg;177.5deg;178deg;178.5deg;179deg;179.5deg;180deg'
+								Units='deg'
 							$end 'Sweep'
 						$end 'Sweeps'
 					$end 'SimDataExtractor'
@@ -2983,8 +3201,8 @@ ANSYS, Inc. provides no warranty for this data.'
 							MoveBackwards=false
 							IDMap()
 						$end 'QuantityIDs'
-						SimValue('B_Vector', 1, 103, false, SimValueID=395, 3, 0, 2, 0, false, false, 6, 1, 0, 1, 1, '', 0, 0)
-						SimValue('Torque1.Torque', 1, 125, false, SimValueID=405, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
+						SimValue('B_Vector', 1, 103, false, SimValueID=765, 3, 0, 2, 0, false, false, 6, 1, 0, 1, 1, '', 0, 0)
+						SimValue('Torque1.Torque', 1, 125, false, SimValueID=766, 0, 0, 2, 0, false, false, -1, 1, 0, 1, 1, '', 0, 0)
 						$begin 'Sweeps'
 							$begin 'PostprocessSweep'
 								Variable='NormalizedDistance'
@@ -3084,7 +3302,7 @@ ANSYS, Inc. provides no warranty for this data.'
 							$end 'Sweep'
 							$begin 'Sweep'
 								Variable='angle'
-								Column='0deg;0.5deg;1deg;1.5deg;2deg;2.5deg;3deg;3.5deg;4deg;4.5deg;5deg;5.5deg;6deg;6.5deg;7deg;7.5deg;8deg;8.5deg;9deg;9.5deg;10deg;10.5deg;11deg;11.5deg;12deg;12.5deg;13deg;13.5deg;14deg;14.5deg;15deg;15.5deg;16deg;16.5deg;17deg;17.5deg;18deg;18.5deg;19deg;19.5deg;20deg;20.5deg;21deg;21.5deg;22deg;22.5deg;23deg;23.5deg;24deg;24.5deg;25deg;25.5deg;26deg;26.5deg;27deg;27.5deg;28deg;28.5deg;29deg;29.5deg;30deg;30.5deg;31deg;31.5deg;32deg;32.5deg;33deg;33.5deg;34deg;34.5deg;35deg;35.5deg;36deg;36.5deg;37deg;37.5deg;38deg;38.5deg;39deg;39.5deg;40deg;40.5deg;41deg;41.5deg;42deg;42.5deg;43deg;43.5deg;44deg;44.5deg;45deg;45.5deg;46deg;46.5deg;47deg;47.5deg;48deg;48.5deg;49deg;49.5deg;50deg;50.5deg;51deg;51.5deg;52deg;52.5deg;53deg;53.5deg;54deg;54.5deg;55deg;55.5deg;56deg;56.5deg;57deg;57.5deg;58deg;58.5deg;59deg;59.5deg;60deg;60.5deg;61deg;61.5deg;62deg;62.5deg;63deg;63.5deg;64deg;64.5deg;65deg;65.5deg;66deg;66.5deg;67deg;67.5deg;68deg;68.5deg;69deg;69.5deg;70deg;70.5deg;71deg;71.5deg;72deg;72.5deg;73deg;73.5deg;74deg;74.5deg;75deg;75.5deg;76deg;76.5deg;77deg;77.5deg;78deg;78.5deg;79deg;79.5deg;80deg;80.5deg;81deg;81.5deg;82deg;82.5deg;83deg;83.5deg;84deg;84.5deg;85deg;85.5deg;86deg;86.5deg;87deg;87.5deg;88deg;88.5deg;89deg;89.5deg;90deg;90.5deg;91deg;91.5deg;92deg;92.5deg;93deg;93.5deg;94deg;94.5deg;95deg;95.5deg;96deg;96.5deg;97deg;97.5deg;98deg;98.5deg;99deg;99.5deg;100deg;100.5deg;101deg;101.5deg;102deg;102.5deg;103deg;103.5deg;104deg;104.5deg;105deg;105.5deg;106deg;106.5deg;107deg;107.5deg;108deg;108.5deg;109deg;109.5deg;110deg;110.5deg;111deg;111.5deg;112deg;112.5deg;113deg;113.5deg;114deg;114.5deg;115deg;115.5deg;116deg;116.5deg;117deg;117.5deg;118deg;118.5deg;119deg;119.5deg;120deg;120.5deg;121deg;121.5deg;122deg;122.5deg;123deg;123.5deg;124deg;124.5deg;125deg;125.5deg;126deg;126.5deg;127deg;127.5deg;128deg;128.5deg;129deg;129.5deg;130deg;130.5deg;131deg;131.5deg;132deg;132.5deg;133deg;133.5deg;134deg;134.5deg;135deg;135.5deg;136deg;136.5deg;137deg;137.5deg;138deg;138.5deg;139deg;139.5deg;140deg;140.5deg;141deg;141.5deg;142deg;142.5deg;143deg;143.5deg;144deg;144.5deg;145deg;145.5deg;146deg;146.5deg;147deg;147.5deg;148deg;148.5deg;149deg;149.5deg;150deg;150.5deg;151deg;151.5deg;152deg;152.5deg;153deg;153.5deg;154deg;154.5deg;155deg;155.5deg;156deg;156.5deg;157deg;157.5deg;158deg;158.5deg;159deg;159.5deg;160deg;160.5deg;161deg;161.5deg;162deg;162.5deg;163deg;163.5deg;164deg;164.5deg;165deg;165.5deg;166deg;166.5deg;167deg;167.5deg;168deg;168.5deg;169deg;169.5deg;170deg;170.5deg;171deg;171.5deg;172deg;172.5deg;173deg;173.5deg;174deg;174.5deg;175deg;175.5deg;176deg;176.5deg;177deg;177.5deg;178deg;178.5deg;179deg;179.5deg;180deg'
+								Column='0deg;45deg;90deg'
 								Units='deg'
 							$end 'Sweep'
 						$end 'Sweeps'
@@ -3095,9 +3313,9 @@ ANSYS, Inc. provides no warranty for this data.'
 				V=54
 				$begin 'Setup'
 					N='Setup1'
-					V=361
-					Soln(N='AdaptivePass', V=765)
-					Soln(N='LastAdaptive', V=765)
+					V=1237
+					Soln(N='AdaptivePass', V=1356)
+					Soln(N='LastAdaptive', V=1356)
 				$end 'Setup'
 			$end 'Version ID Map'
 			$begin 'ID Map'
@@ -3121,7 +3339,7 @@ ANSYS, Inc. provides no warranty for this data.'
 		Notes=$begin_cdata$ $end_cdata$
 		$begin 'AnimationSetups'
 		$end 'AnimationSetups'
-		CacheHeaderFile='HDR4C3522972177608781610.tmp'
+		CacheHeaderFile='HDR2FA3106417761056453.tmp'
 	$end 'Maxwell2DModel'
 	$begin 'DataInstances'
 		DesignEditor='TopLevel'
@@ -3148,15 +3366,15 @@ ANSYS, Inc. provides no warranty for this data.'
 				DesignInstanceID=1
 				$begin 'WindowPosition'
 					$begin 'EditorWindow'
-						Circuit(Editor3d(View('View Orientation Gadget'=1, WindowPos(3, -1, -1, -9, -38, 0, 0, 1215, 491), OrientationMatrix(0.025714285671711, 9.31322574615479e-10, 0, 0, 0, 0.025714285671711, 0, 0, -9.31322574615479e-10, 0, 0.025714285671711, 0, 0.0675000250339508, 0, -5.0633373260498, 1, 0, -1.15297114849091, 1.0942291021347, -6.84823608398438, 6.83208847045898, -1.52008581161499, 11.6467609405518), Drawings[8: 'Stator', 'air_gap', 'Rotor', 'coil_section_1', 'coil_section_2', 'Length1', 'Length2', 'Length3'], 'View Data'('Render Mode'=1, 'Show Ruler'=1, 'Coordinate Systems View Mode'=1, 'CS Triad View Mode'=0, 'Render Facets'=1, GridVisible=1, GridAutoAdjust=1, GridAutoExtents=1, GridType='Rect', GridStyle='Line', NumPixels=30, dXForGrid=20, dYForGrid=20, dZForGrid=20, dRForGrid=20, dThetaForGrid=10), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
+						Circuit(Editor3d(View('View Orientation Gadget'=1, WindowPos(3, -1, -1, -8, -31, 0, 0, 1215, 491), OrientationMatrix(0.025714285671711, 9.31322574615479e-10, 0, 0, 0, 0.025714285671711, 0, 0, -9.31322574615479e-10, 0, 0.025714285671711, 0, 0.0674999952316284, 0, -5.0633373260498, 1, 0, -1.35220837593079, 2.81590151786804, -1.51754975318909, 1.32862019538879, -1.4152626991272, 11.5419368743896), Drawings[8: 'Stator', 'Rotor', 'coil_section_1', 'coil_section_2', 'Length1', 'Length2', 'Length3', 'B_Vector'], 'View Data'('Render Mode'=1, 'Show Ruler'=1, 'Coordinate Systems View Mode'=1, 'CS Triad View Mode'=0, 'Render Facets'=1, GridVisible=1, GridAutoAdjust=1, GridAutoExtents=1, GridType='Rect', GridStyle='Line', NumPixels=30, dXForGrid=5, dYForGrid=5, dZForGrid=5, dRForGrid=5, dThetaForGrid=10), ClipPlanes(ClipPlaneOptions(DisableWhenDrawingNewPlane=true, ForceOpqaueForUnclipped=false, ShowClipped=false, Transparency=0, HandleColor=16776960)))))
 					$end 'EditorWindow'
 				$end 'WindowPosition'
 				$begin 'ReportSetup'
 					$begin 'ReportManager'
 						$begin 'Reports'
-							$begin 'Torque Plot 1'
+							$begin 'Torque vs Rotation Angle Plot'
 								ReportID=1
-								ReportName='Torque Plot 1'
+								ReportName='Torque vs Rotation Angle Plot'
 								$begin 'TraceDef'
 									TraceDefinitionType='TraceDefinition'
 									$begin 'DesignSolnDefn'
@@ -3295,7 +3513,7 @@ ANSYS, Inc. provides no warranty for this data.'
 									$end 'PointsetDefinition'
 									DesignInstanceID=1
 								$end 'TraceDef'
-							$end 'Torque Plot 1'
+							$end 'Torque vs Rotation Angle Plot'
 						$end 'Reports'
 						NextUniqueID=2
 						MoveBackwards=false
@@ -3305,10 +3523,10 @@ ANSYS, Inc. provides no warranty for this data.'
 						$end 'NextVersID'
 					$end 'ReportManager'
 					$begin 'Reports'
-						$begin 'Torque Plot 1'
+						$begin 'Torque vs Rotation Angle Plot'
 							ReportID=1
 							$begin 'Report2D'
-								name='Torque Plot 1'
+								name='Torque vs Rotation Angle Plot'
 								ReportID=1
 								ReportType=1
 								DisplayType=1
@@ -3325,7 +3543,7 @@ ANSYS, Inc. provides no warranty for this data.'
 									$end 'Graph2D'
 								$end 'Graph2DsV2'
 								$begin 'PlotDisplayDataManager'
-									NextUniqueID=673
+									NextUniqueID=689
 									MoveBackwards=false
 									$begin 'PlotHeaderDataSource'
 										CompanyName=''
@@ -3338,6 +3556,261 @@ ANSYS, Inc. provides no warranty for this data.'
 									Version='17.0:20150830'
 									$begin 'DocAttributes'
 										$begin 'PlotAttributeStoreMap'
+											$begin 'MainMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=37
+													$begin 'CurveRenderAttribute'
+														$begin 'LineRenderAttribute'
+															LineStyle='Solid'
+															LineWidth=3
+															LineColor(R=237, G=28, B=36)
+														$end 'LineRenderAttribute'
+														TraceType='Continuous'
+														SymbolType='HollowHorizontalLeftTriangle'
+														SymbolColor(R=155, G=93, B=112)
+														ShowSymbols=false
+														SymbolFrequency=15
+														ShowArrows=false
+													$end 'CurveRenderAttribute'
+												$end 'SubMapItem'
+											$end 'MainMapItem'
+											$begin 'MainMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=0
+													$begin 'HeaderRenderAttribute'
+														$begin 'TitleFont'
+															$begin 'FontAttribute'
+																$begin 'Font'
+																	HeightInPts=14
+																	Width=0
+																	Escapement=0
+																	Orientation=0
+																	Weight=400
+																	Italic=0
+																	Underline=0
+																	StrikeOut=0
+																	CharSet=0
+																	OutPrecision=7
+																	ClipPrecision=48
+																	Quality=6
+																	PitchAndFamily=0
+																	FaceName='Arial'
+																$end 'Font'
+																Color(R=0, G=0, B=0)
+															$end 'FontAttribute'
+														$end 'TitleFont'
+														$begin 'SubtitleFont'
+															$begin 'FontAttribute'
+																$begin 'Font'
+																	HeightInPts=10
+																	Width=0
+																	Escapement=0
+																	Orientation=0
+																	Weight=400
+																	Italic=0
+																	Underline=0
+																	StrikeOut=0
+																	CharSet=0
+																	OutPrecision=7
+																	ClipPrecision=48
+																	Quality=6
+																	PitchAndFamily=0
+																	FaceName='Arial'
+																$end 'Font'
+																Color(R=0, G=0, B=0)
+															$end 'FontAttribute'
+														$end 'SubtitleFont'
+													$end 'HeaderRenderAttribute'
+												$end 'SubMapItem'
+											$end 'MainMapItem'
+											$begin 'MainMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=5
+													$begin 'LegendRenderAttribute'
+														$begin 'LegendTableAttrib'
+															$begin 'TableRenderAttribute'
+																$begin 'TableFontAttrib'
+																	$begin 'FontAttribute'
+																		$begin 'Font'
+																			HeightInPts=8
+																			Width=0
+																			Escapement=0
+																			Orientation=0
+																			Weight=400
+																			Italic=0
+																			Underline=0
+																			StrikeOut=0
+																			CharSet=0
+																			OutPrecision=7
+																			ClipPrecision=48
+																			Quality=6
+																			PitchAndFamily=0
+																			FaceName='Arial'
+																		$end 'Font'
+																		Color(R=0, G=0, B=0)
+																	$end 'FontAttribute'
+																$end 'TableFontAttrib'
+																$begin 'TableTitleFontAttrib'
+																	$begin 'FontAttribute'
+																		$begin 'Font'
+																			HeightInPts=8
+																			Width=0
+																			Escapement=0
+																			Orientation=0
+																			Weight=400
+																			Italic=0
+																			Underline=0
+																			StrikeOut=0
+																			CharSet=0
+																			OutPrecision=7
+																			ClipPrecision=48
+																			Quality=6
+																			PitchAndFamily=0
+																			FaceName='Arial'
+																		$end 'Font'
+																		Color(R=0, G=0, B=0)
+																	$end 'FontAttribute'
+																$end 'TableTitleFontAttrib'
+																TableBorderLineWidth=1
+																TableBorderLineColor=0
+																TableGridLineWidth=1
+																TableGridLineColor=12632256
+																TableBackgroundColor=16777215
+																TableHeaderBackgroundColor=14408667
+															$end 'TableRenderAttribute'
+														$end 'LegendTableAttrib'
+														LegendName=''
+														ShowTraceName=true
+														ShowSolutionName=false
+														ShowVariationKey=false
+														FileNameDisplayModeInVariationKey=0
+														DockMode='None'
+													$end 'LegendRenderAttribute'
+												$end 'SubMapItem'
+											$end 'MainMapItem'
+											$begin 'MainMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=1
+													$begin 'LineAxisRenderAttribute'
+														DecimalFieldWidth=5
+														DecimalFieldPrecision=2
+														ManualTitle='Angle'
+														AxisColor(R=0, G=0, B=0)
+														MinScale=0
+														MaxScale=6.28318530717959
+														TickSpacing=2.18166156499291
+														ManualUnits=false
+														Units='deg'
+														AxisScale='Linear'
+														NumberFormat='Auto'
+														$begin 'TextFont'
+															$begin 'FontAttribute'
+																$begin 'Font'
+																	HeightInPts=9
+																	Width=0
+																	Escapement=0
+																	Orientation=0
+																	Weight=400
+																	Italic=0
+																	Underline=0
+																	StrikeOut=0
+																	CharSet=0
+																	OutPrecision=7
+																	ClipPrecision=48
+																	Quality=6
+																	PitchAndFamily=0
+																	FaceName='Arial'
+																$end 'Font'
+																Color(R=0, G=0, B=0)
+															$end 'FontAttribute'
+														$end 'TextFont'
+														InfMapMode=false
+														InfMapValue=13.0899693899575
+														AutoRangeMin=true
+														AutoRangeMax=false
+														AutoSpacing=true
+														kNumMinorDivisions=5
+														ShowAxisTitle=true
+														ShowAxisUnits=true
+														vwm='FullWnd'
+														viewWndWd=6.28318530717959
+														ActivateMargins=true
+														MarginPercent=0
+														NeverCollapse=false
+														AxisStripes=true
+													$end 'LineAxisRenderAttribute'
+												$end 'SubMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=2
+													$begin 'LineAxisRenderAttribute'
+														DecimalFieldWidth=3
+														DecimalFieldPrecision=0
+														ManualTitle='Torque'
+														AxisColor(R=0, G=0, B=0)
+														MinScale=-0.1
+														MaxScale=0.1
+														TickSpacing=0.025
+														ManualUnits=false
+														Units='mNewtonMeter'
+														AxisScale='Linear'
+														NumberFormat='Auto'
+														$begin 'TextFont'
+															$begin 'FontAttribute'
+																$begin 'Font'
+																	HeightInPts=9
+																	Width=0
+																	Escapement=0
+																	Orientation=0
+																	Weight=400
+																	Italic=0
+																	Underline=0
+																	StrikeOut=0
+																	CharSet=0
+																	OutPrecision=7
+																	ClipPrecision=48
+																	Quality=6
+																	PitchAndFamily=0
+																	FaceName='Arial'
+																$end 'Font'
+																Color(R=0, G=0, B=0)
+															$end 'FontAttribute'
+														$end 'TextFont'
+														InfMapMode=false
+														InfMapValue=0.2
+														AutoRangeMin=true
+														AutoRangeMax=true
+														AutoSpacing=true
+														kNumMinorDivisions=5
+														ShowAxisTitle=true
+														ShowAxisUnits=true
+														vwm='FullWnd'
+														viewWndWd=#nan
+														ActivateMargins=true
+														MarginPercent=0
+														NeverCollapse=false
+														AxisStripes=true
+													$end 'LineAxisRenderAttribute'
+												$end 'SubMapItem'
+											$end 'MainMapItem'
+											$begin 'MainMapItem'
+												$begin 'SubMapItem'
+													DataSourceID=-1
+													$begin 'PlotRenderAttribute'
+														BackgroundColor(R=255, G=255, B=255)
+														SelectionColor(R=255, G=0, B=128)
+														PlotAreaColor(R=255, G=255, B=255)
+														SelectionThicknessEmphasis=1
+														CurveSelEmphasisThickness=2
+														CurveSelDeEmphasisThickness=1
+														FieldWidth=4
+														Precision=4
+														UseScientificNotation=false
+														AutoScale=true
+														DataPointSnapPixels=40
+														YAxisStripes=true
+													$end 'PlotRenderAttribute'
+												$end 'SubMapItem'
+											$end 'MainMapItem'
 										$end 'PlotAttributeStoreMap'
 									$end 'DocAttributes'
 									$begin 'DisplayTypeAttributes'
@@ -11483,17 +11956,17 @@ ANSYS, Inc. provides no warranty for this data.'
 									$end 'DocDefaultAttributes'
 									$begin 'PerViewPlotAttributeStoreMap'
 										$begin 'MapItem'
-											ItemID=672
+											ItemID=678
 											$begin 'PlotAttributeStoreMap'
 												$begin 'MainMapItem'
 													$begin 'SubMapItem'
 														DataSourceID=4
 														$begin 'BasicLayoutAttribute'
 															$begin 'LayoutRect'
-																Top=614
-																Left=1500
-																Bottom=9824
-																Right=8621
+																Top=553
+																Left=1853
+																Bottom=9768
+																Right=8172
 															$end 'LayoutRect'
 														$end 'BasicLayoutAttribute'
 													$end 'SubMapItem'
@@ -11501,10 +11974,10 @@ ANSYS, Inc. provides no warranty for this data.'
 														DataSourceID=28
 														$begin 'BasicLayoutAttribute'
 															$begin 'LayoutRect'
-																Top=614
-																Left=1500
-																Bottom=9824
-																Right=8621
+																Top=553
+																Left=1853
+																Bottom=9768
+																Right=8172
 															$end 'LayoutRect'
 														$end 'BasicLayoutAttribute'
 													$end 'SubMapItem'
@@ -11515,7 +11988,7 @@ ANSYS, Inc. provides no warranty for this data.'
 																Top=75
 																Left=75
 																Bottom=9925
-																Right=1245
+																Right=1478
 															$end 'LayoutRect'
 														$end 'BasicLayoutAttribute'
 													$end 'SubMapItem'
@@ -11526,15 +11999,15 @@ ANSYS, Inc. provides no warranty for this data.'
 														$begin 'CartesianAxisLayoutAttribute'
 															$begin 'AxisRect'
 																Top=75
-																Left=8621
+																Left=8172
 																Bottom=9925
 																Right=9925
 															$end 'AxisRect'
 															$begin 'GridRect'
-																Top=614
-																Left=1500
-																Bottom=9824
-																Right=8621
+																Top=553
+																Left=1853
+																Bottom=9768
+																Right=8172
 															$end 'GridRect'
 															AxisCollapsed=false
 															AxisExpandCollapseByUser=false
@@ -11545,15 +12018,15 @@ ANSYS, Inc. provides no warranty for this data.'
 														$begin 'CartesianAxisLayoutAttribute'
 															$begin 'AxisRect'
 																Top=75
-																Left=1500
-																Bottom=614
-																Right=8621
+																Left=1853
+																Bottom=553
+																Right=8172
 															$end 'AxisRect'
 															$begin 'GridRect'
-																Top=614
-																Left=1500
-																Bottom=9824
-																Right=8621
+																Top=553
+																Left=1853
+																Bottom=9768
+																Right=8172
 															$end 'GridRect'
 															AxisCollapsed=false
 															AxisExpandCollapseByUser=false
@@ -11564,7 +12037,7 @@ ANSYS, Inc. provides no warranty for this data.'
 													$begin 'SubMapItem'
 														DataSourceID=4
 														$begin 'CartesianCurveGroupLayoutAttribute'
-															X_spc=0.349065850398866
+															X_spc=0.872664625997165
 															X_fwd=3
 															X_fpr=0
 															Y1_spc=0.025
@@ -11581,9 +12054,9 @@ ANSYS, Inc. provides no warranty for this data.'
 																$begin 'OverlayLayoutAttribute'
 																	$begin 'BoundingRect'
 																		Top=4850
-																		Left=1345
+																		Left=1578
 																		Bottom=9850
-																		Right=8845
+																		Right=9078
 																	$end 'BoundingRect'
 																	ModifySize=false
 																	ModifyPosition=false
@@ -11961,16 +12434,16 @@ ANSYS, Inc. provides no warranty for this data.'
 									$end 'AllPtSVID'
 								$end 'PlotDisplayDataManager'
 							$end 'Report2D'
-						$end 'Torque Plot 1'
+						$end 'Torque vs Rotation Angle Plot'
 					$end 'Reports'
 					$begin 'ReportsWindowInfoList'
-						$begin 'Torque Plot 1'
+						$begin 'Torque vs Rotation Angle Plot'
 							ReportID=1
 							$begin 'WindowInfoList'
 								$begin 'Report2D'
 									$begin 'ViewInfo'
 										$begin 'WrapperView'
-											ID(672)
+											ID(678)
 										$end 'WrapperView'
 										$begin 'WrapperDoc'
 											HiddenDrawings()
@@ -11980,17 +12453,17 @@ ANSYS, Inc. provides no warranty for this data.'
 													$begin 'MedCamera'
 														$begin 'svrc'
 															svid=4
-															view(672, cam(XYCam(false, true, true, true, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1)))
+															view(678, cam(XYCam(false, true, true, true, 0, 1, 0, 1, 0, 1, 0, 1, 0, 1)))
 														$end 'svrc'
 													$end 'MedCamera'
 												$end 'CurveMed'
 											$end 'DispType'
 										$end 'WrapperDoc'
-										WindowPos(WindowPos(5, -1, -1, -9, -38, 32, 32, 1731, 604))
+										WindowPos(WindowPos(5, -1, -1, -8, -31, 130, 130, 1419, 458))
 									$end 'ViewInfo'
 								$end 'Report2D'
 							$end 'WindowInfoList'
-						$end 'Torque Plot 1'
+						$end 'Torque vs Rotation Angle Plot'
 					$end 'ReportsWindowInfoList'
 				$end 'ReportSetup'
 				$begin 'Properties'
@@ -12032,7 +12505,7 @@ $begin 'ProjectPreview'
 	IsEncrypted=false
 	Thumbnail64='/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQE\
 BAQICAQECAQEBAgICAgICAgICAQICAgICAgICAgL/2wBDAQEBAQEBAQEBAQECAQEBAgICAgICAgICAg\
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgL/wAARCAABAAEDASIAAhEBAxEB/\
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgL/wAARCABgAGADASIAAhEBAxEB/\
 8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQR\
 BRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUp\
 TVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5us\
@@ -12040,7 +12513,133 @@ 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\
-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'
+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'
 	$begin 'DesignInfo'
 		DesignName='2D Model'
 		Notes=''
@@ -12048,11 +12647,11 @@ Pk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD/AD/6KKKAP//Z'
 		IsSolved=true
 		'Nominal Setups'[1: 'Setup1']
 		'Nominal Setup Types'[1: '']
-		'Optimetrics Setups'[1: 'ParametricSetup1']
-		'Optimetrics Experiment Types'[1: 0]
+		'Optimetrics Setups'[2: 'ParametricSetup1', 'ParametricSetup2']
+		'Optimetrics Experiment Types'[2: 0, 0]
 		Image64='/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQE\
 BAQICAQECAQEBAgICAgICAgICAQICAgICAgICAgL/2wBDAQEBAQEBAQEBAQECAQEBAgICAgICAgICAg\
-ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgL/wAARCADIAGYDASIAAhEBAxEB/\
+ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgL/wAARCADIAMgDASIAAhEBAxEB/\
 8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQR\
 BRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUp\
 TVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5us\
@@ -12060,123 +12659,358 @@ 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\
-Pk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD+/iiiigAooooAKKKKACiiigAooooAKKKKACiii\
-gAooooA/H7/AILgftd65+yN+wp4w1PwJ4j1Xwr8Vfi3ruk/Cj4d694e1i70LxH4eutWS51fxJ4n0XVN\
-OkS5sL2z8L6Pqaw3FvJHLBdajbOkiMAw/IT/AIIeftg/tUeD/wBtHxf+yH+2Z8Uvi9491n4u/Cfwz48\
-+HSfGP4k+L/H194f1qDwpZfErSbLRJvGGq3b6dFq3w68R3txcRwvEDcaBDE6vKoA8T/4ODP2pPh542/\
-b4/Z7+BPjW81vWPgt+zZH4d1/4waX4Lj03VdeutY8eazpOveMNH0uy1HV7K0uNdj+H2keG4YY7i7tki\
-m1aZJZk+YL8i/t7f8FMf2efjF+27+zL+2t+yJ4W+MXw88X/AAfg8J6f420r4h+GvBnheHWbLwJrazaC\
-uj3Xgr4ja2b2G68J6hq+jX8Fwlsos7a3jRp0lkSIA/uR/ae/a6/Z5/Y18DaT8Sf2kviD/wAK48Fa54l\
-tfCGl61/wifjfxh9q8RXmn6lqttp39neA/DWqXcG6w0jUJPOkgSAfZ9rSh3RW+XPFH/BZD/gmd4O8Y6\
-Z4D8QftY+CrbxHqsOkTRLZ+HPiLrOiaf8A21bwXVnD4h8WaL4NuNJ8K3kcVzELy31O9tJ9PcPFfx20s\
-ciL+X//AAcaeO/DfxR/4Jvfs5/ErwdfJqfhTx/8aPhz4z8N6hHkLeaJ4l+FPjzWNMnKsoaN2s7yEsjB\
-WRsqyqwIHy1+3t+xB+yx8Kf+CF/wO+K/gP4MeCdA+LEGh/s7+Mb74qWuiaevxH8Qax8S7fTpPF8XiTx\
-mLYX+uaNPJ4hvGhsJ52s7P7PbLaQQpbxqAD+tbxp8XPhd8OfhzqHxf8dfELwd4V+Ful6La+Ib34g614\
-g0yz8JJouoLbtpmoQ65Jc/Z7yC8N3ZrZeS8jXkl7DFarLJNGrfnZ4Y/wCC3X/BLXxd4ms/CWk/ta+Gb\
-fVr+8Nhb3HiTwD8YPBvhxZxL5O668ZeMPh5Y6PY2pfpPPfRwFfnEhT5q/NLxp+yj8e/28v+CBP7JHgD\
-4O6sNb+JPhnw54C8ZW3hTVtYs9IT4h6N4Ln8V+F7bwkNa1W5htbO9ttMvLG4sjeTRW7yaDHDJNGzrKv\
-5dD9oLwP+zv4U8B/Cz/gpF/wQt+HOg+G/CGq+HNCX4w/D/wCGXiD4CeKNfk8LWg059XvfFUulSwfG3V\
-7qOF572EeLbXSdVuZHmlXZsVAD+w34tft4fsnfAv4rfCT4KfFP4uWnhb4i/HaDQ7r4T6Z/wiXj7W9E8\
-Y2/iPW28O6LNaeN/DnhW80LT459XCRg3mpW3lpcQzy7LeeGWTuf2lP2p/gJ+yB8O0+K/wC0X8QLf4ce\
-Apdf03wvBrcug+KvE81zr2rRXc9hp1rongvQtS1C6keCwvJGaO1aOKO2Z5XRRmv56P8Ags38OPhf+0l\
-/wTT/AGZv24/2T7S20Pwn+z2fB/ib4f2mh6Fb+H5PDnwo8U3Oi+F5dCTStPcR6DeeHfGOleF45LWLfD\
-avpt6scjKiu/zF+25+0K3/AAVq+LH/AASg/ZV8E3U1/pPxJ8M+EvjH8drbSXeRdD1bWS+keO4r4QZ+y\
-zaL4b8H+P5kZ8FRrcZAJkXcAf0l/GX/AIKY/sMfs++Dfhp47+L/AO0J4a8G6L8YPBvh34hfDuwm0Dxx\
-rHjTX/BHivT4NU8P+KJPhv4e8LXfiLRNHuLS4UCXUNLtBHNFNbS+XcwTRR6/7M3/AAUU/Yr/AGxNXv8\
-Aw5+zp8fvCvxA8T6bazX9x4Tn03xV4K8XSafbMi3WpWPhT4g+H9K1HVNNhaSLzri2tpoYvNTzHXeuf5\
-4/+Cmn7CX7WXwj/bvt/wBtP4IfslfD79t74HR/D7wf4S0/4KeM/AUnxf0PwVaeG/Btp8P4/Ctz8HLDV\
-otU163trPT11HSL2xt9QtrW5vy95B5kAE3R/wDBN79tb9gjWv23vD/gn4gf8E0vDv7DP7YXiqSHwd4R\
-8QaNpU9v4UtPEsug3dq2k23w81bw7of/AApPXNUtPOsrd9P0i5l1CTUDDf6ipuC0gB/WbRRRQAUUUUA\
-fgj/wT5/4Jb/tD/Aj9vP9ov8Abh/am8Y/Bfxj4l+K1v4zfwRZfDTXvHHiG/8AD2o+O/FcGp6pLqEvi7\
-wBokdhb2vhixt9MthbtdM8V3IpMKRjzvvf/gpd+xq37dv7IfxG+Amk3HhrS/Hl/LoniX4ZeIvFjXsOi\
-eHvHHhzVILuyu7++0vSr270+xudLbVtPuZrW1nmW31iUiGUZjb73ooA/mc+LX/BIv8Abf8AjB/wS1+B\
-H7Dvib4j/s3zfFP4F/GeTX9G8VHxh8UG8E3vwltND8WW+gaVPqz/AAkbUT4qtL/xbPaJbjSksk03SrY\
-reGUGIfcH7Yv/AAT7+Mv7Qn/BLj4f/sSeDPE3wx0z4reFPCfwE0LUfEHifWfFVl8PZrv4WQ6FH4gkst\
-V0rwXe6lJbTNpdx9jL6TG0gdPPS3y239g6KAPyC0z9gb9qPSP+CafwU/ZE+HX7V99+zh8dPhV4Wj0zV\
-PiN8IPtWreFfFNxBda5cHw/Jruo6JpPiLSNDmOpWrLqGmNpt9bTQGR7a+iUW7/nF8QP+CW3/Bbj9pbw\
-Hpn7PH7UH/BQb4Ha5+zxJfaEPEMeh6dquveN9QsPDt1DcaXc6vLH8CfDWoeOr2OWCG5aHV/FRS4u7aK\
-a5nlmjSZf1u8d/t6+P/gf8V/hl4Y/aN/ZysfhD8L/AI2fGDxf8H/hd4xi+OPh7x58S7670DS7zV/D/j\
-bxb8KPC/g9tO8OeB9YtLPCSWfjDV9T0yS9t11XS7USlk4b4Nf8FNfFHxevPC9lafsua1b3vxz+BnxK+\
-PP7JWjaR8WfC97rvxq0H4deIzoL+FfGI8W6BoGl/CLxjf2d3oWrW6HVte01NK1V5X1L7VbvZuAdl8Vv\
-Av7FP7IX7A3/AAx38ZPjF4F+F/wgufgR41+F+iz/ABN8Y+HdK8W+MYF8P3j+Jtd8N6HqN7DP4v8AF39\
-saz/aRs9Kt5nF7qEEUFuoeGM/gb/wbH/sttq3xA+N/wC11rSXN5ongiwPwU+Ft9fWEkKX2qa68Gu+Md\
-WsGlmcWslroMOh2zRoXA/4SudPMyjhv04/aM1Hwd+3R4u8UfstftTf8E+NG+L/AO07+z/4I8DfG34e/\
-B3wJ+2HrOm+C08M/GDVNK8LeJLvxX8ZdP0vwLJ4X1jRRBZS6vp39j+IFnt44J/D51Yzbh9q/wDBPH4k\
-/C19E+Mv7LXw/wDgd4K/Z71r9j3x7p/w38afD34Y+MJ/iP8ADl7nxHoq+ItI8SeHPiJqPhHQdR8WX15\
-El8mqSaxpFnq8WoafMt757Mk8gB81/ts/sYf8FRfG3x4tPjj+xJ/wUIf4d6YIBbQ/BL4r240/4Z+FQ2\
-n29jdyadZeHfh7r2m+OYZnSaaNPEPh26vbKZ2ePVZi6CDwz9mD/gkf+1lrv7ZPg79uD/gpN+054M+On\
-xO+FcWn/wDCufDPwv066tvD63+jJenw3e6leHwN4WtdE0vTby+u72PTdN0JRe6hcC6ur3CTw3v0lqH/\
-AAU3+M8Xw3/ar+O+kfsqfDzVfgj+yN8aPiT8KPiDfy/tO69p3xX1rTPhdrOnWXiTxj4V+Hkv7ND6PdD\
-+ydSivIdPufF1tJI1vLbC4LCOSX1L41/8FB/HHwN0zTPjH4w/Zvg0/wDZJ1jxf8GPC+h/GHU/jZ4et/\
-ih4vsfjNa6U1j4v8FfAfRfCGpLeaDpl/qqR31rrHijQ9ckgs7i7s9IuI49pAP07ooooAKK8W+L1o+ra\
-v8ABnw7JqniPTNL8R/FHUNP1tfDHinxL4Ov9QsLL4PfFrxBb2M2s+E9WsrxbMazoulXDRJcKkj2MfmK\
-yjFXP+FJeDf+g18Xf/Egfj1/88msfaVJSnGEItU2k25Na2UtlGWlpd9zD2lWU6kadOMlTaTcpOOrjGW\
-iUJaWkuu/Tqeu0V5F/wAKS8G/9Br4u/8AiQPx6/8Ank0f8KS8G/8AQa+Lv/iQPx6/+eTRzV/+fcP/AA\
-OX/wArDmxP/PqH/gyX/wAqPXaK8i/4Ul4N/wCg18Xf/Egfj1/88mj/AIUl4N/6DXxd/wDEgfj1/wDPJ\
-o5q/wDz7h/4HL/5WHNif+fUP/Bkv/lR+HHgv9mL9rH9of8Abc+JX7QX7dP7NvxoGiw2/jb4P/sm+HvC\
-vxB/Zf1z4KfAT4aeNtH1TwnqXxT8Z2UX7SC+Ib/x1c6Nfma8Gk6DfXKyzyTRi4MOl2elZ/wo/ZZ/bu+\
-FWm/s9+KdL/Z2028+In/BPr9kj42fBn4RWN98TfhhLoX7Qvxf+IOt2nhTwZ4g8NGDx/E2hfDi08B2Me\
-q6qfE8nhvU3uruSws7Bmjjnb91/wDhSXg3/oNfF3/xIH49f/PJo/4Ul4N/6DXxd/8AEgfj1/8APJo5q\
-/8Az7h/4HL/AOVhzYn/AJ9Q/wDBkv8A5UfgB8DfgN/wUO/Z1/Zj/aT8b+A/2aPjX43/AOCnH7TM2lXv\
-xE+OPxa+JX7IY8FadcXV9c2IsPhpcaJ+0rqM6aV4b0G9vJtLi1LT7C3uL37MfskdhaW2kQfpR/wSz/Z\
-wuf2YPgPq/gPxD8KPjd4L+JWu+JT4++L/AMSfjrr/AMEvEXif42fE7xRa+Z4n8U6fd/Bv41eNPs+jWs\
-1pFbwRavc2t35c0cxN7czX1zX2v/wpLwb/ANBr4u/+JA/Hr/55NH/CkvBv/Qa+Lv8A4kD8ev8A55NHN\
-X/59w/8Dl/8rDmxP/PqH/gyX/yo/n38Yf8ABMP9qPVPhJ+1L4w8N6X4tj+K95+3x8Svj54S/Zy8SfHa\
-+uP2dv2sPgbfeKdE1rTPBXxI+Glh8Sj4R0241RbeeeC61W20/Ull0yKz1ho7ZreS09I+IfwW/bJ/aa/\
-bh+HHxQ/ab/Y9+N1t+yD+zsPBXiP9nv4A/C/4mfshalpF78U7ay0+4vfHPxog139pnSVuo9F1R7qGyg\
-0y2vBJa6XBDbJBBJfpq/7gf8KS8G/9Br4u/wDiQPx6/wDnk0f8KS8G/wDQa+Lv/iQPx6/+eTRzV/8An\
-3D/AMDl/wDKw5sT/wA+of8AgyX/AMqPXaK8u+B2oX+rfBX4P6rqt9eanqmp/C74f6hqWpahczXt/qF/\
-e+E9Iuby+vry5dpLu8luJZJJZZGZ5HkZnYsSaKunNVIQmlZTSf3q5pTmqlOnUSsqkVK3qrlP4k/8jl+\
-z9/2V3Wv/AFQvxtr12vIviT/yOX7P3/ZXda/9UL8ba9dqKXx4j/Gv/TdMzo/xMV/18X/pqmFFFFbG4U\
-UUUAFFFFABRRRQAUUUUAeRfs/f8kF+CX/ZIvht/wCobotFH7P3/JBfgl/2SL4bf+obotFY4f8A3eh/g\
-j/6SjDC/wC7Yf8A69w/9JQfEn/kcv2fv+yu61/6oX42167XkXxJ/wCRy/Z+/wCyu61/6oX42167RS+P\
-Ef41/wCm6YUf4mK/6+L/ANNUwooorY3PN/jH8UNA+CHwh+Knxp8V2esah4W+EPw38cfFDxLYeHreyu9\
-fvtA8AeGNU8V6zZ6Ha6lqFpb3OsS6dpNyltHcXVtC8zostxDGWkX8uP8Ah9D8Jv8Ao1T9r/8A8Bf2Vf\
-8A6Kyuh/4Kt/tgfD74XfAD9pH9nGXwr8QvGfxE+Jf7IvxhmuW8H2HhNNA+HegfETwX8RfAng3xV451P\
-xl4x0d7nR7zXPD/AIw/c+H4Ne1O3h8HXcl1p0BudJTUv5/fFOuX2m3/AIK0XT4NXNz418U3PhsahoPh\
-jQPG+q6Mln4N8XeMXv7XwZ4n+Kfgiy8Sbx4TFm8U3izRjbR6o+oRyX8tmmk6h8lW494Kw74tVfirAUv\
-9QoQqZ05YmkllcKlB4mEsc3K2H5qEXVSqOL5Fex9FT4R4nqrh508hxU/9bZShllqM28dKFSNKawyter\
-y1JRg3FWu97H7w/wDD6H4Tf9Gqftf/APgL+yr/APRWUf8AD6H4Tf8ARqn7X/8A4C/sq/8A0VlfCP7NP\
-7Anjf8Aak8Cat438EftZ+FfDM3hnxbf+BvGXg3xz+xlq9n4p8IeKbPR9B8Tw6Xqk3hj9uHVtH1L7T4Q\
-8WeE9Vgn0rVtRtltvEUNtczW+p29/YWfwz8dvE3gr9l/9oX4kfsx/Fn4v+Br3xv8O9e0bSYvFQ0i4+H\
-WjeKrDXPhP8OfixFrU3h3VvFOtp4EtoofiJ/ZEK3+vXK6pdeGLm5spVeWTTrH3MozfK8/yvL88yTMKO\
-a5Pm1GniMNicPUjVoV6NWKnTq0qkG4zhOLTjJNppnk5ll2OyfH4vK80wlTL8xwFSVGtRrRcKlKrCXLK\
-E4SScZJ6WfyP7G/g58UNA+N/wAIfhX8afClnrGn+Fvi98N/A/xQ8NWHiG3srTX7HQPH/hjS/FejWeuW\
-um6hd29trEWnatbJcx291cwpMjrFcTRhZG9Ir5A/4J7f8mC/sPf9mgfs0/8AqmPBVfX9eicYUUUUAeR\
-fs/f8kF+CX/ZIvht/6hui0Ufs/f8AJBfgl/2SL4bf+obotFY4f/d6H+CP/pKMML/u2H/69w/9JQfEn/\
-kcv2fv+yu61/6oX42167XkXxJ/5HL9n7/srutf+qF+Nteu0UvjxH+Nf+m6YUf4mK/6+L/01TCiiitjc\
-/mL/wCCyH/Jdv2g/wDtHn8P/wD1Mf20K+BNX/5KH8Cv+yl67/6pL4v1/QD/AMFW/wBj/wCH3xR+AH7S\
-P7R0vir4heDPiJ8NP2RfjDDcr4Pv/Cb6B8RNA+Hfgv4i+O/BvhXxzpnjLwdrD22j2eueIPGH77w/PoO\
-p3EPjG7jutRnNtpL6b/P74p0O+1K/8Fa1p8+ri58FeKbnxINP0HxPoHgjVdZS88G+LvBz2Fr4z8T/AA\
-s8b2XhvYPFgvHlm8J6ybmPS30+OOwlvE1bT/49znwJ41x8fpf06FfAL/iOeGwdPJXKvVShOjktTATWO\
-th26H7+Ss6arpwfN5H9HYDxV4Yw3/EvEqkMV/xrCtiZZmlSg241cfSxEHhv3tqv7uMm1J02mrWuf0E/\
-8EjP+Sc/tT/9nZy/+stfstV/N98EP+Ew/sLxR/wtT/kuP/Ca6h/wvL7T/Zf/AAkP/Cwf7G0D7J/wn/8\
-AY37r/ha//CAf8IN/wl/2v/iof+Eo/tf/AITX/iuP+Elr9K/2af2+/G/7LfgTVvBHgj9kzwr4mm8TeL\
-b/AMc+MvGXjn9s3V7zxT4v8U3mj6D4Yh1TVIfDH7D2k6Ppv2bwh4T8J6VBBpWk6dbNbeHYbm5huNTuL\
-+/vPhn47eGfBX7UH7QvxI/ac+LPwg8DWXjf4ia9o2rReFRq9x8RdG8K2Gh/Cf4c/CeLRZvEWreFtETx\
-3bSw/Dv+14Wv9Btl0u68T3NtZRM8Umo337r4OcH5pwF4V+HPBud1KNTOOFMmwOAxLw85VKDrUKFKnUd\
-KpOFOUoKUHyt04uS1sj8k8Ss+wPFviDxZxTlaqRy7Ocdiq9GNaKhU9lWqqUXOMZTUZWjflUpb2bR++P\
-8AwROf42SfsS2UnxXfxdJ4Gk+KHjd/2UpPGzSvrT/skta+Hm+Dz2zasf7abwsc+IToR1//AImB0M6cb\
-T/iQ/2NX65V8gf8E9v+TBf2Hv8As0D9mn/1THgqvr+v0uMVCKitl/Vl2S2S6KyPioRUIqKd0vw1vZLo\
-lsl0SSCiiiqKPIv2fv8AkgvwS/7JF8Nv/UN0Wij9n7/kgvwS/wCyRfDb/wBQ3RaKxw/+70P8Ef8A0lG\
-GF/3bD/8AXuH/AKSg+JP/ACOX7P3/AGV3Wv8A1Qvxtr12vIviT/yOX7P3/ZXda/8AVC/G2vXaKXx4j/\
-Gv/TdMKP8AExX/AF8X/pqmFFFFbG55v8Y/hfoHxv8AhD8VPgt4rvNY0/wt8Xvhv44+F/iW/wDD1xZWm\
-v2OgeP/AAxqnhTWbzQ7rUtPu7e21iLTtWuXtpLi1uYUmRGlt5ow0bflx/w5e+E3/R1f7X//AIFfsq//\
-AEKdfsfRQB+OH/Dl74Tf9HV/tf8A/gV+yr/9CnR/w5e+E3/R1f7X/wD4Ffsq/wD0KdfsfRQB5v8ABz4\
-X6B8EPhD8K/gt4UvNY1Dwt8Ifhv4H+F/hq/8AENxZXev32geAPDGl+FNGvNcutN0+0t7nWJdO0m2e5k\
-t7W2heZ3aK3hjKxr6RRRQAUUUUAeRfs/f8kF+CX/ZIvht/6hui0Ufs/f8AJBfgl/2SL4bf+obotFY4f\
-/d6H+CP/pKMML/u2H/69w/9JQfEn/kcv2fv+yu61/6oX42167Xi3xeu30nV/gz4ik0vxHqel+HPijqG\
-oa23hjwt4l8Y3+n2F78Hvi14ft76bRvCek3t41mdZ1rSrdpUt2SN76PzGVTmrn/C7fBv/QF+Lv8A4j9\
-8ev8A521RGpTp1K6nUjBuaau0rrkgr69L6epnGrSp1cSqlSNNymmlJpXXs6aurva6av3Vj12ivIv+F2\
-+Df+gL8Xf/ABH749f/ADtqP+F2+Df+gL8Xf/Efvj1/87ar+sUP+f8AD/wKP+Zp9Zw3/QRD/wADj/meu\
-0V5F/wu3wb/ANAX4u/+I/fHr/521H/C7fBv/QF+Lv8A4j98ev8A521H1ih/z/h/4FH/ADD6zhv+giH/\
-AIHH/M9doryL/hdvg3/oC/F3/wAR++PX/wA7aj/hdvg3/oC/F3/xH749f/O2o+sUP+f8P/Ao/wCYfWc\
-N/wBBEP8AwOP+Z67RXkX/AAu3wb/0Bfi7/wCI/fHr/wCdtR/wu3wb/wBAX4u/+I/fHr/521H1ih/z/h\
-/4FH/MPrOG/wCgiH/gcf8AM9doryL/AIXb4N/6Avxd/wDEfvj1/wDO2o/4Xb4N/wCgL8Xf/Efvj1/87\
-aj6xQ/5/wAP/Ao/5h9Zw3/QRD/wOP8AmH7P3/JBfgl/2SL4bf8AqG6LRVz4Haff6T8Ffg/pWq2N5pmq\
-aZ8Lvh/p+pabqFtNZX+n39l4T0i2vLG+s7lFktLyK4ikjlikVXjeNldQwIoow6aoUE1ZqEf/AElBhk1\
-hsOmrNQh/6Sj1GiiitjcKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigA\
-ooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiig\
-AooooA//9k='
+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\
+UUUAFFFFABRRRQAUUUUAf/2Q=='
 	$end 'DesignInfo'
 $end 'ProjectPreview'

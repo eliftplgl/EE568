@@ -309,6 +309,7 @@ Substituting $\lambda = L(\theta)i$:
 
 \begin{equation}
 W = \frac{1}{2} L(\theta) i^2
+\label{eq:energy}
 \end{equation}
 
 The electromagnetic torque is obtained from:
@@ -347,13 +348,13 @@ T(\theta) = -i^2 L_{\text{amp}} \sin(2\theta)
 
 \subsubsection{Torque as a Function of Rotor Position}
 
-The torque profile is plotted in Figure~\ref{fig:torque} by using the derved equation.
+The torque profile is plotted in Figure~\ref{fig:torque_variation} by using the derived equation.
 
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.82\textwidth]{figures/torque_variation.eps}
     \caption{Electromagnetic torque as a function of rotor position under constant DC excitation ($I = \SI{2.5}{A}$).}
-    \label{fig:torque}
+    \label{fig:torque_variation}
 \end{figure}
 
 \subsubsection{Results Summary}
@@ -421,7 +422,7 @@ To calculate this effect, the B-H curve of the selected lamination material to b
 
 \section{Q2 - 2D FEA Modelling (Linear Materials)}
 
-In this section, the variable reluctance machine will be modelled in a 2D finite element analysis (FEA) software using linear material properties. The results will be compared with the analytical model derived in Q1 to validate the assumptions and identify any discrepancies. Main outputs from the FEA simulations will include flux density vectors, inductance values at different rotor positions, stored magnetic energy, and torque profiles. MAchine is generated in ANSYS Maxwell software by using the geometry provided on the course GitHub page. As the core material, M-19 electrical steel is selected due to its typical use in such applications and low eddy current losses. Material properties of the M-19 steel is available on ANSYS and the properties are presented in the appendix. In the linear part of the B-H curve, material has the relative permeability of $\mu_r \approx 4000$ which is used in the linear FEA simulations. Results for the analysis will be presented in the following subsections. Simulation model is presented in Figure~\ref{fig:fea_model}.
+In this section, the variable reluctance machine will be modelled in a 2D finite element analysis (FEA) software using linear material properties. The results will be compared with the analytical model derived in Q1 to validate the assumptions and identify any discrepancies. Main outputs from the FEA simulations will include flux density vectors, inductance values at different rotor positions, stored magnetic energy, and torque profiles. MAchine is generated in ANSYS Maxwell software by using the geometry provided on the course GitHub page. As the core material, M-19 electrical steel is selected due to its typical use in such applications and low eddy current losses. Material properties of the M-19 steel is available on ANSYS and the properties are presented in the appendix. In the linear part of the B-H curve, material has the relative permeability of $\mu_r \approx 5000$ which is used in the linear FEA simulations. Results for the analysis will be presented in the following subsections. Simulation model is presented in Figure~\ref{fig:fea_model}.
 
 \begin{figure}[H]
     \centering
@@ -430,22 +431,87 @@ In this section, the variable reluctance machine will be modelled in a 2D finite
     \label{fig:fea_model}
 \end{figure}
 
-\subsection{Part (a) - Flux Density Vectors (0°, 45°, 90°)}
+\subsection{Part (a) - Flux Density Vectors at Different Rotor Positions}
+
+In this part, flux density vectors are plotted for three different rotor positions: aligned (0°), intermediate (45°), and unaligned (90°). The flux density distribution will illustrate how the magnetic field lines concentrate in the aligned position and spread out in the unaligned position, confirming the assumptions made in the analytical model. The flux density plots will be presented in Figures \ref{fig:flux_0deg}, \ref{fig:flux_45deg}, and \ref{fig:flux_90deg}.
+
+As can be seen from the flux density plots, the flux lines are highly concentrated at the starting position (0°) where the rotor tooth is fully aligned with the stator pole, resulting in a high flux density. At the intermediate position (45°), the flux lines begin to spread out, indicating a decrease in flux density. 
+
+Finally, at the unaligned position (90°), the flux lines are widely spread, confirming the significant reduction in flux density and validating the assumptions of the analytical model. As the air gap increases with the rotor position, the reluctance increases which decreases the flux density while increasing the fringing fluxes across the air gap. These fringing fields can be observed in the flux density plots.
+
+\begin{figure}
+    \centering
+    \includegraphics[width=0.82\textwidth]{figures/flux_0deg.png}
+    \caption{Flux density at 0°}
+    \label{fig:flux_0deg}
+\end{figure}
+
+\hfill
+\begin{figure}
+    \centering
+    \includegraphics[width=0.82\textwidth]{figures/flux_45deg.png}
+    \caption{Flux density at 45°}
+    \label{fig:flux_45deg}
+\end{figure}
+\hfill
+\begin{figure}
+    \centering
+    \includegraphics[width=0.82\textwidth]{figures/flux_90deg.png}
+    \caption{Flux density at 90°}
+    \label{fig:flux_90deg}
+\end{figure}
+
+
 
 
 \subsection{Part (b) - Inductance and Stored Energy}
 
-\subsection{Part (c) - Torque vs. Rotor Angle: Comparison with Analytical Model}
+For the same three rotor positions, the inductance values and stored magnetic energy will be calculated from the FEA results. The inductance can be obtained from ANSYS itself by assigning the appropriate inductance parameters as the matrix, while the stored energy can be calculated using the co-energy method using Equation~\eqref{eq:energy}. These values will be compared with the analytical predictions to assess the accuracy of the analytical model and identify any discrepancies due to the assumptions made. Inductance results will be tabulated in Table~\ref{tab:inductance_fea} and the stored energy values will be presented in Table~\ref{tab:energy_fea}. 
+
+\begin{table}
+    \centering
+    \caption{Inductance Values from FEA}
+    \label{tab:inductance_fea}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Rotor Position & Inductance (mH) \\
+        \hline
+        0° & 51.8 \\
+        45° & 33.1 \\
+        90° & 16.7 \\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}
+    \centering
+    \caption{Stored Energy Values from FEA}
+    \label{tab:energy_fea}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Rotor Position & Stored Energy (J) \\
+        \hline
+        0° & 163.1 \\
+        45° & 104.1 \\
+        90° & 52.2 \\
+        \hline
+    \end{tabular}
+\end{table}
 
 
 
 
+\subsection{Part (c) - Torque Variation with respect to Rotor Angle and Comparison with Analytical Model}
+
+In FEA, rotor is rotated in small increments of the angle (e.g., every 0.5°) and the torque is obtained at each position. The resulting torque profile is plotted as a function of rotor angle and presented in Figure~\ref{fig:torque_variation_fea}.  
 
 
-
-
-
-
+\begin{figure}
+    \centering
+    \includegraphics[width=0.82\textwidth]{figures/Torque vs Rotation Angle Plot.png}
+    \caption{Torque variation with respect to rotor angle from FEA simulations.}
+    \label{fig:torque_variation_fea}
+\end{figure}
 
 \section{Q3 - 2D FEA Modelling (Non-Linear Materials)}
 
