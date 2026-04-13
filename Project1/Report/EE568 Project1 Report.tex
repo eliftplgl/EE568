@@ -137,7 +137,13 @@ The machine geometry for this project is defined on the course GitHub page. Some
     \end{tabular}
 \end{table}
 
-%%─── 2. Q1 – Analytical Modelling ───────────────────────────────────────────
+
+
+
+
+
+
+
 \section{Q1 - Analytical Modelling}
 
 \subsection{Assumptions}
@@ -151,6 +157,12 @@ The following simplifying assumptions are adopted throughout the analytical mode
     \item The magnetic system is linear (no saturation).
     \item Magnetic flux is uniformly distributed across the core cross-section.
 \end{enumerate}
+
+
+
+
+
+
 
 \subsection{Part (a) - Reluctance and Inductance Analysis}
 By using the assumptions given, reluctance of the system can be calculated by the below formula:
@@ -244,6 +256,16 @@ Finally, numerical results for this part is summarized below.
         \bottomrule
     \end{tabular}
 \end{table}
+
+
+
+
+
+
+
+
+
+
 
 \subsection{Part (b) -Torque under Constant DC Excitation}
 
@@ -352,6 +374,14 @@ The torque profile is plotted in Figure~\ref{fig:torque} by using the derved equ
 
 The torque is sinusoidal at twice the rotor frequency. It is positive in the regions where inductance is increasing (rotor moving towards alignment) and negative where inductance is decreasing. Under constant DC excitation, the average torque over a full revolution is zero, since the positive and negative half-cycles cancel.
 
+
+
+
+
+
+
+
+
 \subsection{Part (c) - Non-Linear Effects and Model Improvements}
 
 \subsubsection{Fringing Flux}
@@ -381,21 +411,43 @@ and the torque obtained as $T = \partial W' / \partial \theta \big|_{I=\text{con
 To calculate this effect, the B-H curve of the selected lamination material to be included in the analysis.
 
 
-%%─── 3. Q2 – FEA Modelling (Linear Materials) ───────────────────────────────
-\section{Q2 - FEA Modelling (2D, Linear Materials)}
 
-\textit{This section will be completed after the FEA simulations are performed.}
 
-\subsection{Software and Setup}
+
+
+
+
+
+
+\section{Q2 - 2D FEA Modelling (Linear Materials)}
+
+In this section, the variable reluctance machine will be modelled in a 2D finite element analysis (FEA) software using linear material properties. The results will be compared with the analytical model derived in Q1 to validate the assumptions and identify any discrepancies. Main outputs from the FEA simulations will include flux density vectors, inductance values at different rotor positions, stored magnetic energy, and torque profiles. MAchine is generated in ANSYS Maxwell software by using the geometry provided on the course GitHub page. As the core material, M-19 electrical steel is selected due to its typical use in such applications and low eddy current losses. Material properties of the M-19 steel is available on ANSYS and the properties are presented in the appendix. In the linear part of the B-H curve, material has the relative permeability of $\mu_r \approx 4000$ which is used in the linear FEA simulations. Results for the analysis will be presented in the following subsections. Simulation model is presented in Figure~\ref{fig:fea_model}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.82\textwidth]{figures/fea_model.png}
+    \caption{2D FEA model of the variable reluctance machine in ANSYS Maxwell.}
+    \label{fig:fea_model}
+\end{figure}
 
 \subsection{Part (a) - Flux Density Vectors (0°, 45°, 90°)}
+
 
 \subsection{Part (b) - Inductance and Stored Energy}
 
 \subsection{Part (c) - Torque vs. Rotor Angle: Comparison with Analytical Model}
 
-%%─── 4. Q3 – FEA Modelling (Non-Linear Materials) ───────────────────────────
-\section{Q3 - FEA Modelling (2D, Non-Linear Materials)}
+
+
+
+
+
+
+
+
+
+
+\section{Q3 - 2D FEA Modelling (Non-Linear Materials)}
 
 \textit{This section will be completed after the non-linear FEA simulations are performed.}
 
@@ -403,19 +455,45 @@ To calculate this effect, the B-H curve of the selected lamination material to b
 
 \subsection{Part (d) - Comparison: Linear vs. Non-Linear, Fringing and Saturation Effects}
 
-%%─── 5. Q4 – Control Method ─────────────────────────────────────────────────
+
+
+
+
+
+
+
+
+
 \section{Q4 - Control Method for Continuous Rotation}
 
 \textit{This section will be completed.}
 
-%%─── 6. Conclusion ───────────────────────────────────────────────────────────
+
+
+
+
+
+
+
+
+
+
+
 \section{Conclusion}
 
 The analytical model of the variable reluctance machine was developed under linearised assumptions. The maximum and minimum inductances were found to be \SI{42.41}{mH} and \SI{8.48}{mH}, corresponding to the aligned and unaligned rotor positions respectively. The peak torque under \SI{2.5}{A} DC excitation is $\pm\SI{0.106}{Nm}$, varying sinusoidally at twice the rotor frequency.
 
 FEA simulations (Q2, Q3) and the control strategy (Q4) will be added as the project progresses.
 
-%%─── Appendix ────────────────────────────────────────────────────────────────
+
+
+
+
+
+
+
+
+
 \appendix
 \section{Material Properties}
 
@@ -427,7 +505,6 @@ The MATLAB script used for the analytical calculations and plots in Q1 is provid
 
 %\lstinputlisting[style=matlab, caption={MATLAB script for Q1 Analytical Modelling}]{analytical_model.m}
 
-
 %%─── References ──────────────────────────────────────────────────────────────
 \begin{thebibliography}{9}
 \bibitem{hurley2013} 
@@ -436,6 +513,5 @@ W. G. Hurley and W. H. Wölfle,
 1st ed. Chichester, UK: John Wiley \& Sons, 2013. 
 ISBN: 9781118544679.
 \end{thebibliography}
-
 
 \end{document}
