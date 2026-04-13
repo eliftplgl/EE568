@@ -138,7 +138,7 @@ The machine geometry for this project is defined on the course GitHub page. Some
 \end{table}
 
 %%─── 2. Q1 – Analytical Modelling ───────────────────────────────────────────
-\section{Analytical Modelling - Q1}
+\section{Q1 - Analytical Modelling}
 
 \subsection{Assumptions}
 
@@ -152,7 +152,7 @@ The following simplifying assumptions are adopted throughout the analytical mode
     \item Magnetic flux is uniformly distributed across the core cross-section.
 \end{enumerate}
 
-\subsection{Reluctance and Inductance Analysis - Part (a)}
+\subsection{Part (a) - Reluctance and Inductance Analysis}
 By using the assumptions given, reluctance of the system can be calculated by the below formula:
 
 \begin{equation}
@@ -245,7 +245,7 @@ Finally, numerical results for this part is summarized below.
     \end{tabular}
 \end{table}
 
-\subsection{Torque under Constant DC Excitation - Part (b)}
+\subsection{Part (b) -Torque under Constant DC Excitation}
 
 \subsubsection{Torque Derivation}
 
@@ -352,55 +352,59 @@ The torque profile is plotted in Figure~\ref{fig:torque} by using the derved equ
 
 The torque is sinusoidal at twice the rotor frequency. It is positive in the regions where inductance is increasing (rotor moving towards alignment) and negative where inductance is decreasing. Under constant DC excitation, the average torque over a full revolution is zero, since the positive and negative half-cycles cancel.
 
-\subsection{Non-Linear Effects and Model Improvements - Part (c)}
+\subsection{Part (c) - Non-Linear Effects and Model Improvements}
 
 \subsubsection{Fringing Flux}
 
-In the simple analytical model, flux is assumed to flow only through the face of the stator pole directly across the air-gap, ignoring the flux that flows outward around the pole edges. In practice, this fringing flux can significantly increase the effective cross-sectional area, particularly when the air-gap is large (unaligned position). One common correction is to add the gap length to each linear dimension of the pole face to obtain an effective area:
+In the simple analytical model, flux is assumed to flow only through the face of the stator pole directly across the air-gap, ignoring the flux that flows outward around the pole edges. In practice, this fringing flux can significantly increase the effective cross-sectional area, particularly when the air-gap is large. One common approach to consider the fringing effects is to add the gap length to each linear dimension of the pole face to obtain an effective area:
 
 \begin{equation}
     A_\text{eff} = (w_c + g)(d + g)
 \end{equation}
-This correction is applied separately for each rotor position and reduces the reluctance, raising the predicted inductance closer to FEA results.
 
-\subsubsection{Non-Homogeneous Flux Distribution}
+This correction, as detailed in \cite{hurley2013}, is applied separately for each rotor position and reduces the reluctance, raising the predicted inductance closer to FEA results.
 
-The assumption of uniform flux distribution across the pole face is valid when the core is far from saturation conditions. A more accurate treatment would divide the core and air-gap regions into parallel flux tubes and solve for the flux in each tube independently, accounting for the spatial variation of permeability in a saturating core.
+\subsubsection{Non-Uniform Flux Distribution}
+
+The assumption of uniform flux distribution across the core is valid when the core is far from saturation conditions or the dimensions are such that the flux path is relatively uniform. A more accurate treatment to include would divide the core and air-gap regions into parallel flux tubes and solve for the flux in each tube independently, accounting for the variation of permeability in a saturating core. This would require numerical integration across the core cross-section and is more complex, but it would yield a more accurate prediction of inductance and torque, especially near saturation.
 
 \subsubsection{Saturation and Non-Linear Permeability}
 
-When the flux density in the core approaches the saturation flux density ($B_\text{sat} \approx \SI{1.5}{T}$ for typical electrical steel), the incremental permeability drops sharply. In this regime, the inductance is no longer constant for a given position. It becomes a function of both $\theta$ and $I$. The co-energy must be computed numerically from the magnetisation curve:
+When the flux density in the core approaches the saturation flux density ($B_\text{sat} \approx \SI{1.5}{T}$ for typical electrical steel), the incremental permeability drops sharply. In this regime, the inductance is no longer constant for a given position. It becomes a function of both $\theta$ and $I$. For this condition, the co-energy must be computed numerically from the magnetisation curve:
+
 \begin{equation}
     W'(I,\theta) = \int_0^I \lambda(i, \theta)\, di
 \end{equation}
+
 and the torque obtained as $T = \partial W' / \partial \theta \big|_{I=\text{const}}$.
 
-This requires the B-H curve of the selected lamination material to be included in the analysis.
+To calculate this effect, the B-H curve of the selected lamination material to be included in the analysis.
+
 
 %%─── 3. Q2 – FEA Modelling (Linear Materials) ───────────────────────────────
-\section{Q2 -- FEA Modelling (2D, Linear Materials)}
+\section{Q2 - FEA Modelling (2D, Linear Materials)}
 
 \textit{This section will be completed after the FEA simulations are performed.}
 
 \subsection{Software and Setup}
 
-\subsection{Part (a) -- Flux Density Vectors (0°, 45°, 90°)}
+\subsection{Part (a) - Flux Density Vectors (0°, 45°, 90°)}
 
-\subsection{Part (b) -- Inductance and Stored Energy}
+\subsection{Part (b) - Inductance and Stored Energy}
 
-\subsection{Part (c) -- Torque vs. Rotor Angle: Comparison with Analytical Model}
+\subsection{Part (c) - Torque vs. Rotor Angle: Comparison with Analytical Model}
 
 %%─── 4. Q3 – FEA Modelling (Non-Linear Materials) ───────────────────────────
-\section{Q3 -- FEA Modelling (2D, Non-Linear Materials)}
+\section{Q3 - FEA Modelling (2D, Non-Linear Materials)}
 
 \textit{This section will be completed after the non-linear FEA simulations are performed.}
 
-\subsection{Parts (a, b, c) -- Flux Density, Inductance, Stored Energy, Torque}
+\subsection{Parts (a, b, c) - Flux Density, Inductance, Stored Energy, Torque}
 
-\subsection{Part (d) -- Comparison: Linear vs. Non-Linear, Fringing and Saturation Effects}
+\subsection{Part (d) - Comparison: Linear vs. Non-Linear, Fringing and Saturation Effects}
 
 %%─── 5. Q4 – Control Method ─────────────────────────────────────────────────
-\section{Q4 -- Control Method for Continuous Rotation}
+\section{Q4 - Control Method for Continuous Rotation}
 
 \textit{This section will be completed.}
 
@@ -422,5 +426,16 @@ This appendix will list the B-H curve data and material properties of the electr
 The MATLAB script used for the analytical calculations and plots in Q1 is provided below.
 
 %\lstinputlisting[style=matlab, caption={MATLAB script for Q1 Analytical Modelling}]{analytical_model.m}
+
+
+%%─── References ──────────────────────────────────────────────────────────────
+\begin{thebibliography}{9}
+\bibitem{hurley2013} 
+W. G. Hurley and W. H. Wölfle, 
+\textit{Transformers and Inductors for Power Electronics: Theory, Design and Applications}, 
+1st ed. Chichester, UK: John Wiley \& Sons, 2013. 
+ISBN: 9781118544679.
+\end{thebibliography}
+
 
 \end{document}
