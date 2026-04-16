@@ -422,7 +422,7 @@ To calculate this effect, the B-H curve of the selected lamination material to b
 
 \section{Q2 - 2D FEA Modelling (Linear Materials)}
 
-In this section, the variable reluctance machine will be modelled in a 2D finite element analysis (FEA) software using linear material properties. The results will be compared with the analytical model derived in Q1 to validate the assumptions and identify any discrepancies. Main outputs from the FEA simulations will include flux density vectors, inductance values at different rotor positions, stored magnetic energy, and torque profiles. MAchine is generated in ANSYS Maxwell software by using the geometry provided on the course GitHub page. As the core material, M-19 electrical steel is selected due to its typical use in such applications and low eddy current losses. Material properties of the M-19 steel is available on ANSYS and the properties are presented in the appendix. In the linear part of the B-H curve, material has the relative permeability of $\mu_r \approx 5000$ which is used in the linear FEA simulations. Results for the analysis will be presented in the following subsections. Simulation model is presented in Figure~\ref{fig:fea_model}.
+In this section, the variable reluctance machine will be modelled in a 2D finite element analysis (FEA) software using linear material properties. The results will be compared with the analytical model derived in Q1 to validate the assumptions and identify any discrepancies. Main outputs from the FEA simulations will include flux density vectors, inductance values at different rotor positions, stored magnetic energy, and torque profiles. MAchine is generated in ANSYS Maxwell software by using the geometry provided on the course GitHub page. As the core material, M-19 electrical steel is selected due to its typical use in such applications and low eddy current losses. Material properties of the PC40 ferrite core is available on ANSYS and the properties are presented in the appendix. In the linear part of the B-H curve, material has the relative permeability of $\mu_r \approx 2000$ which is used in the linear FEA simulations. Results for the analysis will be presented in the following subsections. Simulation model is presented in Figure~\ref{fig:fea_model}.
 
 \begin{figure}[H]
     \centering
@@ -511,20 +511,20 @@ In FEA, rotor is rotated in small increments of the angle (e.g., every 1°) and 
 
 \begin{figure}[h]
     \centering
-    \includegraphics[width=0.82\textwidth]{figures/Torque vs Rotation Angle Plot.png}
+    \includegraphics[width=1\textwidth]{figures/Torque vs Rotation Angle Plot.png}
     \caption{Torque variation with respect to rotor angle from FEA simulations for linear material.}
     \label{fig:torque_variation_fea}
 \end{figure}
 
 Also, torque waveform is not symmetric as the analytical model assumes. This is because the analytical model assumes a uniform flux distribution and neglects fringing effects, which makes the change of inductance with respect to rotor angle symmetric. However, in FEA, the flux distribution is non-uniform and fringing effects are included, which leads to an asymmetric torque profile. 
 
-Additionally, peak torque from the FEA is approximetely \SI{81.8}{mNm} which is lower than the analytical value of \SI{110}{mNm}. The reason is again the fringing flux which increases the inductance for the unaligned position more than the aligned position, thus reducing the maximum torque values.
+Additionally, peak torque from the FEA is approximetely \SI{82.2}{mNm} which is lower than the analytical value of \SI{110}{mNm}. The reason is again the fringing flux which increases the inductance for the unaligned position more than the aligned position, thus reducing the maximum torque values.
 
 
 
 \section{Q3 - 2D FEA Modelling (Non-Linear Materials)}
 
-In this section, the FEA model will be extended to include non-linear material properties, specifically the B-H curve of the M-19 electrical steel. The effects of saturation and fringing flux will be investigated by comparing the results with the linear FEA model and the analytical predictions. The main outputs will include flux density vectors, inductance values, stored energy, and torque profiles at different rotor positions. The results will be analyzed to understand how non-linearities affect the machine performance and to identify any limitations of the linear assumptions made in the analytical model.
+In this section, the FEA model will be extended to include non-linear material properties, specifically the B-H curve of the PC40 ferrite core. The effects of saturation and fringing flux will be investigated by comparing the results with the linear FEA model and the analytical predictions. The main outputs will include flux density vectors, inductance values, stored energy, and torque profiles at different rotor positions. The results will be analyzed to understand how non-linearities affect the machine performance and to identify any limitations of the linear assumptions made in the analytical model.
 
 
 \subsection{Part (a) - Flux Density Vectors at Different Rotor Positions}
@@ -553,12 +553,11 @@ As before, flux density vectors are plotted for three different rotor positions:
     \label{fig:flux_90deg_NL}
 \end{figure}
 
-When the figures are compared with the linear case, there is no significant difference in the flux density distribution for all the positions since the core is not saturated and the flux density is below the saturation level. If the current is increased further, the flux density would approach the saturation level and increase the non-linearity effects, which would lead to a more significant difference in the flux density distribution between the linear and non-linear cases. But for this current value and the steel material, the flux density is still in the linear region of the B-H curve, thus the flux density distribution is similar to the linear case. 
-
+In the material data of the core, knee point of the saturation is around \SI{0.5}{T}. As can be seen from the flux density plots, most of the points in the core exceeds the saturation point at the aligned position (0°) where the flux density is the highest. At the intermediate position (45°), some regions of the core are still saturated while others are not, indicating a non-uniform saturation condition. Finally, at the unaligned position (90°), the flux density is significantly lower and most of the core is not saturated, confirming that saturation effects are more pronounced at positions with higher flux density.
 
 \subsection{Part (b) - Inductance and Stored Energy}
 
-For the inductance and the stored energy, the results are similar to the linear case since the core is not saturated. The inductance values at different rotor positions are tabulated in Table~\ref{tab:inductance_fea_NL} and the stored energy values are presented in Table~\ref{tab:energy_fea_NL}.
+For the inductance and the stored energy, the results are significantly different from the linear case since the core is saturated. The inductance values at different rotor positions are tabulated in Table~\ref{tab:inductance_fea_NL} and the stored energy values are presented in Table~\ref{tab:energy_fea_NL}.
 
 \begin{table}[htbp]
     \centering
@@ -568,9 +567,9 @@ For the inductance and the stored energy, the results are similar to the linear 
         \hline
         Rotor Position & Inductance (mH) \\
         \hline
-        0° &  \\
-        45° &  \\
-        90° &  \\
+        0° & 24.7\\
+        45° & 23.1\\
+        90° & 16.6\\
         \hline
     \end{tabular}
 \end{table}
@@ -583,22 +582,23 @@ For the inductance and the stored energy, the results are similar to the linear 
         \hline
         Rotor Position & Stored Energy (J) \\
         \hline
-        0° & 0. \\
-        45° & 0. \\
-        90° & 0. \\
+        0° & 0.077 \\
+        45° & 0.072 \\
+        90° & 0.052 \\
         \hline
     \end{tabular}
 \end{table}
 
+As the core saturates, as the permeability of the core decreases significanlty compared to the linear region, reluctance increases and thus the inductance decreases. This is why the inductance values are significantly lower than the linear case, especially at the aligned position where saturation is most severe. The stored energy also decreases due to the reduced inductance and the fact that the core cannot store as much magnetic energy when it is saturated. The results confirm that saturation has a significant impact on the machine performance, reducing both the inductance and the stored energy, which would in turn affect the torque production.
 
 \subsection{Part (c) - Torque Variation with respect to Rotor Angle and Comparison with Analytical Model}
 
-Finally, the torque variation with respect to rotor angle is plotted for the non-linear material and compared with the analytical model. The torque profile is presented in Figure~\ref{fig:torque_variation_fea_NL}. The torque profile is similar to the linear case since the core is not saturated. However, if the current is increased further, the torque profile would deviate more significantly from the linear case due to the saturation effects, which would lead to a reduction in the maximum torque and a distortion of the torque waveform. But for this current value and the steel material, the torque profile is similar to the linear case.
+Finally, the torque variation with respect to rotor angle is plotted for the non-linear material and compared with the analytical model. The torque profile is presented in Figure~\ref{fig:torque_variation_fea_NL}. The torque profile is different from the linear case since the core is saturated. as the inductance is significantly reduced at the aligned position due to saturation, the torque is also significantly reduced to maximum value of \SI{62.4}{mNm} compared to the linear case. The torque waveform is also more distorted and less sinusoidal than in the linear case, especially near the aligned position where saturation effects are most pronounced. This confirms that the assumptions of linearity and uniform flux distribution in the analytical model are not valid in the presence of saturation, and that non-linear effects must be considered for accurate predictions of machine performance under high excitation conditions.
 
 
-\begin{figure}[htbp]
+\begin{figure}[H]
     \centering
-    \includegraphics[width=0.7\textwidth]{figures/Torque vs Rotation Angle Plot.png}
+    \includegraphics[width=1\textwidth]{figures/Torque vs Rotation Angle Plot Non-linear.png}
     \caption{Torque variation with respect to rotor angle from FEA simulations for Non-Linear Material.}
     \label{fig:torque_variation_fea_NL}
 \end{figure}
@@ -606,12 +606,7 @@ Finally, the torque variation with respect to rotor angle is plotted for the non
 
 \subsection{Part (d) - Comparison: Linear vs. Non-Linear, Fringing and Saturation Effects}
 
-
-
-
-
-
-
+When the linear and non-linear FEA results are compared, it is evident that the non-linear effects, particularly saturation, have a significant impact on the machine performance. The inductance and stored energy are both significantly reduced in the non-linear case due to saturation, especially at the aligned position where the flux density is highest. The torque is also significantly reduced and the waveform is more distorted in the non-linear case compared to the linear case. The fringing flux effects, which are included in both linear and non-linear FEA models, also contribute to the discrepancies between the analytical model and the FEA results, particularly at larger air gaps where the fringing flux is more significant. Overall, the results highlight the importance of considering non-linear material properties and fringing flux effects for accurate predictions of machine performance, especially under high excitation conditions where saturation is likely to occur.
 
 
 
