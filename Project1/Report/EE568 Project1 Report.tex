@@ -4,6 +4,7 @@
 \usepackage[a4paper, margin=2.5cm]{geometry}
 \usepackage{amsmath, amssymb}
 \usepackage{graphicx}
+\usepackage{animate}
 \usepackage{booktabs}
 \usepackage{array}
 \usepackage{caption}
@@ -172,14 +173,14 @@ By using the assumptions given, reluctance of the system can be calculated by th
     \label{eq:reluctance}
 \end{equation}
 
-where $l$ is the path length, $\mu$ is the permeability and $A_{core}$ is the core cross-sectional area. As the assumption states, core has infinitely permeable which makes the core reluctance zero. Thus, total reluctance will only consider the air gap reluctance. As the air-gap changes with respect to position, there will be a minimum and a maximum reluctance value. In below, all the parameters to find the reluctance and the maximum and minimum reluctance values is calculated.
+where $l$ is the path length, $\mu$ is the permeability and $A_{core}$ is the core cross-sectional area. As the assumption states, the core is assumed to be infinitely permeable, which makes the core reluctance zero. Thus, total reluctance will only consider the air-gap reluctance. As the air-gap changes with respect to position, there will be a minimum and a maximum reluctance value. In the following, all the parameters to find the reluctance and the maximum and minimum reluctance values are calculated.
 
 The core cross-sectional area is:
 \begin{equation}
     A_c = w_c \cdot d = 15 \times 10^{-3} \times 25 \times 10^{-3} = \SI{375e-6}{m^2}
 \end{equation}
 
-When the rotor tooth is fully aligned with the stator pole which is the minimum inductance position, the total air-gap path length consists of two single air-gaps:
+When the rotor tooth is fully aligned with the stator pole, which is the maximum inductance position, the total air-gap path length consists of two air-gaps:
 
 \begin{equation}
     l_{g,\min} = 2g = 2 \times 0.5 = \SI{1}{mm}
@@ -589,7 +590,7 @@ For the inductance and the stored energy, the results are significantly differen
     \end{tabular}
 \end{table}
 
-As the core saturates, as the permeability of the core decreases significanlty compared to the linear region, reluctance increases and thus the inductance decreases. This is why the inductance values are significantly lower than the linear case, especially at the aligned position where saturation is most severe. The stored energy also decreases due to the reduced inductance and the fact that the core cannot store as much magnetic energy when it is saturated. The results confirm that saturation has a significant impact on the machine performance, reducing both the inductance and the stored energy, which would in turn affect the torque production.
+As the core saturates, the permeability of the core decreases significantly compared to the linear region, reluctance increases and thus the inductance decreases. This is why the inductance values are significantly lower than the linear case, especially at the aligned position where saturation is most severe. The stored energy also decreases due to the reduced inductance and the fact that the core cannot store as much magnetic energy when it is saturated. The results confirm that saturation has a significant impact on the machine performance, reducing both the inductance and the stored energy, which would in turn affect the torque production.
 
 \subsection{Part (c) - Torque Variation with respect to Rotor Angle and Comparison with Analytical Model}
 
@@ -612,12 +613,29 @@ When the linear and non-linear FEA results are compared, it is evident that the 
 
 \section{Q4 - Control Method for Continuous Rotation}
 
-\textit{This section will be completed.}
+When the torque and inductance profiles are analyzed, it is clear that the machine produces positive torque when the rotor is moving towards the aligned position where the inductance is increasing, and negative torque when the rotor is moving away from the aligned position where the inductance is decreasing. To achieve continuous rotation, a control strategy must be implemented to ensure that the current excitation is applied in such a way that it always produces positive torque in the direction of desired rotation. When the torque formula derived in the first question is analyzed, it can be seen that the torque is proportional to the square of the current and the sine of twice the rotor angle. This means that the torque will be independent of the current direction, but the sign of the torque will depend on the sign of the sine term.
+
+\begin{equation}
+T(\theta) = -i^2 L_{\text{amp}} \sin(2\theta)
+\end{equation}
+
+One of the easiest approaches to achieve positive average torque is to excite a current when the inductance is increasing (which is the section where the sine function is negative), and excite no current when the inductance is decreasing. By this approach, negative portions of the torque waveform will be eliminated and the machine will produce positive average torque. This control method is implemented in ANSYS Maxwell by using a transient simulation with a time-varying conditional current excitation. The current is applied only when the rotor angle is in the range where the inductance is increasing, and it is set to zero otherwise. The resulting torque profile from this control strategy is presented in Figure~\ref{fig:torque_controlled}. As can be seen from the figure, average torque is positive and approximately equal to \SI{0.05}{Nm}, which confirms that the control strategy is effective in producing continuous rotation in the desired direction. The torque waveform is no longer sinusoidal, but it has a positive average value.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/Torque vs. Time Plot.png}
+    \caption{Torque variation with respect to time from FEA simulations with control strategy implemented.}
+    \label{fig:torque_controlled}
+\end{figure}
 
 
 
 
+\section{Q5 - Motion Animation}
 
+Motion animation of the rotor is created in ANSYS Maxwell by using the simulation results from the previous question. The animation is embedded below using the extracted frame sequence from the GIF file.
+
+\section{Q6 - 3D FEA Analysis}
 
 
 
@@ -627,29 +645,24 @@ When the linear and non-linear FEA results are compared, it is evident that the 
 
 \section{Conclusion}
 
-The analytical model of the variable reluctance machine was developed under linearised assumptions. The maximum and minimum inductances were found to be \SI{42.41}{mH} and \SI{8.48}{mH}, corresponding to the aligned and unaligned rotor positions respectively. The peak torque under \SI{2.5}{A} DC excitation is $\pm\SI{0.106}{Nm}$, varying sinusoidally at twice the rotor frequency.
-
-FEA simulations (Q2, Q3) and the control strategy (Q4) will be added as the project progresses.
-
-
-
-
-
-
-
 
 
 
 \appendix
 \section{Material Properties}
 
-This appendix will list the B-H curve data and material properties of the electrical steel lamination selected for the FEA simulations in Q2 and Q3.
+This appendix will list the B-H curve data and material properties of the electrical steel lamination selected for the FEA simulations.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{figures/core_BH_curve.png}
+        \caption{B-H curve of the PC40 core used in the FEA simulations.}
+        \label{fig:bh_curve}    
+    \end{figure}  
 
 \section{MATLAB Source Code}
 
-The MATLAB script used for the analytical calculations and plots in Q1 is provided below.
-
-%\lstinputlisting[style=matlab, caption={MATLAB script for Q1 Analytical Modelling}]{analytical_model.m}
+The MATLAB script used for the analytical calculations and plots in Q1 is available at \texttt{AnalyticalCalculation.m} in the project root directory.
 
 %%─── References ──────────────────────────────────────────────────────────────
 \begin{thebibliography}{9}
