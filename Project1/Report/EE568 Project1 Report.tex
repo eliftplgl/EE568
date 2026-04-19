@@ -634,26 +634,85 @@ One of the easiest approaches to achieve positive average torque is to excite a 
 \section{Q5 - Motion Animation}
 
 Motion animation of the rotor is created in ANSYS Maxwell by using the simulation results from the previous question. The animation is available on the project GitHub page at
-\href{https://github.com/odtu/EE568/tree/master/Project1}{https://github.com/odtu/EE568/tree/master/Project1}.
-It is not embedded in the PDF because GIF images are not reliably supported by PDFLaTeX and many PDF viewers.
+\href{https://github.com/odtu/EE568/tree/master/Project1}{https://github.com/odtu/EE568/tree/master/Project1}. Unfortunately it is problematic to add the animation directly in LaTeX. A figure from the animation is included below as a static representation of the motion.
+
 
 \section{Q6 - 3D FEA Analysis}
 
+For the 3D analysis, the machine is modelled in 3D FEA software and the same analyses are performed as in the 2D case. The results are compared with the 2D FEA results to understand the effects of three-dimensionality on the machine performance. The main outputs include flux density vectors, inductance values, stored energy, and torque profiles at different rotor positions. 3D model is constructed in ANSYS Maxwell by extruding the 2D geometry and assigning the same material properties. The results for the flux density vectors are presented below.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/flux_0deg_3D.png}
+    \caption{Flux density at 0° for non-linear material in 3D FEA}
+    \label{fig:flux_0deg_3D}
+\end{figure}
+
+\hfill
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/flux_45deg_3D.png}
+    \caption{Flux density at 45° for non-linear material in 3D FEA}
+    \label{fig:flux_45deg_3D}
+\end{figure}
+\hfill
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/flux_90deg_3D.png}
+    \caption{Flux density at 90° for non-linear material in 3D FEA}
+    \label{fig:flux_90deg_3D}
+\end{figure}
+
+Also, as in the case for 2D analysis, inductance values and stored energy are calculated for the 3D model and tabulated in Table~\ref{tab:inductance_fea_3D_NL} and Table~\ref{tab:energy_fea_3D_NL}, respectively. When the results are compared with the 2D FEA results, it is observed that the inductance values are slightly higher in the 3D case which mas stems from the additional leakage losses presented in 3D, which can reduce the overall reluctance. The stored energy values are also slightly higher in the 3D case for the same reason. The torque profile from the 3D FEA simulations is plotted in Figure~\ref{fig:torque_3D}. The torque waveform is similar to the 2D case, but peak value is slightly lower.
+
+\begin{table}[htbp]
+    \centering
+    \caption{Inductance Values from 3D FEA for Non-Linear Material}
+    \label{tab:inductance_fea_3D_NL}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Rotor Position & Inductance (mH) \\
+        \hline
+        0° & 25.8\\
+        45° & 24.1\\
+        90° & 19.0\\
+        \hline
+    \end{tabular}
+\end{table}
+
+\begin{table}[htbp]
+    \centering
+    \caption{Stored Energy Values from 3DFEA for Non-Linear Material}
+    \label{tab:energy_fea_3D_NL}
+    \begin{tabular}{|c|c|c|}
+        \hline
+        Rotor Position & Stored Energy (J) \\
+        \hline
+        0° & 0.081 \\
+        45° & 0.075 \\
+        90° & 0.059 \\
+        \hline
+    \end{tabular}
+\end{table}
 
 
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/Torque vs. Time Plot 3D.png}
+    \caption{Torque variation with respect to time from 3D FEA simulations.}
+    \label{fig:torque_3D}
+\end{figure}
 
-
-
+To summarize, the 3D FEA results show that three-dimensional effects can lead to slightly higher inductance and stored energy values due to additional leakage paths and more accurate representation of the geometry as the 2D representes and infinite geometry in the z-direction which is not the case. The torque profile is similar to the 2D case, but peak values may differ due to the more accurate representation of the magnetic field distribution in 3D. Overall, while 2D FEA can provide a good approximation for initial design and analysis, 3D FEA is necessary for more accurate predictions of machine performance, especially when complex geometries and non-linear material properties are involved. Overall, in the 3D analysis, actual geometry is modelled and thus the results are more realistic than the 2D case. However, 3D FEA is also more computationally intensive and time-consuming than 2D FEA, so it is important to balance the need for accuracy with the available computational resources when choosing between 2D and 3D analysis for machine design and optimization. 
 
 \section{Conclusion}
 
-
-
+This project demonstrated how a variable reluctance machine generates torque by minimizing magnetic reluctance and how that performance can be captured with both analytical models and finite element simulations. The analytical model predicted the strong inductance swing between aligned and unaligned positions and assumed that constant DC excitation yields a sinusoidal torque waveform with zero average over a full revolution. The 2D FEA results then highlighted the importance of fringing flux and non-uniform flux distribution, which raise inductance values and make the torque waveform asymmetric compared to the ideal analytical case. When non-linear material behavior was included, saturation reduced inductance, stored energy, and peak torque significantly, confirming that linear assumptions lose validity under strong excitation. Finally, a control strategy that excites the coil only while inductance is increasing was shown to produce a positive average torque, making continuous rotation feasible. Together, these findings emphasize the value of combining analytical insight, FEA validation, and targeted control to accurately understand and operate a variable reluctance machine.
 
 \appendix
 \section{Material Properties}
 
-This appendix will list the B-H curve data and material properties of the electrical steel lamination selected for the FEA simulations.
+This appendixlists the B-H curve of the electrical steel lamination selected for the FEA simulations.
 
     \begin{figure}[H]
         \centering
@@ -674,5 +733,6 @@ W. G. Hurley and W. H. Wölfle,
 1st ed. Chichester, UK: John Wiley \& Sons, 2013. 
 ISBN: 9781118544679.
 \end{thebibliography}
+
 
 \end{document}
