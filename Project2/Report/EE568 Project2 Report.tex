@@ -91,7 +91,7 @@
     \end{tabular}
     \vfill
     {\large \textbf{GitHub Repository:} \\[0.3em]
-    \url{https://github.com/odtu/EE568/tree/master/Project1}}
+    \url{https://github.com/odtu/EE568/tree/master/Project2}}
 \end{titlepage}
 %%──────────────────────────────────────────────────────────
 
@@ -105,316 +105,407 @@
 \newpage
 
 %%─── 1. Introduction ─────────────────────────────────────────────────────────
-\section{Introduction}
+\section*{Introduction}
 
-This report presents the analytical modeling and simulation analysis of a variable reluctance machine (VRM) as part of EE568 Project~1. Variable reluctance machines generate torque by minimizing the reluctance of the magnetic circuit; unlike permanent magnet or wound-rotor machines, they require no rotor excitation, making them robust and low-cost.
 
-The main objectives of this project are:
-\begin{enumerate}[leftmargin=*, label=\arabic*.]
-    \item Derive analytical expressions for the reluctance, inductance, and torque as a function of rotor position.
-    \item Model the system in a 2D finite element analysis (FEA) software using linear material properties and compare with the analytical results.
-    \item Extend the FEA model to non-linear material properties and investigate the effects of saturation and fringing flux.
-    \item Propose a control strategy to achieve continuous rotor rotation.
+%%─── Q1 ───────────────────────────────────────────────────────────
+
+\section{Q1: Integral-Slot Winding Design}
+
+For this question, two winding designs are done namely full-pitched and 11/12 short-pitched windings. The given machine parameters for these windings are:
+
+\begin{itemize}
+    \item Number of poles: $p = 6$ 
+    \item Number of stator slots: $Q = 72$
+    \item Number of phases: $m = 3$
+    \item Winding configuration: Double-layer
+\end{itemize}
+
+\paragraph{Derived Parameters:}
+
+\begin{enumerate}
+    \item \textbf{Slots per pole per phase ($q$):}
+    \[ q = \frac{Q}{p \cdot m} = \frac{72}{6 \times 3} = 4\]
+
+    \item \textbf{Electrical slot angle ($\alpha_e$):}
+    \[\alpha_e = \frac{p \times 180^\circ}{Q} = \frac{6 \times 180^\circ}{72} = 15^\circ/\text{slot}\]
+
+    \item \textbf{Mechanical slot angle ($\alpha_m$):}
+    \[\alpha_m = \frac{360^\circ}{Q} = \frac{360^\circ}{72} = 5^\circ/\text{slot}\]
+
+    \item \textbf{Pole pitch ($\tau_p$):}
+    \[\tau_p = \frac{Q}{p} = \frac{72}{6} = 12 \text{ slots}\]
 \end{enumerate}
 
-The machine geometry for this project is defined on the course GitHub page. Some of the key parameters are summarized in Table~\ref{tab:params}.
 
-\begin{table}[H]
-    \centering
-    \caption{Machine Parameters}
-    \label{tab:params}
-    \begin{tabular}{llc}
-        \toprule
-        \textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\
-        \midrule
-        Number of turns          & $N$         & 300 \\
-        Coil current (DC)        & $I$         & \SI{2.5}{A} \\
-        Core depth               & $d$         & \SI{25}{mm} \\
-        Core width               & $w_c$       & \SI{15}{mm} \\
-        Air-gap clearance        & $g$         & \SI{0.5}{mm} \\
-        Coil winding area        & $A_{coil}$  & \SI{30}{mm} $\times$ \SI{10}{mm} \\
-        \bottomrule
-    \end{tabular}
+\subsection{Configuration A: Full-Pitched Winding}
+
+\subsubsection{Winding Diagram}
+
+For a full-pitched winding, the coil span equals the pole pitch: $y = \tau_p = 12$ slots, corresponding to $180^\circ$ electrical. In a double-layer winding, the top layer conductor in slot $i$ is connected to the bottom layer conductor in slot $i + y$. This means the bottom layer of slot $i$ serves as the return side of the coil whose top side resides in slot $i - y$. Since the phase sequence repeats every 12 slots with alternating polarity, the bottom layer ends up identical to the top layer at each slot position.
+
+The phase sequence follows the order $A,\; {-C},\; B,\; {-A},\; C,\; {-B}$, giving a balanced 3-phase layout across the 24-slot pole-pair:
+
+\begin{table}[h!]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Double-layer full-pitched winding layout (one pole-pair)}
+\begin{tabular}{l|cccc|cccc|cccc|cccc|cccc|cccc}
+\toprule
+\textbf{Slot} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & 24 \\
+\midrule
+\textbf{Top} & A & A & A & A & -C & -C & -C & -C & B & B & B & B & -A & -A & -A  & -A  & C & C & C & C & -B & -B & -B & -B \\
+\textbf{Bottom} & A & A & A & A & -C & -C & -C & -C & B & B & B & B & -A & -A & -A  & -A  & C & C & C & C & -B & -B & -B & -B \\
+\bottomrule
+\end{tabular}
 \end{table}
 
-%%─── 2. Q1 – Analytical Modelling ───────────────────────────────────────────
-\section{Analytical Modelling - Q1}
+\subsubsection{Winding Factor Calculations}
 
-\subsection{Assumptions}
+The general formulas for the $n$-th harmonic are:
+\[
+    k_{d,n} = \frac{\sin\!\left(\dfrac{n \cdot q \cdot \alpha_e}{2}\right)}{q \cdot \sin\!\left(\dfrac{n \cdot \alpha_e}{2}\right)}
+    \qquad
+    k_{p,n} = \sin\!\left(\frac{n \cdot y_e}{2}\right)
+    \qquad
+    k_{w,n} = k_{d,n} \cdot k_{p,n}
+\]
 
-The following simplifying assumptions are adopted throughout the analytical model:
+where $y_e = 180^\circ$ electrical for full pitch.
 
-\begin{enumerate}[leftmargin=*, label=\arabic*.]
-    \item The core material is infinitely permeable ($\mu_r \to \infty$), so the core reluctance is negligible.
-    \item Inductance varies sinusoidally with rotor position.
-    \item Fringing flux at the air-gap is neglected.
-    \item The magnetic system is linear (no saturation).
-    \item Magnetic flux is uniformly distributed across the core cross-section.
+\paragraph{Fundamental ($n = 1$):}
+\[
+    k_{d,1} = \frac{\sin(4 \times 15^\circ / 2 \times 1)}{4\,\sin(15^\circ/2 \times 1)}
+            = \frac{\sin(30^\circ)}{4\,\sin(7.5^\circ)}
+            = \frac{0.500}{4 \times 0.131} = \frac{0.500}{0.522} = 0.958
+\]
+\[
+    k_{p,1} = \sin(90^\circ) = 1.000 \qquad \Rightarrow \qquad k_{w,1} = 0.958
+\]
+
+\paragraph{3rd Harmonic ($n = 3$):}
+\[
+    k_{d,3} = \frac{\sin(3 \times 30^\circ)}{4\,\sin(3 \times 7.5^\circ)}
+            = \frac{\sin(90^\circ)}{4\,\sin(22.5^\circ)}
+            = \frac{1.000}{4 \times 0.383} = \frac{1.000}{1.531} = 0.653
+\]
+\[
+    k_{p,3} = \sin(3 \times 90^\circ) = \sin(270^\circ) = -1.000 \qquad \Rightarrow \qquad k_{w,3} = -0.653
+\]
+
+\paragraph{5th Harmonic ($n = 5$):}
+\[
+    k_{d,5} = \frac{\sin(5 \times 30^\circ)}{4\,\sin(5 \times 7.5^\circ)}
+            = \frac{\sin(150^\circ)}{4\,\sin(37.5^\circ)}
+            = \frac{0.500}{4 \times 0.609} = \frac{0.500}{2.435} = 0.205
+\]
+\[
+    k_{p,5} = \sin(5 \times 90^\circ) = \sin(450^\circ) = 1.000 \qquad \Rightarrow \qquad k_{w,5} = 0.205
+\]
+
+\begin{table}[h!]
+\centering
+\caption{Winding factors for the full-pitched configuration.}
+\begin{tabular}{cccc}
+\toprule
+\textbf{Harmonic ($n$)} & \textbf{$k_{d,n}$} & \textbf{$k_{p,n}$} & \textbf{$k_{w,n}$} \\
+\midrule
+1 (Fundamental) & $0.958$ & $1.000$ & $0.958$ \\
+3               & $0.653$ & $-1.000$ & $-0.653$ \\
+5               & $0.205$ & $1.000$ & $0.205$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Configuration B: 11/12 Short-Pitched Winding}
+
+\subsubsection{ Winding Diagram}
+
+For the $11/12$ short-pitched design, the coil span is reduced by one slot: $y = 11$ slots. In electrical degrees:
+\[
+    y_e = 11 \times 15^\circ = 165^\circ \text{ electrical}
+\]
+The top layer is identical to the full-pitch case. However, the bottom layer of slot $i$ now carries the return conductor of the coil whose top side is at slot $i - 11$. This shifts the bottom layer by one slot relative to the full-pitch arrangement:
+
+\begin{table}[h!]
+\centering
+\small
+\setlength{\tabcolsep}{4pt}
+\caption{Double-layer 11/12 short-pitched winding layout.}
+\begin{tabular}{l|cccc|cccc|cccc|cccc|cccc|cccc}
+\toprule
+\textbf{Slot} & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 & 16 & 17 & 18 & 19 & 20 & 21 & 22 & 23 & 24 \\
+\midrule
+\textbf{Top}& A & A & A & A & -C & -C & -C & -C & B & B & B & B & -A & -A & -A  & -A  & C & C & C & C & -B & -B & -B & -B \\
+\textbf{Bottom} & A & A & A & -C & -C & -C & -C & B & B & B & B & -A & -A & -A & -A  & C & C & C & C & -B & -B & -B & -B & A \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsubsection{Winding Factor Calculations}
+
+The distribution factor does not depend on the pitch which makes the distribution factor identical for both configurations. Only the pitch factor changes:
+
+\[k_{p,n} = \sin\!\left(\frac{n \times 165^\circ}{2}\right) = \sin(n \times 82.5^\circ)\]
+
+\paragraph{Fundamental ($n = 1$):}
+\[k_{p,1} = \sin(82.5^\circ) = 0.991 \qquad \Rightarrow \qquad k_{w,1} = 0.958 \times 0.991 = 0.949\]
+
+\paragraph{3rd Harmonic ($n = 3$):}
+\[k_{p,3} = \sin(247.5^\circ) = -0.924 \qquad \Rightarrow \qquad k_{w,3} = 0.653 \times (-0.924) = -0.604\]
+
+\paragraph{5th Harmonic ($n = 5$):}
+\[k_{p,5} = \sin(412.5^\circ) = \sin(52.5^\circ) = 0.793 \qquad \Rightarrow \qquad k_{w,5} = 0.205 \times 0.793 = 0.163\]
+
+\begin{table}[h!]
+\centering
+\caption{Winding factors for the 11/12 short-pitched configuration.}
+\begin{tabular}{cccc}
+\toprule
+\textbf{Harmonic ($n$)} & \textbf{$k_{d,n}$} & \textbf{$k_{p,n}$} & \textbf{$k_{w,n}$} \\
+\midrule
+1 (Fundamental) & $0.958$ & $0.991$ & $0.949$ \\
+3               & $0.653$ & $-0.924$ & $-0.604$ \\
+5               & $0.205$ & $0.793$ & $0.163$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+
+
+
+\subsection{Discussion}
+
+The following conclusions can be drawn:
+
+\begin{enumerate}
+    \item Moving from full-pitch to 11/12 short-pitch reduces the fundamental winding factor minimally, from $k_{w,1} = 0.958$ to $0.949$ (a decrease of 0.9\%). The machine sustains nearly the same torque and back-EMF capability.
+
+    \item Third harmonic slightly decreased (7.5\%) for short-pitch configuration. However, in a balanced 3-phase machine the triplen harmonics ($n = 3, 9, 15, \ldots$) cancel in the \emph{line-to-line} voltage and do not appear in the output regardless of their winding factor. Yet, they may still contribute to stator core losses and noise.
+
+    \item Short-pitching reduces $|k_{w,5}|$ from $0.205$ to $0.163$ ( approximately 20\% reduction). The pitch factor $k_{p,5}$ drops from $1.000$ to $0.793$. This is the primary benefit of the 11/12 pitch: it meaningfully attenuates the 5th space harmonic, which is responsible for additional losses in the machine.
+
+    \item Short-pitching always involves a trade-off between harmonic suppression and fundamental EMF and torque. In this case the 11/12 pitch is a very efficient compromise, it achieves noticeable 5th harmonic reduction at the cost of less than 1\% in fundamental performance.
 \end{enumerate}
 
-\subsection{Reluctance and Inductance Analysis - Part (a)}
-By using the assumptions given, reluctance of the system can be calculated by the below formula:
-
-\begin{equation}
-    \mathcal{R} = \frac{l}{\mu  A_{core}}
-    \label{eq:reluctance}
-\end{equation}
-
-where $l$ is the path length, $\mu$ is the permeability and $A_{core}$ is the core cross-sectional area. As the assumption states, core has infinitely permeable which makes the core reluctance zero. Thus, total reluctance will only consider the air gap reluctance. As the air-gap changes with respect to position, there will be a minimum and a maximum reluctance value. In below, all the parameters to find the reluctance and the maximum and minimum reluctance values is calculated.
-
-The core cross-sectional area is:
-\begin{equation}
-    A_c = w_c \cdot d = 15 \times 10^{-3} \times 25 \times 10^{-3} = \SI{375e-6}{m^2}
-\end{equation}
-
-When the rotor tooth is fully aligned with the stator pole which is the minimum inductance position, the total air-gap path length consists of two single air-gaps:
-
-\begin{equation}
-    l_{g,\min} = 2g = 2 \times 0.5 = \SI{1}{mm}
-\end{equation}
-
-When the rotor is in the fully unaligned position, the flux path must also traverse the additional \SI{2}{mm} each side:
-\begin{equation}
-    l_{g,\max} = 2g + 2 \times \SI{2}{mm} = 1 + 4 = \SI{5}{mm}
-\end{equation}
-
-Substituting into Equation~\eqref{eq:reluctance}:
-
-\begin{align}
-    \mathcal{R}_{\min} &= \frac{1 \times 10^{-3}}{4\pi \times 10^{-7} \times 375 \times 10^{-6}}
-                         = \SI{2.12e6}{H^{-1}} \\[6pt]
-    \mathcal{R}_{\max} &= \frac{5 \times 10^{-3}}{4\pi \times 10^{-7} \times 375 \times 10^{-6}}
-                         = \SI{1.06e7}{H^{-1}}
-\end{align}
-
-The self-inductance of the coil is related to the reluctance by:
-\begin{equation}
-    L = \frac{N^2}{\mathcal{R}}
-    \label{eq:inductance}
-\end{equation}
-
-Therefore, by using Equation~\eqref{eq:inductance}:
-
-\begin{align}
-    L_{\max} &= \frac{300^2}{\mathcal{R}_{\min}} = \frac{90{,}000}{2.122 \times 10^6} \approx \SI{42.41}{mH} \\[6pt]
-    L_{\min} &= \frac{300^2}{\mathcal{R}_{\max}} = \frac{90{,}000}{1.061 \times 10^7} \approx \SI{8.48}{mH}
-\end{align}
-
-\subsubsection{Inductance as a Function of Rotor Position}
-
-The question further asks for the variation of the inductance with respect to the position under the assumption of sinusoidal variation. Since the machine has two poles due to variable reluctance, one mechanical revolution will produce two electrical cycles. Assuming a sinusoidal variation of inductance with the electrical angle $\theta$:
-
-\begin{equation}
-    L(\theta) = L_\text{avg} + L_\Delta \cos(2\theta)
-    \label{eq:L_theta}
-\end{equation}
-where:
-\begin{align}
-    L_\text{avg} &= \frac{L_{\max} + L_{\min}}{2} = \frac{42.41 + 8.48}{2} \approx \SI{25.45}{mH} \\[4pt]
-    L_\Delta     &= \frac{L_{\max} - L_{\min}}{2} = \frac{42.41 - 8.48}{2} \approx \SI{16.96}{mH}
-\end{align}
-
-The resulting inductance profile is plotted in Figure~\ref{fig:inductance}.
-
-
- \begin{figure}[H]
-     \centering
-     \includegraphics[width=0.82\textwidth]{figures/inductance_variation.eps}
-     \caption{Inductance variation as a function of rotor position.}
-     \label{fig:inductance}
- \end{figure}
-
-The inductance reaches its peak of \SI{42.41}{mH} at the aligned positions (\ang{0} and \ang{180}) and its minimum of \SI{8.48}{mH} at the unaligned positions (\ang{90} and \ang{270}). 
-
-\subsubsection{Numerical Results Summary}
-Finally, numerical results for this part is summarized below.
-
-\begin{table}[H]
-    \centering
-    \caption{Analytical Reluctance and Inductance Results}
-    \label{tab:results_a}
-    \begin{tabular}{lcc}
-        \toprule
-        \textbf{Quantity} & \textbf{Symbol} & \textbf{Value} \\
-        \midrule
-        Minimum reluctance  & $\mathcal{R}_{\min}$  & \SI{2.122e6}{H^{-1}} \\
-        Maximum reluctance  & $\mathcal{R}_{\max}$  & \SI{1.061e7}{H^{-1}} \\
-        Maximum inductance  & $L_{\max}$            & \SI{42.41}{mH} \\
-        Minimum inductance  & $L_{\min}$            & \SI{8.48}{mH} \\
-        \bottomrule
-    \end{tabular}
+\begin{table}[h!]
+\centering
+\caption{Winding factor comparison between the two configurations.}
+\begin{tabular}{lcccc}
+\toprule
+ & \multicolumn{2}{c}{\textbf{Full Pitch ($y = 12$)}} & \multicolumn{2}{c}{\textbf{Short Pitch ($y = 11$)}} \\
+\cmidrule(lr){2-3}\cmidrule(lr){4-5}
+\textbf{Harmonic} & $k_{p,n}$ & $k_{w,n}$ & $k_{p,n}$ & $k_{w,n}$ \\
+\midrule
+$n=1$ & $1.000$ & $0.958$ & $0.991$ & $0.949$ \\
+$n=3$ & $-1.000$ & $-0.653$ & $-0.92$ & $-0.604$ \\
+$n=5$ & $1.000$ & $0.205$ & $0.793$ & $0.163$ \\
+\bottomrule
+\end{tabular}
 \end{table}
 
-\subsection{Torque under Constant DC Excitation - Part (b)}
 
-\subsubsection{Torque Derivation}
 
-To derive the torque expression, one should make use of the stored magnetic energy on an inductor. The stored magnetic energy can be expressed in terms of flux linkage as:
 
-\begin{equation}
-W = \int_{0}^{\lambda} i(\lambda)\, d\lambda
-\end{equation}
 
-For a linear magnetic system, the relationship between flux linkage and current is:
+%%─── Q2 ──────────────────────────────────────────────────────────────────────
 
-\begin{equation}
-\lambda = L(\theta)\, i
-\end{equation}
+\section{Q2: Fractional-Slot Winding Design}
 
-Thus, the current can be written as:
+The assigned design has the following parameters:
 
-\begin{equation}
-i = \frac{\lambda}{L(\theta)}
-\end{equation}
+\begin{itemize}
+    \item Number of stator slots: $N_s = 15$
+    \item Number of rotor poles: $N_m = 14$
+    \item Number of phases: $m = 3$
+    \item Slots per pole per phase: $N_{spp} \approx 0.357$
+\end{itemize}
 
-Substituting into the energy expression:
+\subsection{Phase Angles of Induced Voltage per Slot}
 
-\begin{equation}
-W = \int_{0}^{\lambda} \frac{\lambda}{L(\theta)} \, d\lambda
-\end{equation}
+Using the star-of-slots method, the 360° electrical circle is divided into $2m = 6$ zones of $60°$ each. Each slot phasor is assigned to the phase zone it falls into; if the phasor falls in a negative zone, the coil side is wound in the reverse direction:
 
-Since $L(\theta)$ is independent of $\lambda$ (linear system), it can be treated as constant:
-
-\begin{equation}
-W = \frac{1}{L(\theta)} \int_{0}^{\lambda} \lambda \, d\lambda
-\end{equation}
-
-\begin{equation}
-W = \frac{1}{L(\theta)} \cdot \frac{1}{2} \lambda^2
-\end{equation}
-
-Substituting $\lambda = L(\theta)i$:
-
-\begin{equation}
-W = \frac{1}{2} L(\theta) i^2
-\end{equation}
-
-The electromagnetic torque is obtained from:
-
-\begin{equation}
-T = \frac{dW}{d\theta}
-\end{equation}
-
-\begin{equation}
-T = \frac{d}{d\theta} \left( \frac{1}{2} L(\theta) i^2 \right)
-\end{equation}
-
-For constant current excitation:
-
-\begin{equation}
-T(\theta) = \frac{1}{2} i^2 \frac{dL(\theta)}{d\theta}
-\label{eq:torque}
-\end{equation}
-
-Inductance variation is defined in the previous question. By taking the derivative, one can obtain the inductance variation as follows:
-
-\begin{equation}
-L(\theta) = L_{\text{avg}} + L_{\text{amp}} \cos(2\theta)
-\end{equation}
-
-\begin{equation}
-\frac{dL}{d\theta} = -2 L_{\text{amp}} \sin(2\theta)
-\label{eq:inductance_variation}
-\end{equation}
-
-By inserting the inductance variation into Equation~\eqref{eq:torque}, the final torque equation becomes:
-
-\begin{equation}
-T(\theta) = -i^2 L_{\text{amp}} \sin(2\theta)
-\end{equation}
-
-\subsubsection{Torque as a Function of Rotor Position}
-
-The torque profile is plotted in Figure~\ref{fig:torque} by using the derved equation.
-
-\begin{figure}[H]
-    \centering
-    \includegraphics[width=0.82\textwidth]{figures/torque_variation.eps}
-    \caption{Electromagnetic torque as a function of rotor position under constant DC excitation ($I = \SI{2.5}{A}$).}
-    \label{fig:torque}
-\end{figure}
-
-\subsubsection{Results Summary}
-
-\begin{table}[H]
-    \centering
-    \caption{Torque Results (Constant DC Excitation)}
-    \label{tab:results_b}
-    \begin{tabular}{lcc}
-        \toprule
-        \textbf{Quantity} & \textbf{Symbol} & \textbf{Value} \\
-        \midrule
-        Maximum torque  & $T_{\max}$  & \SI{+0.11}{Nm} \\
-        Minimum torque  & $T_{\min}$  & \SI{-0.11}{Nm} \\
-        \bottomrule
-    \end{tabular}
+\begin{table}[h!]
+\centering
+\begin{tabular}{ccc}
+\toprule
+\textbf{Zone} & \textbf{Range} & \textbf{Assignment} \\
+\midrule
+A$+$ & $[330°,\; 30°)$ & Phase A, positive \\
+C$-$ & $[30°,\;  90°)$ & Phase C, negative \\
+B$+$ & $[90°,\; 150°)$ & Phase B, positive \\
+A$-$ & $[150°,\;210°)$ & Phase A, negative \\
+C$+$ & $[210°,\;270°)$ & Phase C, positive \\
+B$-$ & $[270°,\;330°)$ & Phase B, negative \\
+\bottomrule
+\end{tabular}
+\caption{Star-of-slots zone assignment ($60°$ zones).}
 \end{table}
 
-The torque is sinusoidal at twice the rotor frequency. It is positive in the regions where inductance is increasing (rotor moving towards alignment) and negative where inductance is decreasing. Under constant DC excitation, the average torque over a full revolution is zero, since the positive and negative half-cycles cancel.
+Applying the zone assignment to all 15 slots gives exactly 5 slots per phase, confirming a balanced winding:
 
-\subsection{Non-Linear Effects and Model Improvements - Part (c)}
+\begin{table}[h!]
+\centering
+\begin{tabular}{cccc|cccc}
+\toprule
+\textbf{Slot} & $\varphi_k$ & \textbf{Phase} & \textbf{Sign} &
+\textbf{Slot} & $\varphi_k$ & \textbf{Phase} & \textbf{Sign} \\
+\midrule
+ 1 &   $0°$ & A & $+$ &  9 & $264°$ & C & $+$ \\
+ 2 & $168°$ & A & $-$ & 10 &  $72°$ & C & $-$ \\
+ 3 & $336°$ & A & $+$ & 11 & $240°$ & C & $+$ \\
+ 4 & $144°$ & B & $+$ & 12 &  $48°$ & C & $-$ \\
+ 5 & $312°$ & B & $-$ & 13 & $216°$ & C & $+$ \\
+ 6 & $120°$ & B & $+$ & 14 &  $24°$ & A & $+$ \\
+ 7 & $288°$ & B & $-$ & 15 & $192°$ & A & $-$ \\
+ 8 &  $96°$ & B & $+$ &    &        &   &     \\
+\bottomrule
+\end{tabular}
+\caption{Induced EMF phase angle and phase assignment for each slot (fundamental, $n=1$).}
+\end{table}
 
-\subsubsection{Fringing Flux}
+The resulting slot groupings are:
+\begin{itemize}
+    \item \textbf{Phase A:} Slots 1$(+)$, 2$(-)$, 3$(+)$, 14$(+)$, 15$(-)$
+    \item \textbf{Phase B:} Slots 4$(+)$, 5$(-)$, 6$(+)$, 7$(-)$, 8$(+)$
+    \item \textbf{Phase C:} Slots 9$(+)$, 10$(-)$, 11$(+)$, 12$(-)$, 13$(+)$
+\end{itemize}
 
-In the simple analytical model, flux is assumed to flow only through the face of the stator pole directly across the air-gap, ignoring the flux that flows outward around the pole edges. In practice, this fringing flux can significantly increase the effective cross-sectional area, particularly when the air-gap is large (unaligned position). One common correction is to add the gap length to each linear dimension of the pole face to obtain an effective area:
-\begin{equation}
-    A_\text{eff} = (w_c + g)(d + g)
-\end{equation}
-This correction is applied separately for each rotor position and reduces the reluctance, raising the predicted inductance closer to FEA results.
 
-\subsubsection{Non-Homogeneous Flux Distribution}
+\subsection{Phasor Diagram and Winding Factor}
 
-The assumption of uniform flux distribution across the pole face is only valid when the aspect ratio of the cross-section is close to unity and when the core is far from saturation. A more accurate treatment would divide the core and air-gap regions into parallel flux tubes and solve for the flux in each tube independently, accounting for the spatial variation of permeability in a saturating core.
+The winding factor for the $n$-th harmonic is computed as the ratio of the vector sum magnitude to the arithmetic sum magnitude of the slot phasors for one phase:
+\[
+    k_{w,n} = \frac{\left|\displaystyle\sum_{\text{Phase}} \vec{e}_{k,n}\right|}{N_s / m}
+\]
+where each phasor $\vec{e}_{k,n}$ has unit magnitude and angle $n \cdot \varphi_k$ (negated for slots wound in the $-$ direction).
 
-\subsubsection{Saturation and Non-Linear Permeability}
+\paragraph{Fundamental ($n=1$):}
 
-When the flux density in the core approaches the saturation flux density ($B_\text{sat} \approx \SI{1.5}{T}$ for typical electrical steel), the incremental permeability drops sharply. In this regime, the inductance is no longer constant for a given position—it becomes a function of both $\theta$ and $I$. The co-energy must be computed numerically from the magnetisation curve:
-\begin{equation}
-    W'(I,\theta) = \int_0^I \lambda(i, \theta)\, di
-\end{equation}
-and the torque obtained as $T = \partial W' / \partial \theta \big|_{I=\text{const}}$.
+The Phase A phasors and their effective angles are:
 
-This requires the B-H curve of the selected lamination material to be incorporated.
+\begin{table}[h!]
+\centering
+\begin{tabular}{cccc}
+\toprule
+\textbf{Slot} & \textbf{Sign} & \textbf{Raw angle $\varphi_k$} & \textbf{Effective phasor angle} \\
+\midrule
+ 1 & $+$ & $  0°$ & $  0°$ \\
+14 & $+$ & $ 24°$ & $ 24°$ \\
+15 & $-$ & $192°$ & $ 12°$ \quad ($192° - 180°$) \\
+ 2 & $-$ & $168°$ & $348°$ \quad ($168° - 180° + 360°$) \\
+ 3 & $+$ & $336°$ & $336°$ \\
+\bottomrule
+\end{tabular}
+\caption{Phase A phasors for $n=1$. The five phasors cluster tightly around $0°$, yielding a high winding factor.}
+\end{table}
 
-%%─── 3. Q2 – FEA Modelling (Linear Materials) ───────────────────────────────
-\section{Q2 -- FEA Modelling (2D, Linear Materials)}
+\[
+    k_{w,1} = \frac{|\,\vec{e}_1 + \vec{e}_{14} + \vec{e}_{15} + \vec{e}_2 + \vec{e}_3\,|}{5}
+            = \frac{4.783}{5} = \mathbf{0.957}
+\]
 
-\textit{This section will be completed after the FEA simulations are performed.}
+\paragraph{3rd Harmonic ($n=3$):}
 
-\subsection{Software and Setup}
+Each phasor angle is multiplied by 3. The Phase A phasors become $0°,\;72°,\;36°,\;324°,\;288°$:
+\[
+    k_{w,3} = \frac{3.236}{5} = \mathbf{0.647}
+\]
 
-\subsection{Part (a) -- Flux Density Vectors (0°, 45°, 90°)}
+\paragraph{5th Harmonic ($n=5$):}
 
-\subsection{Part (b) -- Inductance and Stored Energy}
+Each phasor angle is multiplied by 5. The Phase A phasors become $0°,\;120°,\;60°,\;300°,\;240°$:
+\[
+    k_{w,5} = \frac{1.000}{5} = \mathbf{0.200}
+\]
 
-\subsection{Part (c) -- Torque vs. Rotor Angle: Comparison with Analytical Model}
+\begin{table}[h!]
+\centering
+\caption{Winding factors for harmonics $n=1,3,5$. Values are identical for all three phases.}
+\begin{tabular}{ccc}
+\toprule
+\textbf{Harmonic ($n$)} & \textbf{$k_{w,n}$} & \textbf{Note} \\
+\midrule
+$1$ (fundamental) & $0.957$ & Working harmonic ($p = 7$); high $k_w$ \\
+$3$               & $0.647$ & Zero-sequence; cancels in line-to-line voltage \\
+$5$               & $0.200$ & Balanced, well-attenuated relative to fundamental \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-%%─── 4. Q3 – FEA Modelling (Non-Linear Materials) ───────────────────────────
-\section{Q3 -- FEA Modelling (2D, Non-Linear Materials)}
 
-\textit{This section will be completed after the non-linear FEA simulations are performed.}
+\subsection{Winding Diagram}
 
-\subsection{Parts (a, b, c) -- Flux Density, Inductance, Stored Energy, Torque}
+The winding is single-layer concentrated: each coil wraps around one tooth. The full slot assignment for all three phases around the stator is:
 
-\subsection{Part (d) -- Comparison: Linear vs. Non-Linear, Fringing and Saturation Effects}
+\begin{table}[h!]
+\centering
+\small
+\setlength{\tabcolsep}{5pt}
+\caption{Single-layer concentrated winding slot assignment for all phases.}
+\begin{tabular}{c|ccccccccccccccc}
+\toprule
+\textbf{Slot}      & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
+\midrule
+\textbf{Phase}     & A & A & A & B & B & B & B & B & C & C  & C  & C  & C  & A  & A  \\
+\textbf{Direction} & $+$ & $-$ & $+$ & $+$ & $-$ & $+$ & $-$ & $+$ & $+$ & $-$ & $+$ & $-$ & $+$ & $+$ & $-$ \\
+\bottomrule
+\end{tabular}
+\end{table}
 
-%%─── 5. Q4 – Control Method ─────────────────────────────────────────────────
-\section{Q4 -- Control Method for Continuous Rotation}
+\paragraph{Balance verification:}
+\begin{itemize}
+    \item Each phase occupies exactly 5 slots $= N_s/m = 15/3$. \checkmark
+    \item The phase resultants at $n=1$ are at $0°$, $120°$, $-120°$ respectively, forming a balanced three-phase set. \checkmark
+    \item The winding factor is identical for all three phases by symmetry. \checkmark
+\end{itemize}
 
-\textit{This section will be completed.}
 
-%%─── 6. Conclusion ───────────────────────────────────────────────────────────
-\section{Conclusion}
+\subsection{Discussion}
 
-The analytical model of the variable reluctance machine was developed under linearised assumptions. The maximum and minimum inductances were found to be \SI{42.41}{mH} and \SI{8.48}{mH}, corresponding to the aligned and unaligned rotor positions respectively. The peak torque under \SI{2.5}{A} DC excitation is $\pm\SI{0.106}{Nm}$, varying sinusoidally at twice the rotor frequency.
+\begin{enumerate}
+    \item \textbf{High fundamental winding factor:} $k_{w,1} = 0.957$ is comparable to well-optimised distributed windings. This is a key advantage of the 15-slot/14-pole combination and results from the tight angular clustering of the five Phase A phasors (all within $\pm 24°$ of the resultant direction).
 
-FEA simulations (Q2, Q3) and the control strategy (Q4) will be added as the project progresses.
+    \item \textbf{3rd harmonic --- zero-sequence:} For $n=3$, all three phase resultants are co-phasal (pointing in the same direction). This makes the 3rd harmonic a zero-sequence component: it does not produce a rotating MMF wave and is cancelled in line-to-line voltage and in $\Delta$-connected windings. However, it may still drive circulating currents and iron losses in the stator yoke.
+
+    \item \textbf{5th harmonic --- naturally suppressed:} $k_{w,5} = 0.200$ is small relative to $k_{w,1} = 0.957$ (ratio $\approx 0.21$). This is considerably lower than for a typical full-pitch distributed winding, confirming that FSCW inherently attenuates higher-order spatial harmonics.
+
+    \item \textbf{No sub-harmonics:} Since $\gcd(N_s,\,N_m) = \gcd(15,\,14) = 1$, there are no sub-harmonic MMF components (i.e.\ no harmonics of order lower than $p=7$). This eliminates large parasitic radial forces and unbalanced magnetic pull, which is a major advantage of this slot/pole combination.
+\end{enumerate}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+%%─── Conclusion ───────────────────────────────────────────────────────────
+\section*{Conclusion}
+
+
 
 %%─── Appendix ────────────────────────────────────────────────────────────────
 \appendix
-\section{Material Properties}
 
-This appendix will list the B-H curve data and material properties of the electrical steel lamination selected for the FEA simulations in Q2 and Q3.
+\section{Project design parameters}
+
+
+
 
 \section{MATLAB Source Code}
 
