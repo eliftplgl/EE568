@@ -105,11 +105,20 @@
 \newpage
 
 %%─── 1. Introduction ─────────────────────────────────────────────────────────
-\section*{Introduction}
+\section{Introduction}
+
+
+
+
+
+
+
+
+
+
 
 
 %%─── Q1 ───────────────────────────────────────────────────────────
-
 \section{Q1: Integral-Slot Winding Design}
 
 For this question, two winding designs are done namely full-pitched and 11/12 short-pitched windings. The given machine parameters for these windings are:
@@ -146,10 +155,10 @@ For a full-pitched winding, the coil span equals the pole pitch: $y = \tau_p = 1
 
 The phase sequence follows the order $A,\; {-C},\; B,\; {-A},\; C,\; {-B}$, giving a balanced 3-phase layout across the 24-slot pole-pair:
 
-\begin{table}[h!]
+\begin{table}[ht!]
 \centering
-\small
-\setlength{\tabcolsep}{4pt}
+\footnotesize
+\setlength{\tabcolsep}{2.5pt}
 \caption{Double-layer full-pitched winding layout (one pole-pair)}
 \begin{tabular}{l|cccc|cccc|cccc|cccc|cccc|cccc}
 \toprule
@@ -231,8 +240,8 @@ The top layer is identical to the full-pitch case. However, the bottom layer of 
 
 \begin{table}[h!]
 \centering
-\small
-\setlength{\tabcolsep}{4pt}
+\footnotesize
+\setlength{\tabcolsep}{2pt}
 \caption{Double-layer 11/12 short-pitched winding layout.}
 \begin{tabular}{l|cccc|cccc|cccc|cccc|cccc|cccc}
 \toprule
@@ -244,9 +253,7 @@ The top layer is identical to the full-pitch case. However, the bottom layer of 
 \end{tabular}
 \end{table}
 
-
 \subsubsection{Winding Factor Calculations}
-
 The distribution factor does not depend on the pitch which makes the distribution factor identical for both configurations. Only the pitch factor changes:
 
 \[k_{p,n} = \sin\!\left(\frac{n \times 165^\circ}{2}\right) = \sin(n \times 82.5^\circ)\]
@@ -274,12 +281,7 @@ The distribution factor does not depend on the pitch which makes the distributio
 \end{tabular}
 \end{table}
 
-
-
-
-
 \subsection{Discussion}
-
 The following conclusions can be drawn:
 
 \begin{enumerate}
@@ -311,12 +313,10 @@ $n=5$ & $1.000$ & $0.205$ & $0.793$ & $0.163$ \\
 
 
 
-
 %%─── Q2 ──────────────────────────────────────────────────────────────────────
 
 \section{Q2: Fractional-Slot Winding Design}
-
-The assigned design has the following parameters:
+The assigned design for this project has the following parameters:
 
 \begin{itemize}
     \item Number of stator slots: $N_s = 15$
@@ -327,163 +327,217 @@ The assigned design has the following parameters:
 
 \subsection{Phase Angles of Induced Voltage per Slot}
 
-Using the star-of-slots method, the 360° electrical circle is divided into $2m = 6$ zones of $60°$ each. Each slot phasor is assigned to the phase zone it falls into; if the phasor falls in a negative zone, the coil side is wound in the reverse direction:
+The electrical angle of a slot can be found as:
+\[\varphi_k = \frac{N_m \cdot 180^\circ}{N_s} \cdot k = \frac{14 \cdot 180^\circ}{15} = 168^\circ\ \cdot k\]
+where $k$ is the slot index starting from 1. This means each slot's induced EMF will have a phase angle that is a multiple of $168^\circ$. Since $168^\circ$ is not an integer divisor of $360^\circ$, the slot phasors will be distributed around the circle in a non-repetitive manner, which is characteristic of fractional-slot windings. The angle of the induced EMF in every slot is presented in the Table~\ref{tab:induced_emf_1} below. Also, phaseor diagram of all slot is presented in Figure~\ref{fig:phasor_slots}.
 
 \begin{table}[h!]
 \centering
-\begin{tabular}{ccc}
-\toprule
-\textbf{Zone} & \textbf{Range} & \textbf{Assignment} \\
-\midrule
-A$+$ & $[330°,\; 30°)$ & Phase A, positive \\
-C$-$ & $[30°,\;  90°)$ & Phase C, negative \\
-B$+$ & $[90°,\; 150°)$ & Phase B, positive \\
-A$-$ & $[150°,\;210°)$ & Phase A, negative \\
-C$+$ & $[210°,\;270°)$ & Phase C, positive \\
-B$-$ & $[270°,\;330°)$ & Phase B, negative \\
-\bottomrule
-\end{tabular}
-\caption{Star-of-slots zone assignment ($60°$ zones).}
-\end{table}
-
-Applying the zone assignment to all 15 slots gives exactly 5 slots per phase, confirming a balanced winding:
-
-\begin{table}[h!]
-\centering
+\caption{Induced EMF phase angle and phase assignment for each slot (fundamental, $n=1$).}
+\label{tab:induced_emf_1}
 \begin{tabular}{cccc|cccc}
 \toprule
 \textbf{Slot} & $\varphi_k$ & \textbf{Phase} & \textbf{Sign} &
 \textbf{Slot} & $\varphi_k$ & \textbf{Phase} & \textbf{Sign} \\
 \midrule
- 1 &   $0°$ & A & $+$ &  9 & $264°$ & C & $+$ \\
- 2 & $168°$ & A & $-$ & 10 &  $72°$ & C & $-$ \\
- 3 & $336°$ & A & $+$ & 11 & $240°$ & C & $+$ \\
- 4 & $144°$ & B & $+$ & 12 &  $48°$ & C & $-$ \\
- 5 & $312°$ & B & $-$ & 13 & $216°$ & C & $+$ \\
- 6 & $120°$ & B & $+$ & 14 &  $24°$ & A & $+$ \\
- 7 & $288°$ & B & $-$ & 15 & $192°$ & A & $-$ \\
- 8 &  $96°$ & B & $+$ &    &        &   &     \\
+ 1 & $0^\circ$ & A & $+$ &  9 & $264^\circ$ & C & $+$ \\
+ 2 & $168^\circ$ & A & $-$ & 10 &  $72^\circ$ & C & $-$ \\
+ 3 & $336^\circ$ & A & $+$ & 11 & $240^\circ$ & C & $+$ \\
+ 4 & $144^\circ$ & B & $+$ & 12 &  $48^\circ$ & C & $-$ \\
+ 5 & $312^\circ$ & B & $-$ & 13 & $216^\circ$ & C & $+$ \\
+ 6 & $120^\circ$ & B & $+$ & 14 &  $24^\circ$ & A & $+$ \\
+ 7 & $288^\circ$ & B & $-$ & 15 & $192^\circ$ & A & $-$ \\
+ 8 &  $96^\circ$ & B & $+$ &    &        &   &     \\
 \bottomrule
 \end{tabular}
-\caption{Induced EMF phase angle and phase assignment for each slot (fundamental, $n=1$).}
 \end{table}
 
-The resulting slot groupings are:
-\begin{itemize}
-    \item \textbf{Phase A:} Slots 1$(+)$, 2$(-)$, 3$(+)$, 14$(+)$, 15$(-)$
-    \item \textbf{Phase B:} Slots 4$(+)$, 5$(-)$, 6$(+)$, 7$(-)$, 8$(+)$
-    \item \textbf{Phase C:} Slots 9$(+)$, 10$(-)$, 11$(+)$, 12$(-)$, 13$(+)$
-\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/phasor_slots.eps}
+    \caption{Phasor diagram of the fractional-slot winding.}
+    \label{fig:phasor_slots}
+\end{figure}
 
+\subsection{Fundamental Harmonic (\texorpdfstring{$n=1$}{n=1})}
 
-\subsection{Phasor Diagram and Winding Factor}
+Phasor diagram for the fundamental harmonic ($n=1$) is shown in Figure~\ref{fig:phasor_three_phases}. The slot phasors for each phase are summed vectorially to find the resultant phasor for that phase. The angles of the resultant phasors for the three phases are $0^\circ$ for Phase A, $120^\circ$ for Phase B, and $240^\circ$ for Phase C, confirming a balanced three-phase system.
 
-The winding factor for the $n$-th harmonic is computed as the ratio of the vector sum magnitude to the arithmetic sum magnitude of the slot phasors for one phase:
-\[
-    k_{w,n} = \frac{\left|\displaystyle\sum_{\text{Phase}} \vec{e}_{k,n}\right|}{N_s / m}
-\]
-where each phasor $\vec{e}_{k,n}$ has unit magnitude and angle $n \cdot \varphi_k$ (negated for slots wound in the $-$ direction).
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/phasor_three_phases.eps}
+    \caption{Phasor diagram of the three phases ($n=1$).}
+    \label{fig:phasor_three_phases}
+\end{figure}
 
-\paragraph{Fundamental ($n=1$):}
-
-The Phase A phasors and their effective angles are:
+The winding factor for the $n$-th harmonic is computed as the ratio of the vector sum magnitude to the arithmetic sum magnitude of the slot phasors for one phase.
+\[k_{w,n} = \frac{\left|\displaystyle\sum_{\text{Phase}} \vec{e}_{k,n}\right|}{N_s / m}\]
+where each phasor $\vec{e}_{k,n}$ has unit magnitude. The Phase A phasors and their effective angles are presented in the Table~\ref{tab:phasors_phase_a1} below. Distribution factor for the first fundamental is calculated using the angles of the phasors.
 
 \begin{table}[h!]
 \centering
+\caption{Phase A phasors for $n=1$.}
+\label{tab:phasors_phase_a1}
 \begin{tabular}{cccc}
 \toprule
 \textbf{Slot} & \textbf{Sign} & \textbf{Raw angle $\varphi_k$} & \textbf{Effective phasor angle} \\
 \midrule
- 1 & $+$ & $  0°$ & $  0°$ \\
-14 & $+$ & $ 24°$ & $ 24°$ \\
-15 & $-$ & $192°$ & $ 12°$ \quad ($192° - 180°$) \\
- 2 & $-$ & $168°$ & $348°$ \quad ($168° - 180° + 360°$) \\
- 3 & $+$ & $336°$ & $336°$ \\
+ 1 & $+$ & $  0^\circ$ & $  0^\circ$ \\
+14 & $+$ & $ 24^\circ$ & $ 24^\circ$ \\
+15 & $-$ & $192^\circ$ & $ 12^\circ$ \\
+ 2 & $-$ & $168^\circ$ & $348^\circ$ \\
+ 3 & $+$ & $336^\circ$ & $336^\circ$ \\
 \bottomrule
 \end{tabular}
-\caption{Phase A phasors for $n=1$. The five phasors cluster tightly around $0°$, yielding a high winding factor.}
 \end{table}
 
-\[
-    k_{w,1} = \frac{|\,\vec{e}_1 + \vec{e}_{14} + \vec{e}_{15} + \vec{e}_2 + \vec{e}_3\,|}{5}
-            = \frac{4.783}{5} = \mathbf{0.957}
-\]
+The vector sum of these 5 unit phasors is calculated by summing their real and imaginary components:
+\[\sum \cos\theta = \cos(0^\circ) + \cos(24^\circ) + \cos(12^\circ) + \cos(348^\circ) + \cos(336^\circ) = 4.783\]
+\[\sum \sin\theta = \sin(0^\circ) + \sin(24^\circ) + \sin(12^\circ) + \sin(348^\circ) + \sin(336^\circ) = 0\]
+\[k_{w,1} = \frac{|\,\vec{e}_1 + \vec{e}_{14} + \vec{e}_{15} + \vec{e}_2 + \vec{e}_3\,|}{5} = \frac{4.783}{5} = \mathbf{0.957}\]
 
-\paragraph{3rd Harmonic ($n=3$):}
+\subsection{Third Harmonic (\texorpdfstring{$n=3$}{n=3})}
 
-Each phasor angle is multiplied by 3. The Phase A phasors become $0°,\;72°,\;36°,\;324°,\;288°$:
-\[
-    k_{w,3} = \frac{3.236}{5} = \mathbf{0.647}
-\]
+For the 3rd harmonic, the electrical angle of each slot scales by a factor of 3. The effective electrical slot pitch becomes:
+\[\alpha_{e,3} = 3 \times 168^\circ = 504^\circ \equiv 144^\circ\]
 
-\paragraph{5th Harmonic ($n=5$):}
+Phasor diagram for the third harmonic is shown in Figure~\ref{fig:phasor3}. The phasors for the 3rd harmonic will be more widely spaced due to the increased electrical angle, and their vector sum will yield a smaller resultant, indicating a lower winding factor for this harmonic.
 
-Each phasor angle is multiplied by 5. The Phase A phasors become $0°,\;120°,\;60°,\;300°,\;240°$:
-\[
-    k_{w,5} = \frac{1.000}{5} = \mathbf{0.200}
-\]
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/phasor3.eps}
+    \caption{Phasor diagram of phase A ($n=3$).}
+    \label{fig:phasor3}
+\end{figure}
+
+Multiplying the fundamental raw angles of Phase A by 3 and applying a $180^\circ$ shift for the negative-polarity coils yields the 3rd harmonic effective phasor angles shown in Table~\ref{tab:phasors_phase_a3}.
 
 \begin{table}[h!]
 \centering
-\caption{Winding factors for harmonics $n=1,3,5$. Values are identical for all three phases.}
+\caption{Phase A phasors for $n=3$.}
+\label{tab:phasors_phase_a3}
+\begin{tabular}{cccc}
+\toprule
+\textbf{Slot} & \textbf{Sign} & \textbf{Raw angle $\varphi_k$} & \textbf{Effective Phasor Angle} \\
+\midrule
+ 1  & $+$ & $0^\circ$   & $0^\circ$ \\
+ 14 & $+$ & $72^\circ$  & $72^\circ$ \\
+ 15 & $-$ & $216^\circ$ & $36^\circ$ \\
+ 2  & $-$ & $144^\circ$ & $324^\circ$ \\
+ 3  & $+$ & $288^\circ$ & $288^\circ$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The vector sum of these 5 unit phasors is calculated by summing their real and imaginary components:
+\[\sum \cos\theta = \cos(0^\circ) + \cos(72^\circ) + \cos(36^\circ) + \cos(324^\circ) + \cos(288^\circ) = 3.236\]
+\[\sum \sin\theta = \sin(0^\circ) + \sin(72^\circ) + \sin(36^\circ) + \sin(324^\circ) + \sin(288^\circ) = 0\]
+
+The winding factor for the 3rd harmonic is computed as:
+\[k_{w,3}  = \frac{3.236}{5} = \mathbf{0.647}\]
+
+
+\subsection{Fifth Harmonic (\texorpdfstring{$n=5$}{n=5})}
+
+For the 5th harmonic, the effective electrical slot pitch scales by a factor of 5:
+\[\alpha_{e,5} = 5 \times 168^\circ = 840^\circ \equiv 120^\circ\]
+
+Phasor diagram for the fifth harmonic is shown in Figure~\ref{fig:phasor5}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/phasor5.eps}
+    \caption{Phasor diagram of phase A ($n=5$).}
+    \label{fig:phasor5}
+\end{figure}
+
+Multiplying the fundamental raw angles of Phase A by 5 and handling the coil polarities yields the 5th harmonic effective phasor angles presented in Table~\ref{tab:phasors_phase_a5}.
+
+\begin{table}[h!]
+\centering
+\caption{Phase A phasors for $n=5$.}
+\label{tab:phasors_phase_a5}
+\begin{tabular}{cccc}
+\toprule
+\textbf{Slot} & \textbf{Sign} & \textbf{Raw angle $\varphi_k$} & \textbf{Effective Phasor Angle} \\
+\midrule
+ 1  & $+$ & $0^\circ$   & $0^\circ$ \\
+ 14 & $+$ & $120^\circ$ & $120^\circ$ \\
+ 15 & $-$ & $240^\circ$ & $60^\circ$ \\
+ 2  & $-$ & $120^\circ$ & $300^\circ$ \\
+ 3  & $+$ & $240^\circ$ & $240^\circ$ \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+The vector components sum up as follows:
+\[\sum \cos\theta = \cos(0^\circ) + \cos(120^\circ) + \cos(60^\circ) + \cos(300^\circ) + \cos(240^\circ) = 1\]
+\[\sum \sin\theta = \sin(0^\circ) + \sin(120^\circ) + \sin(60^\circ) + \sin(300^\circ) + \sin(240^\circ) = 0\]
+
+The winding factor for the 5th harmonic is:
+\[k_{w,5} = \frac{1}{5} = \mathbf{0.200}\]
+
+
+\begin{table}[h!]
+\centering
+\caption{Winding factors summary for harmonics $n=1,3,5$.}
 \begin{tabular}{ccc}
 \toprule
-\textbf{Harmonic ($n$)} & \textbf{$k_{w,n}$} & \textbf{Note} \\
+\textbf{Harmonic ($n$)} & \textbf{$k_{w,n}$}\\
 \midrule
-$1$ (fundamental) & $0.957$ & Working harmonic ($p = 7$); high $k_w$ \\
-$3$               & $0.647$ & Zero-sequence; cancels in line-to-line voltage \\
-$5$               & $0.200$ & Balanced, well-attenuated relative to fundamental \\
+$1$  & $0.957$ \\
+$3$  & $0.647$ \\
+$5$  & $0.200$ \\
 \bottomrule
 \end{tabular}
 \end{table}
 
 
-\subsection{Winding Diagram}
+\subsection{Winding Diagram and Balance Verification}
 
-The winding is single-layer concentrated: each coil wraps around one tooth. The full slot assignment for all three phases around the stator is:
+The winding layout is designed as a double-layer concentrated configuration. The full physical slot distribution mapping all three phases across the 15 stator slots is presented in Table~\ref{tab:winding_layout_double}.
 
 \begin{table}[h!]
 \centering
-\small
-\setlength{\tabcolsep}{5pt}
-\caption{Single-layer concentrated winding slot assignment for all phases.}
+\caption{Double-layer concentrated winding slot assignment mapping for all phases.}
+\label{tab:winding_layout_double}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{c|ccccccccccccccc}
 \toprule
-\textbf{Slot}      & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
+\textbf{Slot ID} 
+& 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13 & 14 & 15 \\
 \midrule
-\textbf{Phase}     & A & A & A & B & B & B & B & B & C & C  & C  & C  & C  & A  & A  \\
-\textbf{Direction} & $+$ & $-$ & $+$ & $+$ & $-$ & $+$ & $-$ & $+$ & $+$ & $-$ & $+$ & $-$ & $+$ & $+$ & $-$ \\
+
+\textbf{Top Layer}
+& A$+$ & A$-$ & A$+$ & B$+$ & B$-$ & B$+$ & B$-$ & B$+$ & C$+$ 
+& C$-$ & C$+$ & C$-$ & C$+$ & A$+$ & A$-$ \\
+
+\textbf{Bottom Layer}
+& A$+$ & A$-$ & B$-$ & B$+$ & B$-$ & B$+$ & B$-$ & C$-$ & C$+$ 
+& C$-$ & C$+$ & C$-$ & A$-$ & A$+$ & A$-$ \\
+
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table}
 
-\paragraph{Balance verification:}
-\begin{itemize}
-    \item Each phase occupies exactly 5 slots $= N_s/m = 15/3$. \checkmark
-    \item The phase resultants at $n=1$ are at $0°$, $120°$, $-120°$ respectively, forming a balanced three-phase set. \checkmark
-    \item The winding factor is identical for all three phases by symmetry. \checkmark
-\end{itemize}
 
+To verify that this fractional-slot double-layer layout represents a valid and balanced configuration, the net complex fundamental EMF voltage vectors ($\vec{E}_k = \text{Sign} \times e^{j \varphi_k}$) are computed for each phase using the baseline slot angle formula $\varphi_k = (k-1) \times 168^\circ$:
 
-\subsection{Discussion}
+\begin{align*}
+    \vec{E}_A &= 2e^{j0^\circ} - 2e^{j168^\circ} - 1e^{j216^\circ} + 2e^{j24^\circ} - 2e^{j192^\circ} = \mathbf{8.662 \angle 9.3^\circ} \\
+    \vec{E}_B &= -1e^{j336^\circ} + 2e^{j144^\circ} - 2e^{j312^\circ} + 2e^{j120^\circ} - 2e^{j288^\circ} + 1e^{j96^\circ} = \mathbf{8.662 \angle 129.3^\circ} \\
+    \vec{E}_C &= -1e^{j96^\circ} + 2e^{j264^\circ} - 2e^{j72^\circ} + 2e^{j240^\circ} - 2e^{j48^\circ} + 1e^{j216^\circ} = \mathbf{8.662 \angle 249.3^\circ}
+\end{align*}
 
-\begin{enumerate}
-    \item \textbf{High fundamental winding factor:} $k_{w,1} = 0.957$ is comparable to well-optimised distributed windings. This is a key advantage of the 15-slot/14-pole combination and results from the tight angular clustering of the five Phase A phasors (all within $\pm 24°$ of the resultant direction).
+Evaluating the relative displacement between adjacent phases yields:
+\begin{align*}
+    \Delta\theta_{AB} &= 129.3^\circ - 9.3^\circ = 120.0^\circ \\
+    \Delta\theta_{BC} &= 249.3^\circ - 129.3^\circ = 120.0^\circ \\
+    \Delta\theta_{CA} &= 369.3^\circ - 249.3^\circ = 120.0^\circ
+\end{align*}
 
-    \item \textbf{3rd harmonic --- zero-sequence:} For $n=3$, all three phase resultants are co-phasal (pointing in the same direction). This makes the 3rd harmonic a zero-sequence component: it does not produce a rotating MMF wave and is cancelled in line-to-line voltage and in $\Delta$-connected windings. However, it may still drive circulating currents and iron losses in the stator yoke.
-
-    \item \textbf{5th harmonic --- naturally suppressed:} $k_{w,5} = 0.200$ is small relative to $k_{w,1} = 0.957$ (ratio $\approx 0.21$). This is considerably lower than for a typical full-pitch distributed winding, confirming that FSCW inherently attenuates higher-order spatial harmonics.
-
-    \item \textbf{No sub-harmonics:} Since $\gcd(N_s,\,N_m) = \gcd(15,\,14) = 1$, there are no sub-harmonic MMF components (i.e.\ no harmonics of order lower than $p=7$). This eliminates large parasitic radial forces and unbalanced magnetic pull, which is a major advantage of this slot/pole combination.
-\end{enumerate}
-
-
-
-
-
-
-
-
+The phase resultants form a balanced three-phase set. They possess completely uniform vector magnitudes and maintain an exact angular displacement of $120.0^\circ$ electrical degrees, confirming the electrical balance of the double-layer design.
 
 
 
@@ -495,7 +549,7 @@ The winding is single-layer concentrated: each coil wraps around one tooth. The 
 
 
 %%─── Conclusion ───────────────────────────────────────────────────────────
-\section*{Conclusion}
+\section{Conclusion}
 
 
 

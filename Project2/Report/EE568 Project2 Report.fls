@@ -224,16 +224,61 @@ INPUT .\EE568 Project2 Report.toc
 INPUT EE568 Project2 Report.toc
 OUTPUT EE568 Project2 Report.toc
 INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\tfm\jknappen\ec\tcrm1200.tfm
-INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
-INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmmi10.tfm
-INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmsy10.tfm
-INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmex10.tfm
-INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam10.tfm
-INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm10.tfm
+INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\cmextra\cmex7.tfm
+INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msam5.tfm
+INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\tfm\public\amsfonts\symbols\msbm5.tfm
 INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx10.tfm
 INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmti12.tfm
+INPUT .\figures\phasor_slots.eps
+INPUT .\figures\phasor_slots.eps
+INPUT .\figures\phasor_slots.eps
+INPUT .\figures\phasor_slots.eps
+INPUT .\figures\phasor_slots.eps
+INPUT .\figures\phasor_slots-eps-converted-to.pdf
+INPUT .\figures\phasor_slots-eps-converted-to.pdf
+INPUT .\figures\phasor_slots.eps
+INPUT .\figures\phasor_slots-eps-converted-to.pdf
+INPUT .\figures\phasor_slots-eps-converted-to.pdf
+INPUT .\figures\phasor_slots-eps-converted-to.pdf
+INPUT .\figures\phasor_slots-eps-converted-to.pdf
+INPUT .\figures\phasor_three_phases.eps
+INPUT .\figures\phasor_three_phases.eps
+INPUT .\figures\phasor_three_phases.eps
+INPUT .\figures\phasor_three_phases.eps
+INPUT .\figures\phasor_three_phases.eps
+INPUT .\figures\phasor_three_phases-eps-converted-to.pdf
+INPUT .\figures\phasor_three_phases-eps-converted-to.pdf
+INPUT .\figures\phasor_three_phases.eps
+INPUT .\figures\phasor_three_phases-eps-converted-to.pdf
+INPUT .\figures\phasor_three_phases-eps-converted-to.pdf
+INPUT .\figures\phasor_three_phases-eps-converted-to.pdf
+INPUT .\figures\phasor_three_phases-eps-converted-to.pdf
 INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx8.tfm
 INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmbx6.tfm
+INPUT .\figures\phasor3.eps
+INPUT .\figures\phasor3.eps
+INPUT .\figures\phasor3.eps
+INPUT .\figures\phasor3.eps
+INPUT .\figures\phasor3.eps
+INPUT .\figures\phasor3-eps-converted-to.pdf
+INPUT .\figures\phasor3-eps-converted-to.pdf
+INPUT .\figures\phasor3.eps
+INPUT .\figures\phasor3-eps-converted-to.pdf
+INPUT .\figures\phasor3-eps-converted-to.pdf
+INPUT .\figures\phasor3-eps-converted-to.pdf
+INPUT .\figures\phasor3-eps-converted-to.pdf
+INPUT .\figures\phasor5.eps
+INPUT .\figures\phasor5.eps
+INPUT .\figures\phasor5.eps
+INPUT .\figures\phasor5.eps
+INPUT .\figures\phasor5.eps
+INPUT .\figures\phasor5-eps-converted-to.pdf
+INPUT .\figures\phasor5-eps-converted-to.pdf
+INPUT .\figures\phasor5.eps
+INPUT .\figures\phasor5-eps-converted-to.pdf
+INPUT .\figures\phasor5-eps-converted-to.pdf
+INPUT .\figures\phasor5-eps-converted-to.pdf
+INPUT .\figures\phasor5-eps-converted-to.pdf
 INPUT EE568 Project2 Report.aux
 INPUT .\EE568 Project2 Report.out
 INPUT .\EE568 Project2 Report.out
@@ -247,6 +292,8 @@ INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmex10.pfb
 INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
 INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi12.pfb
+INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
+INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi6.pfb
 INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmmi8.pfb
 INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr10.pfb
@@ -257,6 +304,8 @@ INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\c
 INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmr8.pfb
 INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
 INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy10.pfb
+INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy6.pfb
+INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy6.pfb
 INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
 INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmsy8.pfb
 INPUT C:\Users\elife\AppData\Local\Programs\MiKTeX\fonts\type1\public\amsfonts\cm\cmti12.pfb

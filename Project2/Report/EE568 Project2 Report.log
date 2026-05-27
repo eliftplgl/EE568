@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.11)  26 MAY 2026 23:46
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.11)  27 MAY 2026 18:48
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -502,7 +502,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 63.
 \c@lstlisting=\count351
-<figures/eelogo.png, id=63, 617.30624pt x 489.83pt>
+<figures/eelogo.png, id=75, 617.30624pt x 489.83pt>
 File: figures/eelogo.png Graphic file (type png)
 <use figures/eelogo.png>
 Package pdftex.def Info: figures/eelogo.png  used on input line 70.
@@ -515,7 +515,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 71.
  (C:\Users\elife\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<figures/Orta_DoÄŸu_Teknik_Ãœniversitesi.png, id=64, 472.76625pt x 394.47375pt>
+<figures/Orta_DoÄŸu_Teknik_Ãœniversitesi.png, id=76, 472.76625pt x 394.47375pt>
 File: figures/Orta_DoÄŸu_Teknik_Ãœniversitesi.png Graphic file (type png)
 <use figures/Orta_DoÄŸu_Teknik_Ãœniversitesi.png>
 Package pdftex.def Info: figures/Orta_DoÄŸu_Teknik_Ãœniversitesi.png  used on input line 75.
@@ -531,476 +531,85 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
 <to be read again> 
                    \relax 
 l.105 \newpage
-               [1]
-Overfull \hbox (45.55888pt too wide) in paragraph at lines 154--162
- [][] 
- []
-
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[2] [3]
-Overfull \hbox (50.27345pt too wide) in paragraph at lines 237--245
- [][] 
- []
-
-[4]
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 330.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 330.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 338.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 338.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 338.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 338.
-
-Missing character: There is no ° in font cmr12!
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 339.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 339.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 339.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 339.
-
-Missing character: There is no ° in font cmr12!
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 340.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 340.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 340.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 340.
-
-Missing character: There is no ° in font cmr12!
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 341.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 341.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 341.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 341.
-
-Missing character: There is no ° in font cmr12!
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 342.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 342.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 342.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 342.
-
-Missing character: There is no ° in font cmr12!
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 343.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 343.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 343.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 343.
-
-Missing character: There is no ° in font cmr12!
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 346.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 346.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 346.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 346.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 358.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 358.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 358.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 358.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 359.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 359.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 359.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 359.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 360.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 360.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 360.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 360.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 361.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 361.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 361.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 361.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 362.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 362.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 362.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 362.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 363.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 363.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 363.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 363.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 364.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 364.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 364.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 364.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 365.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 365.
-
-Missing character: There is no ° in font cmr12!
-[5]
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 397.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 397.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 397.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 397.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 398.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 398.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 398.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 398.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 399.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 399.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 399.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 399.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 399.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 399.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 399.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 399.
-
-Missing character: There is no ° in font cmr12!
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 400.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 400.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 400.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 400.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 400.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 400.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 400.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 400.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 400.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 400.
-
-Missing character: There is no ° in font cmr12!
-Missing character: There is no ° in font cmr12!
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 401.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 401.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 401.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 401.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 404.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 404.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 404.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 404.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: `!h' float specifier changed to `!ht'.
-
-[6]
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 414.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 414.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 414.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 414.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 414.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 414.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 414.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 414.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 414.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 414.
-
-Missing character: There is no ° in font cmr12!
-Missing character: There is no ° in font cmr12!
-Missing character: There is no ° in font cmr12!
-Missing character: There is no ° in font cmr12!
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 421.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 421.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 421.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 421.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 421.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 421.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 421.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 421.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 421.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 421.
-
-Missing character: There is no ° in font cmr12!
-Missing character: There is no ° in font cmr12!
-Missing character: There is no ° in font cmr12!
-Missing character: There is no ° in font cmr12!
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 463.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 463.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 463.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 463.
-
-Missing character: There is no ° in font cmr12!
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 463.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 463.
-
-Missing character: There is no ° in font cmr12!
-[7]
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 471.
-
-
-LaTeX Warning: Command \textdegree invalid in math mode on input line 471.
-
-Missing character: There is no ° in font cmr12!
-[8] (EE568 Project2 Report.aux)
+               [1] [2] [3] [4] [5]
+Package epstopdf Info: Source file: <figures/phasor_slots.eps>
+(epstopdf)                    date: 2026-05-27 14:03:16
+(epstopdf)                    size: 38458 bytes
+(epstopdf)             Output file: <figures/phasor_slots-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-05-27 14:33:17
+(epstopdf)                    size: 18948 bytes
+(epstopdf)             Command: <miktex-epstopdf --outfile=figures/phasor_slots-eps-converted-to.pdf figures/phasor_slots.eps>
+(epstopdf)             \includegraphics on input line 357.
+Package epstopdf Info: Output file is already uptodate.
+<figures/phasor_slots-eps-converted-to.pdf, id=150, 421.575pt x 316.18124pt>
+File: figures/phasor_slots-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/phasor_slots-eps-converted-to.pdf>
+Package pdftex.def Info: figures/phasor_slots-eps-converted-to.pdf  used on input line 357.
+(pdftex.def)             Requested size: 318.66948pt x 239.00726pt.
+Package epstopdf Info: Source file: <figures/phasor_three_phases.eps>
+(epstopdf)                    date: 2026-05-27 14:09:42
+(epstopdf)                    size: 40477 bytes
+(epstopdf)             Output file: <figures/phasor_three_phases-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-05-27 14:43:19
+(epstopdf)                    size: 19524 bytes
+(epstopdf)             Command: <miktex-epstopdf --outfile=figures/phasor_three_phases-eps-converted-to.pdf figures/phasor_three_phases.eps>
+(epstopdf)             \includegraphics on input line 368.
+Package epstopdf Info: Output file is already uptodate.
+<figures/phasor_three_phases-eps-converted-to.pdf, id=152, 421.575pt x 316.18124pt>
+File: figures/phasor_three_phases-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/phasor_three_phases-eps-converted-to.pdf>
+Package pdftex.def Info: figures/phasor_three_phases-eps-converted-to.pdf  used on input line 368.
+(pdftex.def)             Requested size: 318.66948pt x 239.00726pt.
+ [6 <./figures/phasor_slots-eps-converted-to.pdf>] [7 <./figures/phasor_three_phases-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/phasor3.eps>
+(epstopdf)                    date: 2026-05-27 16:09:56
+(epstopdf)                    size: 25224 bytes
+(epstopdf)             Output file: <figures/phasor3-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-05-27 16:10:06
+(epstopdf)                    size: 12127 bytes
+(epstopdf)             Command: <miktex-epstopdf --outfile=figures/phasor3-eps-converted-to.pdf figures/phasor3.eps>
+(epstopdf)             \includegraphics on input line 408.
+Package epstopdf Info: Output file is already uptodate.
+<figures/phasor3-eps-converted-to.pdf, id=184, 421.575pt x 316.18124pt>
+File: figures/phasor3-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/phasor3-eps-converted-to.pdf>
+Package pdftex.def Info: figures/phasor3-eps-converted-to.pdf  used on input line 408.
+(pdftex.def)             Requested size: 318.66948pt x 239.00726pt.
+ [8 <./figures/phasor3-eps-converted-to.pdf>]
+Package epstopdf Info: Source file: <figures/phasor5.eps>
+(epstopdf)                    date: 2026-05-27 16:09:42
+(epstopdf)                    size: 25223 bytes
+(epstopdf)             Output file: <figures/phasor5-eps-converted-to.pdf>
+(epstopdf)                    date: 2026-05-27 16:10:07
+(epstopdf)                    size: 12054 bytes
+(epstopdf)             Command: <miktex-epstopdf --outfile=figures/phasor5-eps-converted-to.pdf figures/phasor5.eps>
+(epstopdf)             \includegraphics on input line 449.
+Package epstopdf Info: Output file is already uptodate.
+<figures/phasor5-eps-converted-to.pdf, id=201, 421.575pt x 316.18124pt>
+File: figures/phasor5-eps-converted-to.pdf Graphic file (type pdf)
+<use figures/phasor5-eps-converted-to.pdf>
+Package pdftex.def Info: figures/phasor5-eps-converted-to.pdf  used on input line 449.
+(pdftex.def)             Requested size: 318.66948pt x 239.00726pt.
+ [9 <./figures/phasor5-eps-converted-to.pdf>] [10] [11] (EE568 Project2 Report.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `"EE568 Project2 Report".out' has not changed.
-(rerunfilecheck)             Checksum: 8978DA2B94479C41E2D400FC9F60E26A;2867.
+(rerunfilecheck)             Checksum: EEF246387EE85E703AE4541EBCD6A034;3396.
  ) 
 Here is how much of TeX's memory you used:
- 18627 strings out of 467866
- 356966 string characters out of 5418313
- 756608 words of memory out of 5000000
- 47284 multiletter control sequences out of 15000+600000
- 640121 words of font info for 87 fonts, out of 8000000 for 9000
+ 18679 strings out of 467866
+ 358592 string characters out of 5418313
+ 762231 words of memory out of 5000000
+ 47327 multiletter control sequences out of 15000+600000
+ 639218 words of font info for 84 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,13n,79p,1264b,1156s stack positions out of 10000i,1000n,20000p,200000b,200000s
- <C:\Users\elife\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on "EE568 Project2 Report.pdf" (9 pages, 286255 bytes).
+ 75i,13n,79p,1264b,1162s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ <C:\Users\elife\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
+Output written on "EE568 Project2 Report.pdf" (12 pages, 367077 bytes).
 PDF statistics:
- 228 PDF objects out of 1000 (max. 8388607)
- 46 named destinations out of 1000 (max. 500000)
- 131 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 311 PDF objects out of 1000 (max. 8388607)
+ 53 named destinations out of 1000 (max. 500000)
+ 175 words of extra memory for PDF output out of 10000 (max. 10000000)
 
