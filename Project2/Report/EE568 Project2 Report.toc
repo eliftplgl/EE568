@@ -20,6 +20,17 @@
 \contentsline {subsection}{\numberline {3.3}Third Harmonic ($n=3$)}{8}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Fifth Harmonic ($n=5$)}{9}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Winding Diagram and Balance Verification}{10}{subsection.3.5}%
-\contentsline {section}{\numberline {4}Conclusion}{11}{section.4}%
-\contentsline {section}{\numberline {A}Project design parameters}{11}{appendix.A}%
-\contentsline {section}{\numberline {B}MATLAB Source Code}{11}{appendix.B}%
+\contentsline {section}{\numberline {4}Q3: Analytical Modelling}{11}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Electrical Loading}{13}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Carter's Coefficient and Effective Air-Gap}{13}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Effective Axial Length}{13}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Air-Gap Peak Flux Density}{13}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Magnetic Loading}{13}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}Specific Machine Constant and Tangential Shear Stress}{14}{subsection.4.6}%
+\contentsline {subsection}{\numberline {4.7}Expected Torque}{14}{subsection.4.7}%
+\contentsline {subsection}{\numberline {4.8}Flux Per Pole and Number of Turns}{14}{subsection.4.8}%
+\contentsline {subsection}{\numberline {4.9}Tooth Flux Density Verification}{15}{subsection.4.9}%
+\contentsline {subsection}{\numberline {4.10}Results Summary}{15}{subsection.4.10}%
+\contentsline {section}{\numberline {5}Q4: 2D FEA Modeling}{15}{section.5}%
+\contentsline {section}{\numberline {6}Conclusion}{15}{section.6}%
+\contentsline {section}{\numberline {A}Project design parameters}{15}{appendix.A}%

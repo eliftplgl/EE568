@@ -1,5 +1,5 @@
 # Fdb version 4
-["pdflatex"] 1779896922.64345 "c:/Users/elife/Desktop/Github/EE568/Project2/Report/EE568 Project2 Report.tex" "EE568 Project2 Report.pdf" "EE568 Project2 Report" 1779896924.419 0
+["pdflatex"] 1779914948.08361 "c:/Users/elife/Desktop/Github/EE568/Project2/Report/EE568 Project2 Report.tex" "EE568 Project2 Report.pdf" "EE568 Project2 Report" 1779914950.25595 0
   "C:/Users/elife/AppData/Local/MiKTeX/fonts/map/pdftex/pdftex.map" 1776452538 80909 eab91d9745dd2edfd62a31d53cd5fe15 ""
   "C:/Users/elife/AppData/Local/MiKTeX/fonts/pk/ljfour/jknappen/ec/dpi600/tcrm1200.pk" 1775932479 14064 86f5ab2c8c13c32d41f3f716696ef41f ""
   "C:/Users/elife/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1775932391 13333890 9382f8ab8a8d38ad2a770d10b73174a5 ""
@@ -14,6 +14,7 @@
   "C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/tfm/public/amsfonts/symbols/msbm7.tfm" 1233951854 940 228d6584342e91276bf566bcf9716b83 ""
   "C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx10.tfm" 1136765053 1328 c834bbb027764024c09d3d2bf908b5f0 ""
   "C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx12.tfm" 1136765053 1324 c910af8c371558dc20f2d7822f66fe64 ""
+  "C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx5.tfm" 1136765053 1332 f817c21a1ba54560425663374f1b651a ""
   "C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx6.tfm" 1136765053 1344 8a0be4fe4d376203000810ad4dc81558 ""
   "C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmbx8.tfm" 1136765053 1332 1fde11373e221473104d6cc5993f046e ""
   "C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmex10.tfm" 1136765053 992 662f679a0b3d2d53c1b94050fdaa3f50 ""
@@ -113,11 +114,12 @@
   "C:/Users/elife/AppData/Local/Programs/MiKTeX/tex/latex/translations/translations.sty" 1644048522 44247 2188b95d0ee74e31eca4d316263c58a7 ""
   "C:/Users/elife/AppData/Local/Programs/MiKTeX/tex/latex/url/url.sty" 1388490452 12796 8edb7d69a20b857904dd0ea757c14ec9 ""
   "C:/Users/elife/AppData/Local/Programs/MiKTeX/tex/latex/xcolor/xcolor.sty" 1729265222 55384 b454dec21c2d9f45ec0b793f0995b992 ""
-  "EE568 Project2 Report.aux" 1779896924 6802 6410c69c819a5cb01e54fb2b11bb0aa1 "pdflatex"
-  "EE568 Project2 Report.out" 1779896924 3396 eef246387ee85e703ae4541ebcd6a034 "pdflatex"
-  "EE568 Project2 Report.tex" 1779896920 24420 52c17cb411d7f48781aa5f495864829a ""
-  "EE568 Project2 Report.toc" 1779896924 2149 7c07e68b94601e637b5a30b78f19300b "pdflatex"
-  "c:/Users/elife/Desktop/Github/EE568/Project2/Report/EE568 Project2 Report.tex" 1779896920 24420 52c17cb411d7f48781aa5f495864829a ""
+  "EE568 Project2 Report.aux" 1779914949 9270 5c369e7e8e51c80354d8e86412eea421 "pdflatex"
+  "EE568 Project2 Report.out" 1779914949 5588 ca3b6b49af4981e508f5c6704c2a7a2d "pdflatex"
+  "EE568 Project2 Report.tex" 1779914944 34942 c6bc68c4e94432fa6bdeefc813692622 ""
+  "EE568 Project2 Report.toc" 1779914949 3172 edc2de36742ca4a16f9ebede6b12393f "pdflatex"
+  "c:/Users/elife/Desktop/Github/EE568/Project2/Report/EE568 Project2 Report.tex" 1779914944 34942 c6bc68c4e94432fa6bdeefc813692622 ""
+  "figures/Design4_Ns15_Nm14.png" 1779826582 236566 65afbe480d843a8d23c8484587acce3a ""
   "figures/Orta_Doğu_Teknik_Üniversitesi.png" 1779711769 21261 15fecddbd2fb7166e9a163bab4a5ab9f ""
   "figures/eelogo.png" 1779711769 70546 e2e404120a16e4449676bc0bea37437f ""
   "figures/phasor3.eps" 1779887396 25224 53f2c8bc09dceca907df32681cea6c48 ""

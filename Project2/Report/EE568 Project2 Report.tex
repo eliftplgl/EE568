@@ -99,7 +99,6 @@
 
 
 
-
 %%─── Table of Contents ───────────────────────────────────────────────────────
 \tableofcontents
 \newpage
@@ -109,16 +108,6 @@
 
 
 
-
-
-
-
-
-
-
-
-
-%%─── Q1 ───────────────────────────────────────────────────────────
 \section{Q1: Integral-Slot Winding Design}
 
 For this question, two winding designs are done namely full-pitched and 11/12 short-pitched windings. The given machine parameters for these windings are:
@@ -311,9 +300,6 @@ $n=5$ & $1.000$ & $0.205$ & $0.793$ & $0.163$ \\
 \end{table}
 
 
-
-
-%%─── Q2 ──────────────────────────────────────────────────────────────────────
 
 \section{Q2: Fractional-Slot Winding Design}
 The assigned design for this project has the following parameters:
@@ -541,30 +527,305 @@ The phase resultants form a balanced three-phase set. They possess completely un
 
 
 
+\section{Q3: Analytical Modelling}
+
+The machine under analysis is the fractional-slot PMSM assigned in Q2
+(15~slots, 14~poles). All given parameters are listed in
+Table~\ref{tab:q3_given}, and the intermediate geometric quantities
+derived from them are listed in Table~\ref{tab:q3_calc}.
+
+\begin{table}[h!]
+\centering
+\caption{Given design parameters.}
+\label{tab:q3_given}
+\begin{tabular}{llr}
+\toprule
+\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\
+\midrule
+Number of phases              & $m$          & $3$ \\
+Number of stator slots        & $Q$          & $15$ \\
+Number of poles               & $N_m$        & $14$ \\
+Slots per pole per phase      & $N_{spp}$    & $0.357$ \\
+Stator outer radius           & $R_{so}$     & \SI{50}{mm} \\
+Rotor/stator radius ratio     & $R_{ro}/R_{so}$ & $0.62$ \\
+Motor axial length            & $L_s$        & \SI{100}{mm} \\
+Air-gap length                & $g$          & \SI{1}{mm} \\
+Radial magnet length          & $l_m$        & \SI{4}{mm} \\
+Magnet relative permeability  & $\mu_r$      & $1.05$ \\
+Magnet remanence              & $B_r$        & \SI{1.3}{T} \\
+Magnet pole-arc ratio         & $\alpha_p$   & $0.889$ \\
+Slot fill factor              & $k_{wc}$     & $0.60$ \\
+Conductor current density     & $J$          & \SI{5}{A/mm^2} \\
+Winding factor (fundamental)  & $k_{w1}$     & $0.957$ \\
+Motor speed                   & $n$          & \SI{1500}{rpm} \\
+DC bus voltage                & $V_{dc}$     & \SI{48}{V} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+Stator outer radius is given as $R_{so} = \SI{50}{mm}$, and the rotor-to-stator radius ratio is $0.62$, which allows us to calculate the rotor outer radius:
+\[R_m = 0.62 \times R_{so} = 0.62 \times 50 = \mathbf{\SI{31.0}{mm}}\]
+The stator inner radius is then:
+\[R_{si} = R_m + g = 31.0 + 1.0 = \mathbf{\SI{32.0}{mm}}\]
+The air-gap mean radius is the average of the rotor and stator radii:
+\[R_{ag} = \frac{R_m + R_{si}}{2} = \frac{31.0 + 32.0}{2} = \mathbf{\SI{31.5}{mm}}\]
+
+The teeth/slot width ratio is selected as $d = 0.62$, which allows to find outer radius of the slot, the height of the slot and the stator back-core thickness:
+\[R_{slot,o} = \frac{R_{si}}{d} = \frac{32.0}{0.62} = \mathbf{\SI{42.67}{mm}}\]
+\[h_s = R_{slot,o} - R_{si} = 42.67 - 32.0 = \mathbf{\SI{10.67}{mm}}\]
+\[h_{core} = R_{so} - R_{slot,o} = 50.0 - 42.67 = \mathbf{\SI{7.33}{mm}}\]
+
+Furthermore, the stator slot pitch is calculated as:
+\[\tau_s = \frac{2\pi R_{ag}}{Q} = \frac{2\pi \times 31.5}{15} = \mathbf{\SI{13.40}{mm}}\]
+If the teeth/slot width ratio is selected as $d = 0.62$, then the tooth body width and slot width are:
+\[w_{th} = d \cdot \tau_s = 0.62 \times 13.40 = \mathbf{\SI{8.31}{mm}}\]
+\[w_s = \tau_s - w_{th} = 13.40 - 8.31 = \mathbf{\SI{5.09}{mm}}\]
+The slot area is:
+\[A_{slot} = w_s \cdot h_s = 5.09 \times 10.67 = \mathbf{\SI{54.33}{mm^2}}\]
+The copper area per slot is:
+\[A_{cu} = k_{wc} \cdot A_{slot} = 0.60 \times 54.33 = \mathbf{\SI{32.60}{mm^2}}\]
+The ampere-turns per slot is:
+\[NI_{slot} = J \cdot A_{cu} = 5 \times 32.60 = \mathbf{\SI{163.0}{A}}\]
+Finally, the electrical frequency at the rated speed is:
+\[f_e = \frac{N_m \cdot n}{120} = \frac{14 \times 1500}{120} = \mathbf{\SI{175}{Hz}}\]
+
+These calculated geometric parameters are summarized in Table~\ref{tab:q3_calc} below and used in the subsequent analytical calculations for the machine's performance characteristics.
+
+\begin{table}[h!]
+\centering
+\caption{Calculated geometric parameters.}
+\label{tab:q3_calc}
+\begin{tabular}{llr}
+\toprule
+\textbf{Parameter} & \textbf{Symbol} & \textbf{Value} \\
+\midrule
+Rotor outer radius            & $R_m$          & \SI{31.0}{mm} \\
+Stator inner radius           & $R_{si}$       & \SI{32.0}{mm} \\
+Air-gap mean radius           & $R_{ag}$       & \SI{31.5}{mm} \\
+Stator slot pitch             & $\tau_s$       & \SI{13.40}{mm} \\
+Teeth/slot width ratio        & $d$            & $0.62$ \\
+Tooth body width              & $w_{tb}$       & \SI{8.31}{mm} \\
+Slot width                    & $w_s$          & \SI{5.09}{mm} \\
+Slot outer radius             & $R_{slot,o}$   & \SI{42.67}{mm} \\
+Slot height                   & $h_s$          & \SI{10.67}{mm} \\
+Stator back-core thickness    & $w_{sy}$       & \SI{7.33}{mm} \\
+Slot area                     & $A_{slot}$     & \SI{54.33}{mm^2} \\
+Copper area per slot          & $A_{cu}$       & \SI{32.60}{mm^2} \\
+Ampere-turns per slot         & $NI_{slot}$    & \SI{163.0}{A} \\
+Stator slot opening           & $b_0$          & \SI{5.0}{mm} \\
+Electrical frequency          & $f_e$          & \SI{175}{Hz} \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+
+\subsection{Electrical Loading}
+
+The specific electric loading $\bar{A}$ is the total RMS ampere-turns
+per unit length of the air-gap circumference:
+
+\begin{equation}
+    \bar{A} = \frac{NI_{slot} \cdot Q}{\pi D_i}
+            = \frac{163.0 \times 15}{\pi \times 0.063}
+            = \mathbf{\SI{12{,}4}{kA/m}}
+\end{equation}
+
+\subsection{Carter's Coefficient and Effective Air-Gap}
+
+Carter's coefficient corrects for the increase in effective reluctance
+caused by stator slot openings. With selected slot opening $b_0 = \SI{5.0}{mm}$
+and $g = \SI{1}{mm}$:
+
+\begin{equation}
+    \gamma = \frac{b_0/g}{5 + b_0/g}
+           = \frac{5/1}{5 + 5}
+           = 0.5
+\end{equation}
+
+\begin{equation}
+    k_c = \frac{\tau_s}{\tau_s - \gamma\, b_0}
+        = \frac{13.40}{13.40 - 0.5 \times 5.0}
+        = \mathbf{1.23}
+\end{equation}
+
+Since the rotor has surface-mount magnets with no slots, the rotor
+Carter's coefficient is unity ($k_{c2} = 1$). The effective mechanical
+air-gap is then the physical air-gap multiplied by the stator Carter's coefficient:
+
+\begin{equation}
+    g' = k_c \cdot g = 1.23 \times 1 = \SI{1.23}{mm}
+\end{equation}
+
+\subsection{Effective Axial Length}
+
+Fringing flux at the two axial ends extends the effective active length
+by approximately one air-gap length per side:
+
+\begin{equation}
+    L_{eff} = L_s + 2g = 100 + 2\times 1 = \mathbf{\SI{102}{mm}}
+\end{equation}
+
+\subsection{Air-Gap Peak Flux Density}
+
+Applying Ampere's law around a flux path that traverses the magnet and
+the effective air-gap (cylindrical approximation, iron reluctance
+neglected):
+
+\begin{equation}
+    B_{g,peak}
+        = \frac{B_r \cdot l_m/\mu_r}{g' + l_m/\mu_r}
+        = \frac{1.3 \times 4/1.05}{1.23 + 4/1.05}
+        = \frac{4.952}{5.04}
+        = \mathbf{\SI{0.983}{T}}
+\end{equation}
+
+\subsection{Magnetic Loading}
+
+The specific magnetic loading is the average air-gap flux density over a
+full pole pitch. Because the magnet covers only the fraction $\alpha_p$
+of each pole, the remaining arc contributes zero flux:
+
+\begin{equation}
+    \bar{B} = \alpha_p \cdot B_{g,peak}
+            = 0.889 \times 0.983
+            = \mathbf{\SI{0.874}{T}}
+\end{equation}
+
+\subsection{Specific Machine Constant and Tangential Shear Stress}
+
+The local tangential stress at the rotor surface is the product of the
+local electric and magnetic loading. For unity power factor operation:
+
+\begin{equation}
+    \sigma_{tan} = \frac{\bar{A}\cdot\hat{B}_{g}}{\sqrt{2}}
+                 = \frac{12{,}4 \times 0.983}{\sqrt{2}}
+                 = \mathbf{\SI{8{,}59}{kPa}}
+\end{equation}
+
+This value is consistent with the expected range for a small
+high-performance PMSM (\SIrange{5}{15}{kPa}). The specific machine
+constant, combining winding design, electric loading, and magnetic
+loading, is:
+
+\begin{equation}
+    C = \frac{\pi^2}{\sqrt{2}}\,k_{w1}\,\bar{A}\,\hat{B}_{g1}
+      = \frac{\pi^2}{\sqrt{2}} \times 0.957 \times 12{,}4 \times 1.228
+      = \mathbf{\SI{57{,}3}{kW\cdot s/m^3}}
+\end{equation}
+
+\subsection{Expected Torque}
+
+The torque is related to the shear stress and the rotor volume:
+
+\begin{equation}
+    V_r = \pi R_m^2 L_{eff}
+        = \pi \times (0.031)^2 \times 0.102
+        = \SI{3.079e-4}{m^3}
+\end{equation}
+
+\begin{equation}
+    T = 2\,\sigma_{tan}\,V_r
+      = 2 \times 8{,}59 \times 3.079\times10^{-4}
+      = \mathbf{\SI{5.29}{Nm}}
+\end{equation}
+
+\subsection{Flux Per Pole and Number of Turns}
+
+The pole pitch and the flux per pole are:
+
+\begin{equation}
+    \tau_p = \frac{\pi D_i}{N_m}
+           = \frac{\pi \times 0.063}{14}
+           = \SI{14.1}{mm}
+\end{equation}
+
+\begin{equation}
+    \Phi_p = B_{g,peak}\cdot\alpha_p\cdot\tau_p\cdot L_{eff}
+           = 0.983 \times 0.889 \times 14.1\times10^{-3} \times 102\times10^{-3}
+           = \mathbf{\SI{1.26}{mWb}}
+\end{equation}
+
+To select the number of turns, the target phase back-EMF is derived from
+the \SI{48}{V} DC bus. Assuming maximum modulation index for the
+three-phase inverter:
+
+\begin{equation}
+    E_{phase} = \frac{V_{dc}}{\sqrt{3}}
+              \approx \SI{27.7}{V_{rms}}
+\end{equation}
+
+
+\begin{equation}
+    N_s = \frac{E_{phase}}{\sqrt{2}\,\pi\,f_e\,k_{w1}\,\Phi_p}
+        = \frac{27.7}{\sqrt{2}\times\pi\times175\times0.957\times1.260\times10^{-3}}
+        \approx \mathbf{30\ \text{turns/phase}}
+\end{equation}
+
+\subsection{Tooth Flux Density Verification}
+
+All air-gap flux entering one slot pitch must pass through the
+corresponding tooth cross-section. The average flux density in the tooth body is:
+
+\begin{equation}
+    B_{tooth} = \frac{\bar{B} \cdot \tau_s}{w_{th}}
+              = \frac{0.874 \times 13.40}{8.31}
+              = \mathbf{\SI{1.409}{T}} \approx \SI{1.41}{T} \quad \checkmark
+\end{equation}
+
+\subsection{Results Summary}
+
+\begin{table}[h!]
+\centering
+\caption{Summary of $Q3$ analytical modelling results.}
+\label{tab:q3_summary}
+\begin{tabular}{llr}
+\toprule
+\textbf{Quantity} & \textbf{Symbol} & \textbf{Value} \\
+\midrule
+Electrical loading          & $\bar{A}$        & \SI{12{,}4}{kA/m}          \\
+Tooth flux density          & $B_{tooth}$      & \SI{1.41}{T}               \\
+Carter's coefficient        & $k_c$            & $1.23$                     \\
+Effective air-gap           & $g'$             & \SI{1.23}{mm}              \\
+Total electromagnetic gap   & $g_{eff}$        & \SI{5.04}{mm}              \\
+Effective axial length      & $L_{eff}$        & \SI{102}{mm}               \\
+Peak air-gap flux density   & $B_{g,peak}$     & \SI{0.983}{T}              \\
+Magnetic loading            & $\bar{B}$        & \SI{0.874}{T}              \\
+Specific machine constant   & $C$              & \SI{57.3}{kW\cdot s/m^3}   \\
+Tangential shear stress     & $\sigma_{tan}$   & \SI{8.59}{kPa}             \\
+Expected torque             & $T$              & \SI{5.29}{Nm}              \\
+Flux per pole               & $\Phi_p$         & \SI{1.26}{mWb}             \\
+Number of turns per phase   & $N_s$            & $\approx 30$               \\
+\bottomrule
+\end{tabular}
+\end{table}
+
+All the calculations that are done in this question is implemented in an Excel spreadsheet named "analytical\_design.xlsx". The Excel file is provided in the project repository.
+
+
+
+\section{Q4: 2D FEA Modeling}
 
 
 
 
-
-
-
-%%─── Conclusion ───────────────────────────────────────────────────────────
 \section{Conclusion}
+
+
+
+
 
 
 
 %%─── Appendix ────────────────────────────────────────────────────────────────
 \appendix
-
 \section{Project design parameters}
+ Assigned design for this project is presented in Figure \ref{fig:design}.
 
-
-
-
-\section{MATLAB Source Code}
-
-The MATLAB script used for the analytical calculations and plots in Q1 is provided below.
-
-%\lstinputlisting[style=matlab, caption={MATLAB script for Q1 Analytical Modelling}]{analytical_model.m}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.7\textwidth]{figures/Design4_Ns15_Nm14.png}
+    \caption{Assigned design visualization for the project.}
+    \label{fig:design}
+\end{figure}
 
 \end{document}
