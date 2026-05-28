@@ -1,36 +1,41 @@
 \contentsline {section}{\numberline {1}Introduction}{2}{section.1}%
 \contentsline {section}{\numberline {2}Q1: Integral-Slot Winding Design}{2}{section.2}%
 \contentsline {paragraph}{Derived Parameters:}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}Configuration A: Full-Pitched Winding}{2}{subsection.2.1}%
-\contentsline {subsubsection}{\numberline {2.1.1}Winding Diagram}{2}{subsubsection.2.1.1}%
+\contentsline {subsection}{\numberline {2.1}Configuration A: Full-Pitched Winding}{3}{subsection.2.1}%
+\contentsline {subsubsection}{\numberline {2.1.1}Winding Diagram}{3}{subsubsection.2.1.1}%
 \contentsline {subsubsection}{\numberline {2.1.2}Winding Factor Calculations}{3}{subsubsection.2.1.2}%
 \contentsline {paragraph}{Fundamental ($n = 1$):}{3}{subsubsection.2.1.2}%
 \contentsline {paragraph}{3rd Harmonic ($n = 3$):}{3}{subsubsection.2.1.2}%
-\contentsline {paragraph}{5th Harmonic ($n = 5$):}{3}{subsubsection.2.1.2}%
+\contentsline {paragraph}{5th Harmonic ($n = 5$):}{4}{subsubsection.2.1.2}%
 \contentsline {subsection}{\numberline {2.2}Configuration B: 11/12 Short-Pitched Winding}{4}{subsection.2.2}%
 \contentsline {subsubsection}{\numberline {2.2.1} Winding Diagram}{4}{subsubsection.2.2.1}%
 \contentsline {subsubsection}{\numberline {2.2.2}Winding Factor Calculations}{4}{subsubsection.2.2.2}%
 \contentsline {paragraph}{Fundamental ($n = 1$):}{4}{subsubsection.2.2.2}%
 \contentsline {paragraph}{3rd Harmonic ($n = 3$):}{4}{subsubsection.2.2.2}%
-\contentsline {paragraph}{5th Harmonic ($n = 5$):}{4}{subsubsection.2.2.2}%
+\contentsline {paragraph}{5th Harmonic ($n = 5$):}{5}{subsubsection.2.2.2}%
 \contentsline {subsection}{\numberline {2.3}Discussion}{5}{subsection.2.3}%
 \contentsline {section}{\numberline {3}Q2: Fractional-Slot Winding Design}{5}{section.3}%
-\contentsline {subsection}{\numberline {3.1}Phase Angles of Induced Voltage per Slot}{5}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}Fundamental Harmonic ($n=1$)}{6}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.1}Phase Angles of Induced Voltage per Slot}{6}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}Fundamental Harmonic ($n=1$)}{7}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}Third Harmonic ($n=3$)}{8}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}Fifth Harmonic ($n=5$)}{9}{subsection.3.4}%
 \contentsline {subsection}{\numberline {3.5}Winding Diagram and Balance Verification}{10}{subsection.3.5}%
 \contentsline {section}{\numberline {4}Q3: Analytical Modelling}{11}{section.4}%
-\contentsline {subsection}{\numberline {4.1}Electrical Loading}{13}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.1}Electrical Loading}{12}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}Carter's Coefficient and Effective Air-Gap}{13}{subsection.4.2}%
 \contentsline {subsection}{\numberline {4.3}Effective Axial Length}{13}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}Air-Gap Peak Flux Density}{13}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}Magnetic Loading}{13}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.4}Air-Gap Peak Flux Density}{14}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}Magnetic Loading}{14}{subsection.4.5}%
 \contentsline {subsection}{\numberline {4.6}Specific Machine Constant and Tangential Shear Stress}{14}{subsection.4.6}%
 \contentsline {subsection}{\numberline {4.7}Expected Torque}{14}{subsection.4.7}%
 \contentsline {subsection}{\numberline {4.8}Flux Per Pole and Number of Turns}{14}{subsection.4.8}%
 \contentsline {subsection}{\numberline {4.9}Tooth Flux Density Verification}{15}{subsection.4.9}%
 \contentsline {subsection}{\numberline {4.10}Results Summary}{15}{subsection.4.10}%
-\contentsline {section}{\numberline {5}Q4: 2D FEA Modeling}{15}{section.5}%
-\contentsline {section}{\numberline {6}Conclusion}{15}{section.6}%
-\contentsline {section}{\numberline {A}Project design parameters}{15}{appendix.A}%
+\contentsline {section}{\numberline {5}Q4: 2D FEA Modeling}{16}{section.5}%
+\contentsline {subsection}{\numberline {5.1}Flux Density Distribution}{17}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}Air-Gap Flux Density Distribution}{18}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}Leakage Flux Paths}{18}{subsection.5.3}%
+\contentsline {subsection}{\numberline {5.4}Flux per Pole}{19}{subsection.5.4}%
+\contentsline {subsection}{\numberline {5.5}Cogging Torque}{20}{subsection.5.5}%
+\contentsline {section}{\numberline {6}Conclusion}{20}{section.6}%
+\contentsline {section}{\numberline {A}Project design parameters}{21}{appendix.A}%

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.11)  27 MAY 2026 23:49
+This is pdfTeX, Version 3.141592653-2.6-1.40.29 (MiKTeX 26.2) (preloaded format=pdflatex 2026.4.11)  29 MAY 2026 00:58
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -502,7 +502,7 @@ File: translations-basic-dictionary-english.trsl (english translation file `tran
 )
 Package translations Info: loading dictionary `translations-basic-dictionary' for `english'. on input line 63.
 \c@lstlisting=\count351
-<figures/eelogo.png, id=119, 617.30624pt x 489.83pt>
+<figures/eelogo.png, id=139, 617.30624pt x 489.83pt>
 File: figures/eelogo.png Graphic file (type png)
 <use figures/eelogo.png>
 Package pdftex.def Info: figures/eelogo.png  used on input line 70.
@@ -515,7 +515,7 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 71.
  (C:\Users\elife\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<figures/Orta_Doğu_Teknik_Üniversitesi.png, id=120, 472.76625pt x 394.47375pt>
+<figures/Orta_Doğu_Teknik_Üniversitesi.png, id=140, 472.76625pt x 394.47375pt>
 File: figures/Orta_Doğu_Teknik_Üniversitesi.png Graphic file (type png)
 <use figures/Orta_Doğu_Teknik_Üniversitesi.png>
 Package pdftex.def Info: figures/Orta_Doğu_Teknik_Üniversitesi.png  used on input line 75.
@@ -531,7 +531,15 @@ pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has b
 <to be read again> 
                    \relax 
 l.104 \newpage
-               [1] [2] [3] [4] [5]
+               [1] [2]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[3]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[4] [5]
 Package epstopdf Info: Source file: <figures/phasor_slots.eps>
 (epstopdf)                    date: 2026-05-27 14:03:16
 (epstopdf)                    size: 38458 bytes
@@ -539,13 +547,14 @@ Package epstopdf Info: Source file: <figures/phasor_slots.eps>
 (epstopdf)                    date: 2026-05-27 14:33:17
 (epstopdf)                    size: 18948 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=figures/phasor_slots-eps-converted-to.pdf figures/phasor_slots.eps>
-(epstopdf)             \includegraphics on input line 343.
+(epstopdf)             \includegraphics on input line 352.
 Package epstopdf Info: Output file is already uptodate.
-<figures/phasor_slots-eps-converted-to.pdf, id=205, 421.575pt x 316.18124pt>
+<figures/phasor_slots-eps-converted-to.pdf, id=230, 421.575pt x 316.18124pt>
 File: figures/phasor_slots-eps-converted-to.pdf Graphic file (type pdf)
 <use figures/phasor_slots-eps-converted-to.pdf>
-Package pdftex.def Info: figures/phasor_slots-eps-converted-to.pdf  used on input line 343.
+Package pdftex.def Info: figures/phasor_slots-eps-converted-to.pdf  used on input line 352.
 (pdftex.def)             Requested size: 318.66948pt x 239.00726pt.
+ [6 <./figures/phasor_slots-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/phasor_three_phases.eps>
 (epstopdf)                    date: 2026-05-27 14:09:42
 (epstopdf)                    size: 40477 bytes
@@ -553,14 +562,14 @@ Package epstopdf Info: Source file: <figures/phasor_three_phases.eps>
 (epstopdf)                    date: 2026-05-27 14:43:19
 (epstopdf)                    size: 19524 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=figures/phasor_three_phases-eps-converted-to.pdf figures/phasor_three_phases.eps>
-(epstopdf)             \includegraphics on input line 354.
+(epstopdf)             \includegraphics on input line 363.
 Package epstopdf Info: Output file is already uptodate.
-<figures/phasor_three_phases-eps-converted-to.pdf, id=207, 421.575pt x 316.18124pt>
+<figures/phasor_three_phases-eps-converted-to.pdf, id=247, 421.575pt x 316.18124pt>
 File: figures/phasor_three_phases-eps-converted-to.pdf Graphic file (type pdf)
 <use figures/phasor_three_phases-eps-converted-to.pdf>
-Package pdftex.def Info: figures/phasor_three_phases-eps-converted-to.pdf  used on input line 354.
+Package pdftex.def Info: figures/phasor_three_phases-eps-converted-to.pdf  used on input line 363.
 (pdftex.def)             Requested size: 318.66948pt x 239.00726pt.
- [6 <./figures/phasor_slots-eps-converted-to.pdf>] [7 <./figures/phasor_three_phases-eps-converted-to.pdf>]
+ [7 <./figures/phasor_three_phases-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/phasor3.eps>
 (epstopdf)                    date: 2026-05-27 16:09:56
 (epstopdf)                    size: 25224 bytes
@@ -568,14 +577,18 @@ Package epstopdf Info: Source file: <figures/phasor3.eps>
 (epstopdf)                    date: 2026-05-27 16:10:06
 (epstopdf)                    size: 12127 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=figures/phasor3-eps-converted-to.pdf figures/phasor3.eps>
-(epstopdf)             \includegraphics on input line 394.
+(epstopdf)             \includegraphics on input line 403.
 Package epstopdf Info: Output file is already uptodate.
-<figures/phasor3-eps-converted-to.pdf, id=239, 421.575pt x 316.18124pt>
+<figures/phasor3-eps-converted-to.pdf, id=264, 421.575pt x 316.18124pt>
 File: figures/phasor3-eps-converted-to.pdf Graphic file (type pdf)
 <use figures/phasor3-eps-converted-to.pdf>
-Package pdftex.def Info: figures/phasor3-eps-converted-to.pdf  used on input line 394.
+Package pdftex.def Info: figures/phasor3-eps-converted-to.pdf  used on input line 403.
 (pdftex.def)             Requested size: 318.66948pt x 239.00726pt.
- [8 <./figures/phasor3-eps-converted-to.pdf>]
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[8 <./figures/phasor3-eps-converted-to.pdf>]
 Package epstopdf Info: Source file: <figures/phasor5.eps>
 (epstopdf)                    date: 2026-05-27 16:09:42
 (epstopdf)                    size: 25223 bytes
@@ -583,39 +596,76 @@ Package epstopdf Info: Source file: <figures/phasor5.eps>
 (epstopdf)                    date: 2026-05-27 16:10:07
 (epstopdf)                    size: 12054 bytes
 (epstopdf)             Command: <miktex-epstopdf --outfile=figures/phasor5-eps-converted-to.pdf figures/phasor5.eps>
-(epstopdf)             \includegraphics on input line 435.
+(epstopdf)             \includegraphics on input line 444.
 Package epstopdf Info: Output file is already uptodate.
-<figures/phasor5-eps-converted-to.pdf, id=256, 421.575pt x 316.18124pt>
+<figures/phasor5-eps-converted-to.pdf, id=281, 421.575pt x 316.18124pt>
 File: figures/phasor5-eps-converted-to.pdf Graphic file (type pdf)
 <use figures/phasor5-eps-converted-to.pdf>
-Package pdftex.def Info: figures/phasor5-eps-converted-to.pdf  used on input line 435.
+Package pdftex.def Info: figures/phasor5-eps-converted-to.pdf  used on input line 444.
 (pdftex.def)             Requested size: 318.66948pt x 239.00726pt.
- [9 <./figures/phasor5-eps-converted-to.pdf>] [10] [11] [12] [13] [14]
-<figures/Design4_Ns15_Nm14.png, id=320, 755.82375pt x 677.53125pt>
+
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[9 <./figures/phasor5-eps-converted-to.pdf>] [10] [11]
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[12] [13] [14] [15]
+<figures/sim_motor.png, id=351, 1090.0725pt x 607.26875pt>
+File: figures/sim_motor.png Graphic file (type png)
+<use figures/sim_motor.png>
+Package pdftex.def Info: figures/sim_motor.png  used on input line 840.
+(pdftex.def)             Requested size: 455.24411pt x 253.6056pt.
+ [16]
+<figures/flux_density_map.png, id=363, 812.03375pt x 607.26875pt>
+File: figures/flux_density_map.png Graphic file (type png)
+<use figures/flux_density_map.png>
+Package pdftex.def Info: figures/flux_density_map.png  used on input line 853.
+(pdftex.def)             Requested size: 386.96027pt x 289.38226pt.
+ [17 <./figures/sim_motor.png> <./figures/flux_density_map.png>]
+<figures/Air-gap Flux Density Distribution.png, id=370, 1444.39626pt x 607.26875pt>
+File: figures/Air-gap Flux Density Distribution.png Graphic file (type png)
+<use figures/Air-gap Flux Density Distribution.png>
+Package pdftex.def Info: figures/Air-gap Flux Density Distribution.png  used on input line 870.
+(pdftex.def)             Requested size: 455.24411pt x 191.3926pt.
+<figures/leakage_flux.png, id=372, 1178.4025pt x 607.26875pt>
+File: figures/leakage_flux.png Graphic file (type png)
+<use figures/leakage_flux.png>
+Package pdftex.def Info: figures/leakage_flux.png  used on input line 884.
+(pdftex.def)             Requested size: 455.24411pt x 234.60071pt.
+ [18 <./figures/Air-gap Flux Density Distribution.png>] [19 <./figures/leakage_flux.png>]
+<figures/Cogging Torque.png, id=387, 1444.39626pt x 607.26875pt>
+File: figures/Cogging Torque.png Graphic file (type png)
+<use figures/Cogging Torque.png>
+Package pdftex.def Info: figures/Cogging Torque.png  used on input line 929.
+(pdftex.def)             Requested size: 455.24411pt x 191.3926pt.
+ [20 <./figures/Cogging Torque.png>]
+<figures/Design4_Ns15_Nm14.png, id=394, 755.82375pt x 677.53125pt>
 File: figures/Design4_Ns15_Nm14.png Graphic file (type png)
 <use figures/Design4_Ns15_Nm14.png>
-Package pdftex.def Info: figures/Design4_Ns15_Nm14.png  used on input line 826.
+Package pdftex.def Info: figures/Design4_Ns15_Nm14.png  used on input line 955.
 (pdftex.def)             Requested size: 318.66948pt x 285.65704pt.
- [15] [16 <./figures/Design4_Ns15_Nm14.png>] (EE568 Project2 Report.aux)
+ [21 <./figures/Design4_Ns15_Nm14.png>] (EE568 Project2 Report.aux)
  ***********
 LaTeX2e <2025-11-01>
 L3 programming layer <2026-01-19>
  ***********
 Package rerunfilecheck Info: File `"EE568 Project2 Report".out' has not changed.
-(rerunfilecheck)             Checksum: CA3B6B49AF4981E508F5C6704C2A7A2D;5588.
+(rerunfilecheck)             Checksum: 69129EEF2E9DDD6FE4852BCF8C0E8419;6423.
  ) 
 Here is how much of TeX's memory you used:
- 18742 strings out of 467866
- 359582 string characters out of 5418313
- 762508 words of memory out of 5000000
- 47353 multiletter control sequences out of 15000+600000
+ 18811 strings out of 467866
+ 361314 string characters out of 5418313
+ 758604 words of memory out of 5000000
+ 47400 multiletter control sequences out of 15000+600000
  639527 words of font info for 85 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 75i,13n,79p,1264b,1162s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,13n,79p,1264b,1168s stack positions out of 10000i,1000n,20000p,200000b,200000s
  <C:\Users\elife\AppData\Local\MiKTeX\fonts/pk/ljfour/jknappen/ec/dpi600\tcrm1200.pk><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx10.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmbx12.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmex10.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi12.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi6.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmmi8.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr10.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr12.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy10.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy6.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmsy8.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmti12.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/cm/cmtt12.pfb><C:/Users/elife/AppData/Local/Programs/MiKTeX/fonts/type1/public/amsfonts/symbols/msam10.pfb>
-Output written on "EE568 Project2 Report.pdf" (17 pages, 584599 bytes).
+Output written on "EE568 Project2 Report.pdf" (22 pages, 806996 bytes).
 PDF statistics:
- 420 PDF objects out of 1000 (max. 8388607)
- 89 named destinations out of 1000 (max. 500000)
- 268 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 493 PDF objects out of 1000 (max. 8388607)
+ 111 named destinations out of 1000 (max. 500000)
+ 333 words of extra memory for PDF output out of 10000 (max. 10000000)
 

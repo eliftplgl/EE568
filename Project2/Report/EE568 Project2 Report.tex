@@ -106,6 +106,15 @@
 %%─── 1. Introduction ─────────────────────────────────────────────────────────
 \section{Introduction}
 
+This report mainly presents the winding design and analytical modelling work carried out for EE568 Project 2. The report is organised into four main parts. In the first part, an integral-slot double-layer winding is designed for a 6-pole, 72-slot, 3-phase machine. Both full-pitched and 11/12 short-pitched configurations are analysed, and the distribution, pitch, and winding factors are calculated for the fundamental, 3rd, and 5th harmonics. The effect of short-pitching on harmonic suppression is discussed.
+
+In the second part, a fractional-slot concentrated winding is designed for the assigned 15-slot/14-pole permanent-magnet synchronous machine. The induced EMF phasor diagram is constructed for each slot, the winding factor is computed for the fundamental and selected harmonics, and the balance of the three-phase winding is verified analytically.
+
+The third part presents the analytical modelling of the machine, covering the electrical loading, Carter's coefficient, effective air-gap length, air-gap flux density, magnetic loading, specific machine constant, shear stress, expected
+torque, and flux per pole.
+
+Finally, in the fourth part, a 2D finite element analysis (FEA) is performed using ANSYS Maxwell to verify the analytical results. The flux density distribution, air-gap flux density, leakage flux paths, flux per pole, etc.are obtained and discussed.
+
 
 
 \section{Q1: Integral-Slot Winding Design}
@@ -805,19 +814,139 @@ All the calculations that are done in this question is implemented in an Excel s
 
 \section{Q4: 2D FEA Modeling}
 
+To verify the analytical machine layout, a 2D FEA model was constructed using the ANSYS Maxwell software. The design flow was initiated in RMxprt as a \textit{Brushless Permanent Magnet DC Motor} template to properly and easily capture the surface-mounted permanent magnet synchronous motor (PMSM) topology. As the steel, M270-35A non-oriented thin electrical steel lamination is assigned for the stator and rotor cores. The magnets are defined as radially magnetized with a remanence of $B_r = 1.3\text{ T}$ and a relative permeability of $\mu_r = 1.05$. The magnet pole-arc ratio is set to $\alpha_p = 0.889$ to match the analytical design, and the slot fill factor is specified as $k_{wc} = 0.60$ for the winding regions.
+
+The complete RMXprt analytical solution space was successfully validated, and an automated model export directly compiled the geometry, boundary planes, and mesh definitions into a 2D Transient Magnetic time-domain solver. In addition to the automated model, manual mesh refinement was performed in critical regions to ensure accurate field representation like air gap regions.
+
+Additionally, to isolate the idealized performance characteristics of the PMSM under pure sinusoidal current excitation, several intermediate parameters were calculated and applied. The analytical slot loading was specified as $NI_{\text{slot}} = 163.0\text{ A}$ across 12 conductors per slot ($2 \times 6\text{ turns/coil}$). The rated rms phase current ($I_{\text{rms}}$) is derived as:
+\begin{equation}
+    I_{\text{rms}} = \frac{NI_{\text{slot}}}{\text{Conductors per Slot}} = \frac{163.0\text{ A}}{12} \approx 13.583\text{ A}_{\text{rms}}
+\end{equation}
+Converting this baseline into a peak current amplitude ($I_{\text{peak}}$) for a pure sinusoidal time function yields:
+\begin{equation}
+    I_{\text{peak}} = I_{\text{rms}} \cdot \sqrt{2} = 13.583 \times \sqrt{2} \approx 19.21\text{ A}
+\end{equation}
+The machine operates at a rated mechanical speed of $n = 1500\text{ rpm}$ with a 14-pole rotor, resulting in an electrical frequency of $f_e = 175\text{ Hz}$. A balanced three-phase stranded current excitation system was assigned directly to the phase windings via the following time-dependent formulas:
+\begin{align}
+    i_A(t) &= 19.21 \cdot \sin(2\pi \cdot 175 \cdot t) \\
+    i_B(t) &= 19.21 \cdot \sin\left(2\pi \cdot 175 \cdot t - \frac{2\pi}{3}\right) \\
+    i_C(t) &= 19.21 \cdot \sin\left(2\pi \cdot 175 \cdot t - \frac{4\pi}{3}\right)
+\end{align}
+
+Finalized 2D FEA model is shown in Figure~\ref{fig:fea_model}. The model was solved for a full mechanical cycle and results demanded in the project is presented in upcoming sections.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/sim_motor.png}
+    \caption{Finalized 2D FEA model of the fractional-slot PMSM in ANSYS Maxwell.}
+    \label{fig:fea_model}
+\end{figure}
+
+
+\subsection{Flux Density Distribution}
+
+Figure~\ref{fig:flux_density_map} shows the flux density colour map of the full
+machine cross-section at the aligned rotor position.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.85\textwidth]{figures/flux_density_map.png}
+    \caption{Flux density distribution in the machine cross-section.}
+    \label{fig:flux_density_map}
+\end{figure}
+
+As can be seen from the figure, the flux density around the teeth for the aligned position is around \SI{1.3}{T}, which is smaller than the expected analytical value of \SI{1.41}{T}. This discrepancy can be attributed to the dicrepancies between the 2D FEA model and the analytical assumptions, such as the neglect of fringing effects and the idealized flux path in the analytical calculations. The FEA model captures more realistic flux distribution, including leakage and fringing, which can lead to a lower peak flux density in the teeth compared to the idealized analytical result. For the maximum flux density points, it can be said that the sharp edges of the teeth and the back of the magnets are the regions where the flux density is the highest, which is consistent with the expected behavior of a PMSM since these regions are where the flux lines are most concentrated.
+
+\subsection{Air-Gap Flux Density Distribution}
+
+The radial component of the flux density is plotted along a circular arc at the
+middle of the air-gap ($r = R_{si} - g/2 = 32.5\;\text{mm}$) over one full
+mechanical revolution, as shown in Figure~\ref{fig:airgap_flux}.
+
+It can be seen that the air-gap flux density distribution is slightly non-sinusoidal, with sharp peaks corresponding to the magnet poles and deep valleys in between. The peak flux density in the air-gap is around \SI{0.95}{T}, which is close to the analytical prediction of \SI{0.983}{T}. The non-sinusoidal shape is expected due to the finite pole-arc ratio and the presence of slot openings, which cause flux concentration and leakage effects that deviate from the ideal sinusoidal distribution assumed in the analytical model. Also, due to saliency of the rotor, the flux density distribution is not perfectly sinudoidal.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/Air-gap Flux Density Distribution.png}
+    \caption{Radial air-gap flux density at the mid air-gap radius over
+             $360^\circ$ mechanical.}
+    \label{fig:airgap_flux}
+\end{figure}
+
+
+\subsection{Leakage Flux Paths}
+
+Figure~\ref{fig:leakage_flux} illustrates the flux line plot highlighting the
+principal leakage paths present in the machine.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/leakage_flux.png}
+    \caption{Flux line plot showing leakage paths.}
+    \label{fig:leakage_flux}
+\end{figure}
+
+Two distinct leakage mechanisms are identified:
+\begin{enumerate}
+    \item \textbf{Magnet-to-magnet leakage:} Flux lines that leave one magnet
+          pole and return directly to the adjacent pole without crossing the
+          air-gap. This path is encouraged by the small inter-pole gap resulting
+          from the $160^\circ$ electrical pole arc.
+    \item \textbf{Magnet--tooth--magnet leakage:} Flux that crosses the air-gap
+          into a stator tooth tip and then returns to an adjacent magnet rather
+          than completing the main flux path through the back-core. This path is preferred since the local reluctance across the narrow slot opening and adjacent tooth tip is significantly lower than the total magnetic reluctance of the main structural path traveling all the way up the tooth body and through the stator back-core. 
+\end{enumerate}
+
+\subsection{Flux per Pole}
+
+Each phase winding consists of 5 coils with 6 conductors each, giving a total
+of $N_{phase} = 30$ series turns per phase. The peak flux linkage read from the
+transient simulation is $\hat{\lambda} = 0.0302\;\text{Wb}$. Using the
+fundamental winding factor $k_{w,1} = 0.957$ derived in Q2, the flux per pole is:
+
+\[
+    \Phi_p = \frac{\hat{\lambda}}{N_{phase}\cdot k_{w,1}}
+           = \frac{0.0302}{30 \times 0.957}
+           = \frac{0.0302}{28.71}
+           = 1.052\times10^{-3}\;\text{Wb}
+\]
+
+The analytical flux per pole calculated in Q3 was $\Phi_{p,analytical} = 1.26\;\text{mWb}$.
+The relative error between the two approaches is:
+\[
+    \varepsilon = \frac{|\Phi_{p,FEA} - \Phi_{p,analytical}|}{\Phi_{p,analytical}} \times 100
+              = 16.7\;\%
+\]
+
+There exits a significant discrepancy between the analytical and FEA results for the flux per pole. This can be attributed to several geometric and physical effects that are not captured in the simplified analytical model. For example, the analytical model assumes an idealized flux path and neglects leakage flux, fringing effects, and the non-uniformity of the air-gap flux density. The FEA model captures these complex phenomena. Also, FEA model is tried to be arranged to be as close as possible to the analytical model, but there can still be some differences in the exact geometry, material properties, and boundary conditions that can lead to discrepancies in the results.
+
+\subsection{Cogging Torque}
+
+A transient simulation with zero winding current is run to find the cogging torque which is presented in Figure~\ref{fig:cogging_torque}. The cogging torque is the torque that arises due to the interaction between the permanent magnets and the stator teeth, even when no current is flowing in the windings.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{figures/Cogging Torque.png}
+    \caption{Cogging torque as a function of rotor angle.}
+    \label{fig:cogging_torque}
+\end{figure}
 
 
 
 \section{Conclusion}
 
+This project covered the complete winding design and analytical modelling workflow for two distinct electric machine configurations, verified through 2D finite element analysis. In Q1, the integral-slot winding analysis demonstrated that the 11/12 short-pitched configuration achieves a meaningful reduction in the 5th space harmonic winding factor at the cost of less than 1\% reduction in the fundamental winding factor. This confirms that short-pitching is an efficient strategy for harmonic suppression with negligible impact on torque and back-EMF capability. 
 
+In Q2, the fractional-slot analysis of the 15-slot/14-pole machine yielded a fundamental winding factor of $k_{w,1} = 0.957$, which is high for a fractional-slot machine. The three-phase balance was verified analytically, confirming equal voltage magnitudes and exact $120^\circ$ phase displacement between phases. The analytical modelling in Q3 established the key electromagnetic loading parameters of the machine, providing reference values for comparison with FEA. 
 
-
-
+The 2D FEA results in Q4 validated the analytical model. The flux density distribution confirmed that the teeth and back-core operate close to the design target of 1.4\,T. The air-gap flux density waveform and the flux linkage results were consistent with the analytical predictions with some deviations resulting from the simplified assumptions in the analytical model. The flux per pole extracted from the peak flux linkage of Phase A ($\hat{\lambda} = 0.0302$\,Wb, $N_{phase} = 30$ turns) yielded $\Phi_p = 1.052 \times 10^{-3}$\,Wb, in good agreement with the analytical calculations.
 
 
 %%─── Appendix ────────────────────────────────────────────────────────────────
 \appendix
+
+
+
 \section{Project design parameters}
  Assigned design for this project is presented in Figure \ref{fig:design}.
 
